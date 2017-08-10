@@ -14,6 +14,8 @@ class Files
         
         $path = substr($pathWithFileName, 0, - strlen($fileName) - 1);
         
-        return new File($rootPath, $path, $fileName);
+        $content = file_get_contents($filePath);
+        
+        return new File($rootPath, $path, $fileName, $content);
     }
 }

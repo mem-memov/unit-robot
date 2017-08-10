@@ -27,6 +27,11 @@ class Directory
         
         foreach ($filePaths as $filePath) {
             $file = $this->files->createFile($this->path, $filePath[0]);
+            if ($file->hasClass()) {
+                $className = $file->getClassName();
+                $reflection = $this->reflections->createReflection($className);
+                var_dump($className);
+            }
         }
         
     }
