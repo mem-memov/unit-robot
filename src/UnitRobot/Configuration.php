@@ -3,7 +3,8 @@ namespace MemMemov\UnitRobot;
 
 use MemMemov\UnitRobot\Source\Directory as SourceDirectory;
 use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
-use MemMemov\UnitRobot\Source\DirectoryIterators;
+use MemMemov\UnitRobot\Source\DirectoryIterators as SourceDirectoryIterators;
+use MemMemov\UnitRobot\Source\Files as SourceFiles;
 
 class Configuration
 {
@@ -19,7 +20,8 @@ class Configuration
     {
         return new SourceDirectory(
             $this->config['source']['path'],
-            new DirectoryIterators()
+            new SourceDirectoryIterators(),
+            new SourceFiles()
         );
     }
     

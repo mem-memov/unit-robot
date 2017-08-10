@@ -7,13 +7,16 @@ class Directory
 {
     private $path;
     private $directoryIterators;
+    private $files;
     
     public function __construct(
         string $path,
-        DirectoryIterators $directoryIterators
+        DirectoryIterators $directoryIterators,
+        Files $files
     ) {
         $this->path = $path;
         $this->directoryIterators = $directoryIterators;
+        $this->files = $files;
     }
     
     public function createTests(UnitTestDirectory $unitTestDirectory): void
@@ -23,7 +26,7 @@ class Directory
         );
         
         foreach ($filePaths as $filePath) {
-            var_dump($filePath);
+            $file = $this->files->createFile($this->path, $filePath[0]);
         }
         
     }
