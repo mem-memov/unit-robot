@@ -1,0 +1,14 @@
+{
+    "name": "mem-memov/unit-robot",
+    "description": "Automated unit test creation",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander A. Novikov",
+            "email": "mem-memov@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
