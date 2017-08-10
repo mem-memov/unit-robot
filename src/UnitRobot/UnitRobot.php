@@ -11,7 +11,7 @@ class UnitRobot
         $this->configuration = $configuration;
     }
     
-    public function createTests()
+    public function createTests(): void
     {
         $sourceDirectory = $this->configuration->createSourceDirectory();
         

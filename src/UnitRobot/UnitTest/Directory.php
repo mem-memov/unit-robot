@@ -6,7 +6,7 @@ class Directory
     private $path;
     
     public function __construct(
-        $path
+        string $path
     ) {
         $this->path = $path;
     }

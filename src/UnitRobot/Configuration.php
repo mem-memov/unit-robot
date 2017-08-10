@@ -14,12 +14,12 @@ class Configuration
         $this->config = $config;
     }
     
-    public function createSourceDirectory()
+    public function createSourceDirectory(): SourceDirectory
     {
         return new SourceDirectory($this->config['source']['path']);
     }
     
-    public function createUnitTestDirectory()
+    public function createUnitTestDirectory(): UnitTestDirectory
     {
         return new UnitTestDirectory($this->config['test']['path']);
     }
