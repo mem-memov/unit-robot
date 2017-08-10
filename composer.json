@@ -10,5 +10,13 @@
         }
     ],
     "minimum-stability": "stable",
+    "bin": [
+        "bin/unit-robot"
+    ],
+    "autoload": {
+        "psr-4": {
+            "MemMemov\\": "src/"
+        }
+    },
     "require": {}
 }
