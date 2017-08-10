@@ -1,4 +1,4 @@
-</php
+<?php
 return [
     'source' => [
         'path' => __DIR__.'/src'

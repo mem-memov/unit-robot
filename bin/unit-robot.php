@@ -1,4 +1,12 @@
 <?php
+namespace MemMemov\UnitRobot;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-var_dump(1);
+$configuration = require __DIR__ . '/../unit-robot.config.php';
+
+$unitRobot = new UnitRobot(
+    new Configuration($configuration)
+);
+
+$unitRobot->createTests();
