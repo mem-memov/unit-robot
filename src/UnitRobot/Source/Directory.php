@@ -33,7 +33,7 @@ class Directory
             if ($file->hasClass()) {
                 $className = $file->getClassName();
                 $reflection = $this->reflections->createReflection($className);
-                $reflection->createTests();
+                $reflection->createTests($file->getText());
             }
         }
         

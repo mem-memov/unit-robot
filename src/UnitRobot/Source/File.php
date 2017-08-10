@@ -10,17 +10,20 @@ class File
     private $path;
     private $name;
     private $content;
+    private $texts;
     
     public function __construct(
         string $rootPath, 
         string $path, 
         string $name,
-        string $content
+        string $content,
+        $texts
     ) {
         $this->rootPath = $rootPath;
         $this->path = $path;
         $this->name = $name;
         $this->content = $content;
+        $this->texts = $texts;
     }
     
     public function hasClass(): bool
@@ -44,5 +47,10 @@ class File
         $class = $classMatches[1];
 
         return '\\' . $namespace . '\\' . $class;
+    }
+    
+    public function getText(): Text
+    {
+        return $this->texts->createText($this->content);
     }
 }

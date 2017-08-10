@@ -3,6 +3,14 @@ namespace MemMemov\UnitRobot\Source;
 
 class Files
 {
+    private $texts;
+    
+    public function __construct(
+        Texts $texts
+    ) {
+        $this->texts = $texts;
+    }
+    
     public function createFile(
         string $rootPath, 
         string $filePath
@@ -16,6 +24,12 @@ class Files
         
         $content = file_get_contents($filePath);
         
-        return new File($rootPath, $path, $fileName, $content);
+        return new File(
+            $rootPath, 
+            $path, 
+            $fileName, 
+            $content, 
+            $this->texts
+        );
     }
 }

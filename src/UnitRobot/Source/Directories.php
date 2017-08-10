@@ -8,8 +8,12 @@ class Directories
         return new Directory(
             $path,
             new DirectoryIterators(),
-            new Files(),
-            new Reflections()
+            new Files(
+                new Texts()
+            ),
+            new Reflections(
+                new Methods()
+            )
         );
     }
 }
