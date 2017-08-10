@@ -8,15 +8,18 @@ class Directory
     private $path;
     private $directoryIterators;
     private $files;
+    private $reflections;
     
     public function __construct(
         string $path,
         DirectoryIterators $directoryIterators,
-        Files $files
+        Files $files,
+        Reflections $reflections
     ) {
         $this->path = $path;
         $this->directoryIterators = $directoryIterators;
         $this->files = $files;
+        $this->reflections = $reflections;
     }
     
     public function createTests(UnitTestDirectory $unitTestDirectory): void
@@ -30,7 +33,7 @@ class Directory
             if ($file->hasClass()) {
                 $className = $file->getClassName();
                 $reflection = $this->reflections->createReflection($className);
-                var_dump($className);
+                $reflection->createTests();
             }
         }
         
