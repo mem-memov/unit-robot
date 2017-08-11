@@ -7,19 +7,27 @@ use MemMemov\UnitRobot\Source\Token\Tokens;
 
 class Directories
 {
+    private $directoryIterators;
+    private $files;
+    private $reflections;
+    
+    public function __construct(
+        $directoryIterators,
+        $files,
+        $reflections
+    ) {
+        $this->directoryIterators = $directoryIterators;
+        $this->files = $files;
+        $this->reflections = $reflections;
+    }
+    
     public function createDirectory(string $path): Directory
     {
         return new Directory(
             $path,
-            new DirectoryIterators(),
-            new Files(
-                new Texts()
-            ),
-            new Reflections(
-                new Methods(
-                    new Tokens()
-                )
-            )
+            $this->directoryIterators,
+            $this->files,
+            $this->reflections
         );
     }
 }

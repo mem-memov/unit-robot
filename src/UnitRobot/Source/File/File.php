@@ -1,6 +1,9 @@
 <?php
 namespace MemMemov\UnitRobot\Source\File;
 
+use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\UnitTest\File as UnitTestFile;
+
 class File
 {
     private const NAMESPACE_PATTERN = '/\s+namespace\s+(\S+)(\s|;)+/U';
@@ -52,5 +55,12 @@ class File
     public function getText(): Text
     {
         return $this->texts->createText($this->content);
+    }
+    
+    public function createUnitTestFile(
+        UnitTestDirectory $unitTestDirectory
+    ): UnitTestFile
+    {
+        return $unitTestDirectory->createFile($this->path, $this->name);
     }
 }

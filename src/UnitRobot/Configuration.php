@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot;
 
 use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
 use MemMemov\UnitRobot\Source\File\Directory as SourceDirectory;
+use MemMemov\UnitRobot\UnitTest\Directories as UnitTestDirectories;
 use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
 
 class Configuration
@@ -12,21 +13,25 @@ class Configuration
     
     public function __construct(
         array $config,
-        SourceDirectories $sourceDirectories
+        SourceDirectories $sourceDirectories,
+        UnitTestDirectories $unitTestDirectories
     ) {
         $this->config = $config;
         $this->sourceDirectories = $sourceDirectories;
+        $this->unitTestDirectories = $unitTestDirectories;
     }
     
     public function createSourceDirectory(): SourceDirectory
     {
         return $this->sourceDirectories->createDirectory(
-            $this->config['source']['path']
+            $this->config['sourcePath']
         );
     }
     
     public function createUnitTestDirectory(): UnitTestDirectory
     {
-        return new UnitTestDirectory($this->config['test']['path']);
+        return $this->unitTestDirectories->createDirectory(
+            $this->config['testPath']
+        );
     }
 }

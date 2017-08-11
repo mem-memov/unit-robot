@@ -1,9 +1,5 @@
 <?php
 return [
-    'source' => [
-        'path' => __DIR__.'/src'
-    ],
-    'test' => [
-        'path' => __DIR__.'/test'
-    ]
+    'sourcePath' => __DIR__.'/src',
+    'testPath' => __DIR__.'/test'
 ];
