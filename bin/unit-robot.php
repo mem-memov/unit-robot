@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot;
 
-use MemMemov\UnitRobot\Source\Directories as SourceDirectories;
+use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
 
 require __DIR__ . '/../vendor/autoload.php';
 

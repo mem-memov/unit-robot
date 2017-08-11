@@ -1,5 +1,7 @@
 <?php
-namespace MemMemov\UnitRobot\Source;
+namespace MemMemov\UnitRobot\Source\Reflection;
+
+use MemMemov\UnitRobot\Source\File\Text;
 
 class Reflection
 {

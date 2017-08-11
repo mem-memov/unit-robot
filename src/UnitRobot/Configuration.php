@@ -1,8 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot;
 
-use MemMemov\UnitRobot\Source\Directories as SourceDirectories;
-use MemMemov\UnitRobot\Source\Directory as SourceDirectory;
+use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
+use MemMemov\UnitRobot\Source\File\Directory as SourceDirectory;
 use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
 
 class Configuration

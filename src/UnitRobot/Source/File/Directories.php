@@ -1,5 +1,9 @@
 <?php
-namespace MemMemov\UnitRobot\Source;
+namespace MemMemov\UnitRobot\Source\File;
+
+use MemMemov\UnitRobot\Source\Reflection\Reflections;
+use MemMemov\UnitRobot\Source\Reflection\Methods;
+use MemMemov\UnitRobot\Source\Token\Tokens;
 
 class Directories
 {
@@ -12,7 +16,9 @@ class Directories
                 new Texts()
             ),
             new Reflections(
-                new Methods()
+                new Methods(
+                    new Tokens()
+                )
             )
         );
     }

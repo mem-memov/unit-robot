@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source;
+namespace MemMemov\UnitRobot\Source\File;
 
 class File
 {
