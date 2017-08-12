@@ -1,8 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot\Source\File;
 
-use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
-use MemMemov\UnitRobot\UnitTest\File as UnitTestFile;
+use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
 
 class File
 {

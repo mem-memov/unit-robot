@@ -8,8 +8,8 @@ use MemMemov\UnitRobot\Source\File\Texts as SourceTexts;
 use MemMemov\UnitRobot\Source\Reflection\Reflections as SourceReflections;
 use MemMemov\UnitRobot\Source\Reflection\Methods as SourceMethods;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
-use MemMemov\UnitRobot\UnitTest\Directories as UnitTestDirectories;
-use MemMemov\UnitRobot\UnitTest\Files as UnitTestFiles;
+use MemMemov\UnitRobot\UnitTest\File\Directories as UnitTestDirectories;
+use MemMemov\UnitRobot\UnitTest\File\Files as UnitTestFiles;
 
 require __DIR__ . '/../vendor/autoload.php';
 

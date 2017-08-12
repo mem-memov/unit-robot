@@ -3,8 +3,8 @@ namespace MemMemov\UnitRobot;
 
 use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
 use MemMemov\UnitRobot\Source\File\Directory as SourceDirectory;
-use MemMemov\UnitRobot\UnitTest\Directories as UnitTestDirectories;
-use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\UnitTest\File\Directories as UnitTestDirectories;
+use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
 
 class Configuration
 {

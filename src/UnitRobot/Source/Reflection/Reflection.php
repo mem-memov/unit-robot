@@ -2,7 +2,7 @@
 namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\Source\File\Text;
-use MemMemov\UnitRobot\UnitTest\File as UnitTestFile;
+use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
 
 class Reflection
 {
@@ -19,6 +19,7 @@ class Reflection
     
     public function createTests(Text $sourceText, UnitTestFile $unitTestFile)
     {
+        
         $unitTestFile->create(
             '<?php' . "\n"
             . 'declare(strict_types=1);' . "\n"

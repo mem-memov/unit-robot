@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\UnitTest;
+namespace MemMemov\UnitRobot\UnitTest\File;
 
 class Directories
 {

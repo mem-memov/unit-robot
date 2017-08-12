@@ -2,7 +2,7 @@
 namespace MemMemov\UnitRobot\Source\File;
 
 use MemMemov\UnitRobot\Source\Reflection\Reflections;
-use MemMemov\UnitRobot\UnitTest\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
 
 class Directory
 {
