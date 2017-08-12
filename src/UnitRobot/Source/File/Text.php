@@ -13,9 +13,11 @@ class Text
     
     public function extract(int $startLine, int $endLine): string
     {
-        $length = $endLine - $startLine;
+        $length = $endLine - $startLine + 1;
         $extraction = array_slice($this->lines, $startLine, $length);
         
-        return implode("\n", $extraction);
+        $string = implode("\n", $extraction);
+        var_dump($string);
+        return $string;
     }
 }

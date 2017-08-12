@@ -5,9 +5,12 @@ namespace MemMemov\UnitRobot\Source\Token;
 
 use PHPUnit\Framework\TestCase;
 
-final class TokensTest extends TestCase
+final class MethodBodyTest extends TestCase
 {
-    public function testItCanCreateTokens(): void
+    protected $tokens;
+
+    protected function setUp(): void
     {
     }
+
 }

@@ -2,26 +2,39 @@
 namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\Source\File\Text;
-use MemMemov\UnitRobot\Source\Token\Tokens;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class Method
 {
-    private const METHOD_BODY_PATTERN = '/(?<={)(.|\n)*(?=})/m';
-    
     private $reflection;
-    private $tokens;
+    private $methodSignature;
+    private $methodBody;
+    private $parameters;
     
     public function __construct(
         \ReflectionMethod $reflection,
-        Tokens $tokens
+        MethodSignature $methodSignature,
+        MethodBody $methodBody,
+        Parameters $parameters
     ) {
         $this->reflection = $reflection;
-        $this->tokens = $tokens;
+        $this->methodSignature = $methodSignature;
+        $this->methodBody = $methodBody;
+        $this->parameters = $parameters;
     }
     
     public function createTests(Text $text, UnitTest $unitTest): void
     {
+echo 'METHOD ------------> ' . $this->reflection->getName() . "\n"; 
+        
+        $signatureTokens = $this->methodSignature->getTokens($text);
+        $parameterReflections = $this->reflection->getParameters();
+       
+        $parameters = $this->parameters->createMethodParameters(
+            $parameterReflections,
+            $signatureTokens
+        );
+        
         if ( ! $this->reflection->isConstructor()) {
             $unitTest->addMethod($this->reflection->getName());
         } else {
@@ -29,16 +42,5 @@ class Method
                 $unitTest->addProperty('', $parameter->getName());
             }
         }
-        
-        $startLine = $this->reflection->getStartLine() - 1;
-        $endLine = $this->reflection->getEndLine();
-        
-        $methodText = $text->extract($startLine, $endLine);
-        
-        preg_match(self::METHOD_BODY_PATTERN, $methodText, $matches);
-
-        $methodBody = $matches[0];
-
-        $methodTokens = $this->tokens->createMethodTokens($methodBody);
     }
 }

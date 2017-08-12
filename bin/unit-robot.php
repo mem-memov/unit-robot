@@ -7,7 +7,10 @@ use MemMemov\UnitRobot\Source\File\Files as SourceFiles;
 use MemMemov\UnitRobot\Source\File\Texts as SourceTexts;
 use MemMemov\UnitRobot\Source\Reflection\Reflections as SourceReflections;
 use MemMemov\UnitRobot\Source\Reflection\Methods as SourceMethods;
+use MemMemov\UnitRobot\Source\Reflection\Parameters as SourceParameters;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
+use MemMemov\UnitRobot\Source\Token\MethodSignatures as SourceTokenMethodSignatures;
+use MemMemov\UnitRobot\Source\Token\MethodBodies as SourceTokenMethodBodies;
 use MemMemov\UnitRobot\UnitTest\File\Directories as UnitTestDirectories;
 use MemMemov\UnitRobot\UnitTest\File\Files as UnitTestFiles;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
@@ -20,6 +23,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configuration = require __DIR__ . '/../unit-robot.config.php';
 
+$sourceTokens = new SourceTokens();
 $unitRobot = new UnitRobot(
     new Configuration(
         $configuration,
@@ -30,7 +34,9 @@ $unitRobot = new UnitRobot(
             ),
             new SourceReflections(
                 new SourceMethods(
-                    new SourceTokens()
+                    new SourceTokenMethodSignatures($sourceTokens),
+                    new SourceTokenMethodBodies($sourceTokens),
+                    new SourceParameters()
                 ),
                 new UnitTests(
                     new UnitTestDeclarations(),

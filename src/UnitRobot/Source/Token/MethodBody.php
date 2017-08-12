@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Token;
 
-class MethodTokens
+class MethodBody
 {
     private $tokens;
     
@@ -9,5 +9,5 @@ class MethodTokens
         array $tokens
     ) {
         $this->tokens = $tokens;
-    }
+    } 
 }

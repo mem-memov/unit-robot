@@ -23,6 +23,10 @@ class Reflection
     
     public function createTests(Text $sourceText, UnitTestFile $unitTestFile)
     {
+        if ($this->class->isAbstract() || $this->class->isInterface()) {
+            return;
+        }
+echo 'CLASS --------------------> ' . $this->class->getShortName() . "\n";
         $unitTest = $this->unitTests->createUnitTest($unitTestFile);
         $unitTest->setNamespace($this->class->getNamespaceName());
         $unitTest->setClassName($this->class->getShortName());

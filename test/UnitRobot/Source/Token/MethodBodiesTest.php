@@ -5,7 +5,7 @@ namespace MemMemov\UnitRobot\Source\Token;
 
 use PHPUnit\Framework\TestCase;
 
-final class MethodTokensTest extends TestCase
+final class MethodBodiesTest extends TestCase
 {
     protected $tokens;
 
@@ -13,7 +13,7 @@ final class MethodTokensTest extends TestCase
     {
     }
 
-    public function testItCanGetParameterType(): void
+    public function testItCanCreateMethodBody(): void
     {
     }
 }

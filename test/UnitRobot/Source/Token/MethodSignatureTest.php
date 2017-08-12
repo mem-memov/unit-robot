@@ -5,7 +5,7 @@ namespace MemMemov\UnitRobot\Source\Token;
 
 use PHPUnit\Framework\TestCase;
 
-final class MethodTokensTest extends TestCase
+final class MethodSignatureTest extends TestCase
 {
     protected $tokens;
 

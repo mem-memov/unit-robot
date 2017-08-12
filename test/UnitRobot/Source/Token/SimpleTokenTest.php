@@ -13,4 +13,23 @@ final class SimpleTokenTest extends TestCase
     {
     }
 
+    public function testItCanHasVariable(): void
+    {
+    }
+
+    public function testItCanIsWhitespace(): void
+    {
+    }
+
+    public function testItCanIsString(): void
+    {
+    }
+
+    public function testItCanGetString(): void
+    {
+    }
+
+    public function testItCanToString(): void
+    {
+    }
 }
