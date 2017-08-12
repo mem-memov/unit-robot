@@ -57,7 +57,10 @@ class Builder
         foreach ($this->dependencyDeclarations as $dependencyDeclaration) {
             $dependencyDeclaration->append($text);
         }
-        $text->appendLine('');
+        
+        if (!empty($this->dependencyDeclarations)) {
+            $text->appendLine('');
+        }
         
         $this->classDeclaration->append($text);
         
