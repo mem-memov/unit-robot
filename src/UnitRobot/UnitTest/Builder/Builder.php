@@ -29,7 +29,7 @@ class Builder
     }
     
     public function setСlassDeclaration(
-        СlassDeclaration $classDeclaration
+        ClassDeclaration $classDeclaration
     ): void
     {
         $this->classDeclaration = $classDeclaration;
@@ -59,7 +59,7 @@ class Builder
         }
         $text->appendLine('');
         
-        $this->classDeclaration->append();
+        $this->classDeclaration->append($text);
         
         foreach ($this->methodDeclarations as $methodDeclaration) {
             $methodDeclaration->append($text);

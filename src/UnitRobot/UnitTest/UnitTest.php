@@ -43,7 +43,7 @@ class UnitTest
         $classDeclaration = $this->declarations->createClassDeclaration(
             $sourceClassName
         );
-        
+
         $this->builder->setСlassDeclaration($classDeclaration);
     }
     
