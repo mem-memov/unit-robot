@@ -15,6 +15,7 @@ class Builders
     {
         return new Builder(
             $this->phpDeclaration,
+            new DependencyDeclarations(),
             new MethodDeclarations()
         );
     }

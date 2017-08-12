@@ -26,6 +26,12 @@ class Reflection
         $unitTest = $this->unitTests->createUnitTest($unitTestFile);
         $unitTest->setNamespace($this->class->getNamespaceName());
         $unitTest->setClassName($this->class->getShortName());
+        
+        $prelude = $sourceText->extract(0, $this->class->getStartLine() - 1);
+        preg_match_all('/(use .+;)/', $prelude, $matches);
+        foreach ($matches[1] as $useStatement) {
+            $unitTest->addDependency($useStatement);
+        }
 
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
         

@@ -47,6 +47,17 @@ class UnitTest
         $this->builder->setСlassDeclaration($classDeclaration);
     }
     
+    public function addDependency(
+        string $sourceUseStatement
+    ): void
+    {
+        $dependencyDeclaration = $this->declarations->createDependencyDeclaration(
+            $sourceUseStatement
+        );
+        
+        $this->builder->addDependencyDeclaration($dependencyDeclaration);
+    }
+    
     public function addMethod(string $sourceMethodName): void
     {
         $methodDeclaration = $this->declarations->createMethodDeclaration(

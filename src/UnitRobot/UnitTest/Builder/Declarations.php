@@ -10,6 +10,13 @@ class Declarations
         return new NamespaceDeclaration($sourceClassNamespace);
     }
     
+    public function createDependencyDeclaration(
+        string $sourceUseStatement
+    ): DependencyDeclaration
+    {
+        return new DependencyDeclaration($sourceUseStatement);
+    }
+    
     public function createClassDeclaration(
         string $sourceClassShortName
     ): ClassDeclaration

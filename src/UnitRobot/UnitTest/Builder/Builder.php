@@ -13,11 +13,12 @@ class Builder
     
     public function __construct(
         PhpDeclaration $phpDeclaration,
+        DependencyDeclarations $dependencyDeclarations,
         MethodDeclarations $methodDeclarations
     ) {
         $this->phpDeclaration = $phpDeclaration;
         $this->namespaceDeclaration = null;
-        $this->dependencyDeclarations = [];
+        $this->dependencyDeclarations = $dependencyDeclarations;
         $this->classDeclaration = null;
         $this->methodDeclarations = $methodDeclarations;
     }
@@ -40,7 +41,7 @@ class Builder
         DependencyDeclaration $dependencyDeclaration
     ): void
     {
-        $this->dependencyDeclarations[] = $dependencyDeclaration;
+        $this->dependencyDeclarations->addDeclaration($dependencyDeclaration);
     }
     
     public function addMethodDeclaration(
@@ -53,15 +54,10 @@ class Builder
     public function write(Text $text): void
     {
         $this->phpDeclaration->append($text);
+        
         $this->namespaceDeclaration->append($text);
-        
-        foreach ($this->dependencyDeclarations as $dependencyDeclaration) {
-            $dependencyDeclaration->append($text);
-        }
-        
-        if (!empty($this->dependencyDeclarations)) {
-            $text->appendLine('');
-        }
+
+        $this->dependencyDeclarations->append($text);
         
         $this->classDeclaration->append($text);
         
