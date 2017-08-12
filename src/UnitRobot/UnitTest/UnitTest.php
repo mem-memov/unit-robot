@@ -1,20 +1,28 @@
 <?php
 namespace MemMemov\UnitRobot\UnitTest;
 
-use MemMemov\UnitRobot\Declarations;
-use MemMemov\UnitRobot\Builder;
+use MemMemov\UnitRobot\UnitTest\Builder\Declarations;
+use MemMemov\UnitRobot\UnitTest\Builder\Builder;
+use MemMemov\UnitRobot\UnitTest\File\File;
+use MemMemov\UnitRobot\UnitTest\File\Text;
 
 class UnitTest
 {
     private $declarations;
     private $builder;
+    private $text;
+    private $file;
     
     public function __construct(
         Declarations $declarations,
-        Builder $builder
+        Builder $builder,
+        Text $text,
+        File $file
     ) {
         $this->declarations = $declarations;
         $this->builder = $builder;
+        $this->text = $text;
+        $this->file = $file;
     }
     
     public function setNamespace(
@@ -36,6 +44,13 @@ class UnitTest
             $sourceClassName
         );
         
-        $this->builder->setNamespaceDeclaration($classDeclaration);
+        $this->builder->setСlassDeclaration($classDeclaration);
+    }
+    
+    public function write(): void
+    {
+        $this->builder->write($this->text);
+
+        $this->text->writeToFile($this->file);
     }
 }

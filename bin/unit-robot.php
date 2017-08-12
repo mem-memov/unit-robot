@@ -10,6 +10,11 @@ use MemMemov\UnitRobot\Source\Reflection\Methods as SourceMethods;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
 use MemMemov\UnitRobot\UnitTest\File\Directories as UnitTestDirectories;
 use MemMemov\UnitRobot\UnitTest\File\Files as UnitTestFiles;
+use MemMemov\UnitRobot\UnitTest\UnitTests;
+use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
+use MemMemov\UnitRobot\UnitTest\Builder\Builders as UnitTestBuilders;
+use MemMemov\UnitRobot\UnitTest\File\Texts as UnitTestTexts;
+use MemMemov\UnitRobot\UnitTest\Builder\PhpDeclaration as UnitTestPhpDeclaration;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -26,6 +31,13 @@ $unitRobot = new UnitRobot(
             new SourceReflections(
                 new SourceMethods(
                     new SourceTokens()
+                ),
+                new UnitTests(
+                    new UnitTestDeclarations(),
+                    new UnitTestBuilders(
+                        new UnitTestPhpDeclaration()
+                    ),
+                    new UnitTestTexts()
                 )
             )
         ),

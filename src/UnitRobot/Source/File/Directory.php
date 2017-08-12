@@ -34,7 +34,9 @@ class Directory
             if ($file->hasClass()) {
                 $className = $file->getClassName();
                 $reflection = $this->reflections->createReflection($className);
+                
                 $unitTestFile = $file->createUnitTestFile($unitTestDirectory);
+                
                 $sourceText = $file->getText();
                 $reflection->createTests($sourceText, $unitTestFile); 
             }
