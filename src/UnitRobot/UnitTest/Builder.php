@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\UnitTest;
 
-class Builders
+class Builder
 {
 
 }

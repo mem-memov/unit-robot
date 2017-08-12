@@ -5,6 +5,6 @@ namespace MemMemov\UnitRobot\UnitTest;
 
 use PHPUnit\Framework\TestCase;
 
-class BuildersTest extends TestCase
+class BuilderTest extends TestCase
 {
 }
