@@ -19,6 +19,10 @@ final class DeclarationsTest extends TestCase
     {
     }
 
+    public function testItCanCreatePropertyDeclaration(): void
+    {
+    }
+
     public function testItCanCreateMethodDeclaration(): void
     {
     }

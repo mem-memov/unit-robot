@@ -7,6 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 final class TextTest extends TestCase
 {
+    protected lines;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanExtract(): void
     {
     }

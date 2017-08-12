@@ -9,6 +9,15 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoryTest extends TestCase
 {
+    protected path;
+    protected directoryIterators;
+    protected files;
+    protected reflections;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateTests(): void
     {
     }

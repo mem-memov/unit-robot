@@ -9,6 +9,16 @@ use PHPUnit\Framework\TestCase;
 
 final class FileTest extends TestCase
 {
+    protected rootPath;
+    protected path;
+    protected name;
+    protected content;
+    protected texts;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanHasClass(): void
     {
     }

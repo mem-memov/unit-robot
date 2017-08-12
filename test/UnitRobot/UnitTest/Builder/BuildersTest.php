@@ -7,6 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 final class BuildersTest extends TestCase
 {
+    protected phpDeclaration;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateBuilder(): void
     {
     }

@@ -10,6 +10,14 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
 {
+    protected class;
+    protected methods;
+    protected unitTests;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateTests(): void
     {
     }

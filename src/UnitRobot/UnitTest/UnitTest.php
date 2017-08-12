@@ -58,6 +58,19 @@ class UnitTest
         $this->builder->addDependencyDeclaration($dependencyDeclaration);
     }
     
+    public function addProperty(
+        string $sourceType,
+        string $sourceName
+    ): void
+    {
+        $propertyDeclaration = $this->declarations->createPropertyDeclaration(
+            $sourceType,
+            $sourceName
+        );
+        
+        $this->builder->addPropertyDeclaration($propertyDeclaration);
+    }
+    
     public function addMethod(string $sourceMethodName): void
     {
         $methodDeclaration = $this->declarations->createMethodDeclaration(

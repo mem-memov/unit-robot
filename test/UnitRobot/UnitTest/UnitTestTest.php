@@ -11,6 +11,15 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitTestTest extends TestCase
 {
+    protected declarations;
+    protected builder;
+    protected text;
+    protected file;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanSetNamespace(): void
     {
     }
@@ -20,6 +29,10 @@ final class UnitTestTest extends TestCase
     }
 
     public function testItCanAddDependency(): void
+    {
+    }
+
+    public function testItCanAddProperty(): void
     {
     }
 

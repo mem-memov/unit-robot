@@ -8,6 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class ClassDeclarationTest extends TestCase
 {
+    protected className;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanAppend(): void
     {
     }

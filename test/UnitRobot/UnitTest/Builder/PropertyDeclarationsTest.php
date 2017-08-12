@@ -6,11 +6,9 @@ namespace MemMemov\UnitRobot\UnitTest\Builder;
 use MemMemov\UnitRobot\UnitTest\File\Text;
 use PHPUnit\Framework\TestCase;
 
-final class DependencyDeclarationTest extends TestCase
+final class PropertyDeclarationsTest extends TestCase
 {
-    protected useStatement;
-
-    protected function setUp(): void
+    public function testItCanAddDeclaration(): void
     {
     }
 

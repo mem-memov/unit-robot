@@ -24,6 +24,10 @@ class Method
     {
         if ( ! $this->reflection->isConstructor()) {
             $unitTest->addMethod($this->reflection->getName());
+        } else {
+            foreach ($this->reflection->getParameters() as $parameter) {
+                $unitTest->addProperty('', $parameter->getName());
+            }
         }
         
         $startLine = $this->reflection->getStartLine() - 1;

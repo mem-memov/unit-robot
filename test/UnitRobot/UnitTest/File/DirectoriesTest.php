@@ -7,6 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
+    protected files;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateDirectory(): void
     {
     }

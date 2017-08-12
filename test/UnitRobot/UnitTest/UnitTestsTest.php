@@ -11,6 +11,14 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitTestsTest extends TestCase
 {
+    protected declarations;
+    protected builders;
+    protected texts;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateUnitTest(): void
     {
     }

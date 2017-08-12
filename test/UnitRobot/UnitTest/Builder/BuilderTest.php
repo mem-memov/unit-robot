@@ -8,6 +8,15 @@ use PHPUnit\Framework\TestCase;
 
 final class BuilderTest extends TestCase
 {
+    protected phpDeclaration;
+    protected dependencyDeclarations;
+    protected methodDeclarations;
+    protected propertyDeclarations;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanSetNamespaceDeclaration(): void
     {
     }
@@ -17,6 +26,10 @@ final class BuilderTest extends TestCase
     }
 
     public function testItCanAddDependencyDeclaration(): void
+    {
+    }
+
+    public function testItCanAddPropertyDeclaration(): void
     {
     }
 

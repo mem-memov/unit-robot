@@ -10,17 +10,20 @@ class Builder
     private $dependencyDeclarations;
     private $classDeclaration;
     private $methodDeclarations;
+    private $propertyDeclarations;
     
     public function __construct(
         PhpDeclaration $phpDeclaration,
         DependencyDeclarations $dependencyDeclarations,
-        MethodDeclarations $methodDeclarations
+        MethodDeclarations $methodDeclarations,
+        PropertyDeclarations $propertyDeclarations
     ) {
         $this->phpDeclaration = $phpDeclaration;
         $this->namespaceDeclaration = null;
         $this->dependencyDeclarations = $dependencyDeclarations;
         $this->classDeclaration = null;
         $this->methodDeclarations = $methodDeclarations;
+        $this->propertyDeclarations = $propertyDeclarations;
     }
     
     public function setNamespaceDeclaration(
@@ -44,6 +47,13 @@ class Builder
         $this->dependencyDeclarations->addDeclaration($dependencyDeclaration);
     }
     
+    public function addPropertyDeclaration(
+        PropertyDeclaration $propertyDeclaration
+    ): void
+    {
+        $this->propertyDeclarations->addDeclaration($propertyDeclaration);
+    }
+    
     public function addMethodDeclaration(
         MethodDeclaration $methodDeclaration
     ): void
@@ -60,6 +70,8 @@ class Builder
         $this->dependencyDeclarations->append($text);
         
         $this->classDeclaration->append($text);
+        
+        $this->propertyDeclarations->append($text);
         
         $this->methodDeclarations->append($text);
         

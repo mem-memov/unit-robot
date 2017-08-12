@@ -8,6 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class NamespaceDeclarationTest extends TestCase
 {
+    protected namespaceName;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanAppend(): void
     {
     }

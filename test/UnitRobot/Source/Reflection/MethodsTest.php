@@ -8,6 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodsTest extends TestCase
 {
+    protected tokens;
+
+    protected function setUp(): void
+    {
+    }
+
     public function testItCanCreateMethod(): void
     {
     }

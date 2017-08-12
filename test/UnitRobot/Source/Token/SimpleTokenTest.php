@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class SimpleTokenTest extends TestCase
 {
+    protected string;
+
+    protected function setUp(): void
+    {
+    }
+
 }
