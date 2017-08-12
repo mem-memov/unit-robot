@@ -14,7 +14,7 @@ class ClassDeclaration
     
     public function append(Text $text) 
     {
-        $text->appendLine('class ' . $this->className . ' extends TestCase');
+        $text->appendLine('final class ' . $this->className . ' extends TestCase');
         $text->appendLine('{');
     }
 }

@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\Source\Token\Tokens;
+use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class Method
 {
@@ -19,8 +20,12 @@ class Method
         $this->tokens = $tokens;
     }
     
-    public function createTests(Text $text)
+    public function createTests(Text $text, UnitTest $unitTest): void
     {
+        if ( ! $this->reflection->isConstructor()) {
+            $unitTest->addMethod($this->reflection->getName());
+        }
+        
         $startLine = $this->reflection->getStartLine() - 1;
         $endLine = $this->reflection->getEndLine();
         

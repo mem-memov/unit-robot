@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot\UnitTest\File;
 
 class Text
 {
+    private const INDENT = '    ';
     private $lines;
     
     public function __construct()
@@ -10,9 +11,9 @@ class Text
         $this->lines = [];
     }
     
-    public function appendLine(string $line): void
+    public function appendLine(string $line, int $offset = 0): void
     {
-        $this->lines[] = $line;
+        $this->lines[] = str_repeat(self::INDENT, $offset) . $line;
     }
     
     public function writeToFile(File $file): void

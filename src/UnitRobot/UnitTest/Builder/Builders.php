@@ -14,7 +14,8 @@ class Builders
     public function createBuilder(): Builder
     {
         return new Builder(
-            $this->phpDeclaration
+            $this->phpDeclaration,
+            new MethodDeclarations()
         );
     }
 }

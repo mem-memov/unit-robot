@@ -12,13 +12,14 @@ class Builder
     private $methodDeclarations;
     
     public function __construct(
-        PhpDeclaration $phpDeclaration
+        PhpDeclaration $phpDeclaration,
+        MethodDeclarations $methodDeclarations
     ) {
         $this->phpDeclaration = $phpDeclaration;
         $this->namespaceDeclaration = null;
         $this->dependencyDeclarations = [];
         $this->classDeclaration = null;
-        $this->methodDeclarations = [];
+        $this->methodDeclarations = $methodDeclarations;
     }
     
     public function setNamespaceDeclaration(
@@ -46,7 +47,7 @@ class Builder
         MethodDeclaration $methodDeclaration
     ): void
     {
-        $this->methodDeclarations[] = $methodDeclaration;
+        $this->methodDeclarations->addDeclaration($methodDeclaration);
     }
     
     public function write(Text $text): void
@@ -64,9 +65,7 @@ class Builder
         
         $this->classDeclaration->append($text);
         
-        foreach ($this->methodDeclarations as $methodDeclaration) {
-            $methodDeclaration->append($text);
-        }
+        $this->methodDeclarations->append($text);
         
         $text->appendLine('}'); // close class
     }

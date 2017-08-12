@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\File;
 
-class DirectoryIteratorsTest extends TestCase
+final class DirectoryIteratorsTest extends TestCase
 {
+    public function testItCanCreateRecursivePhpFileIterator(): void
+    {
+    }
 }

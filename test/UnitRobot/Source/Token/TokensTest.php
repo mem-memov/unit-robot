@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\Token;
 
-class TokensTest extends TestCase
+final class TokensTest extends TestCase
 {
+    public function testItCanCreateMethodTokens(): void
+    {
+    }
 }

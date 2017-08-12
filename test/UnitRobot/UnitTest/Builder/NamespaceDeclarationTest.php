@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\UnitTest\Builder;
 
-class NamespaceDeclarationTest extends TestCase
+final class NamespaceDeclarationTest extends TestCase
 {
+    public function testItCanAppend(): void
+    {
+    }
 }

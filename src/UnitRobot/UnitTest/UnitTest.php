@@ -47,6 +47,15 @@ class UnitTest
         $this->builder->setСlassDeclaration($classDeclaration);
     }
     
+    public function addMethod(string $sourceMethodName): void
+    {
+        $methodDeclaration = $this->declarations->createMethodDeclaration(
+            $sourceMethodName
+        );
+        
+        $this->builder->addMethodDeclaration($methodDeclaration);
+    }
+    
     public function write(): void
     {
         $this->builder->write($this->text);

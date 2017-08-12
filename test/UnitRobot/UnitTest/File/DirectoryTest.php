@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\UnitTest\File;
 
-class DirectoryTest extends TestCase
+final class DirectoryTest extends TestCase
 {
+    public function testItCanCreateFile(): void
+    {
+    }
 }

@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\UnitTest\File;
 
-class TextsTest extends TestCase
+final class TextsTest extends TestCase
 {
+    public function testItCanCreateText(): void
+    {
+    }
 }

@@ -31,7 +31,7 @@ class Reflection
         
         foreach ($methodReflections as $methodReflection) {
             $method = $this->methods->createMethod($methodReflection);
-            $method->createTests($sourceText);
+            $method->createTests($sourceText, $unitTest);
         }
         
         $unitTest->write();

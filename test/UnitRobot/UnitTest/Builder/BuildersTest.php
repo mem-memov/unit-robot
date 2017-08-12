@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\UnitTest\Builder;
 
-class BuildersTest extends TestCase
+final class BuildersTest extends TestCase
 {
+    public function testItCanCreateBuilder(): void
+    {
+    }
 }

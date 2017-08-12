@@ -16,4 +16,11 @@ class Declarations
     {
         return new ClassDeclaration($sourceClassShortName . 'Test');
     }
+    
+    public function createMethodDeclaration(
+        string $sourceMethodName
+    ): MethodDeclaration
+    {
+        return new MethodDeclaration('testItCan' . ucfirst($sourceMethodName));
+    }
 }
