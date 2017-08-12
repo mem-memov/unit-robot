@@ -10,9 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
 {
-    protected class;
-    protected methods;
-    protected unitTests;
+    protected $class;
+    protected $methods;
+    protected $unitTests;
 
     protected function setUp(): void
     {

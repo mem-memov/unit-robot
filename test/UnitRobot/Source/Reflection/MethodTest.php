@@ -10,8 +10,8 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodTest extends TestCase
 {
-    protected reflection;
-    protected tokens;
+    protected $reflection;
+    protected $tokens;
 
     protected function setUp(): void
     {

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodsTest extends TestCase
 {
-    protected tokens;
+    protected $tokens;
 
     protected function setUp(): void
     {

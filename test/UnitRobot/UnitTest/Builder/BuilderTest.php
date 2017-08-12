@@ -8,10 +8,10 @@ use PHPUnit\Framework\TestCase;
 
 final class BuilderTest extends TestCase
 {
-    protected phpDeclaration;
-    protected dependencyDeclarations;
-    protected methodDeclarations;
-    protected propertyDeclarations;
+    protected $phpDeclaration;
+    protected $dependencyDeclarations;
+    protected $methodDeclarations;
+    protected $propertyDeclarations;
 
     protected function setUp(): void
     {

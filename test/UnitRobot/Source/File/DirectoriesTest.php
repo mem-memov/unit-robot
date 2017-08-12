@@ -10,9 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
-    protected directoryIterators;
-    protected files;
-    protected reflections;
+    protected $directoryIterators;
+    protected $files;
+    protected $reflections;
 
     protected function setUp(): void
     {

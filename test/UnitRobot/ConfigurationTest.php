@@ -11,9 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ConfigurationTest extends TestCase
 {
-    protected config;
-    protected sourceDirectories;
-    protected unitTestDirectories;
+    protected $config;
+    protected $sourceDirectories;
+    protected $unitTestDirectories;
 
     protected function setUp(): void
     {

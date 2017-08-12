@@ -18,6 +18,6 @@ class PropertyDeclaration
     
     public function appendProperty(Text $text) 
     {
-        $text->appendLine('protected ' . $this->name . ';', 1);
+        $text->appendLine('protected $' . $this->name . ';', 1);
     }
 }

@@ -7,9 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class FileTest extends TestCase
 {
-    protected rootPath;
-    protected path;
-    protected name;
+    protected $rootPath;
+    protected $path;
+    protected $name;
 
     protected function setUp(): void
     {

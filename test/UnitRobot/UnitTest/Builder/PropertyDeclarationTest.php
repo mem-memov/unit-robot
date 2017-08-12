@@ -8,8 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 final class PropertyDeclarationTest extends TestCase
 {
-    protected type;
-    protected name;
+    protected $type;
+    protected $name;
 
     protected function setUp(): void
     {

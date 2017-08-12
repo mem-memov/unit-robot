@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class FilesTest extends TestCase
 {
-    protected texts;
+    protected $texts;
 
     protected function setUp(): void
     {

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class DependencyDeclarationTest extends TestCase
 {
-    protected useStatement;
+    protected $useStatement;
 
     protected function setUp(): void
     {

@@ -8,8 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionsTest extends TestCase
 {
-    protected methods;
-    protected unitTests;
+    protected $methods;
+    protected $unitTests;
 
     protected function setUp(): void
     {

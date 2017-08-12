@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodDeclarationTest extends TestCase
 {
-    protected methodName;
+    protected $methodName;
 
     protected function setUp(): void
     {

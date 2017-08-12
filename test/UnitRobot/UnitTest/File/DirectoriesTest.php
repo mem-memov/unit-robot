@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
-    protected files;
+    protected $files;
 
     protected function setUp(): void
     {

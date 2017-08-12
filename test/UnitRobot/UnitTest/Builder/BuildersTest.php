@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class BuildersTest extends TestCase
 {
-    protected phpDeclaration;
+    protected $phpDeclaration;
 
     protected function setUp(): void
     {
