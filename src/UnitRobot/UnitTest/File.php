@@ -17,14 +17,16 @@ class File
         $this->name = $name;
     }
     
-    public function create(): void
+    public function create(string $content): void
     {
         $directoryPath = $this->rootPath . $this->path;
         
-        mkdir($directoryPath, 0777, true);
+        if (!file_exists($directoryPath)) {
+            mkdir($directoryPath, 0777, true);
+        }
         
         $filePath = $directoryPath . '/' . $this->name;
         
-        file_put_contents($filePath, '');
+        file_put_contents($filePath, $content);
     }
 }

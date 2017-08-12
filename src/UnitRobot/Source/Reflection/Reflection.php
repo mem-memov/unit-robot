@@ -19,7 +19,18 @@ class Reflection
     
     public function createTests(Text $sourceText, UnitTestFile $unitTestFile)
     {
-        $unitTestFile->create();
+        $unitTestFile->create(
+            '<?php' . "\n"
+            . 'declare(strict_types=1);' . "\n"
+            . "\n"
+            . 'namespace ' . $this->class->getNamespaceName() . ';' . "\n"
+            . "\n"
+            . 'use PHPUnit\Framework\TestCase;' . "\n"
+            . "\n"
+            . 'class ' . $this->class->getShortName() . 'Test extends TestCase' . "\n"
+            . '{' . "\n"
+            . '}'
+        );
         
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
         
