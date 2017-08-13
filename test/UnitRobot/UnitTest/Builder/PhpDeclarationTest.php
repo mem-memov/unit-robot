@@ -12,6 +12,8 @@ final class PhpDeclarationTest extends TestCase
     {
         $phpDeclaration = new PhpDeclaration();
 
+        $text = $this->createMock(Text::class);
+
         $phpDeclaration->append($text);
     }
 }

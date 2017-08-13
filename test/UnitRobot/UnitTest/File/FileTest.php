@@ -13,14 +13,16 @@ final class FileTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->rootPath = 'some rootPath value';
-        $this->path = 'some path value';
-        $this->name = 'some name value';
+        $this->rootPath = 'some $this->rootPath value';
+        $this->path = 'some $this->path value';
+        $this->name = 'some $this->name value';
     }
 
     public function testItCanCreate(): void
     {
         $file = new File($this->rootPath, $this->path, $this->name);
+
+        $content = 'some $content value';
 
         $file->create($content);
     }

@@ -12,12 +12,16 @@ final class DependencyDeclarationsTest extends TestCase
     {
         $dependencyDeclarations = new DependencyDeclarations();
 
+        $declaration = $this->createMock(DependencyDeclaration::class);
+
         $dependencyDeclarations->addDeclaration($declaration);
     }
 
     public function testItCanAppend(): void
     {
         $dependencyDeclarations = new DependencyDeclarations();
+
+        $text = $this->createMock(Text::class);
 
         $dependencyDeclarations->append($text);
     }

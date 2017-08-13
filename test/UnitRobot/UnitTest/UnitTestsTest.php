@@ -26,6 +26,8 @@ final class UnitTestsTest extends TestCase
     {
         $unitTests = new UnitTests($this->declarations, $this->builders, $this->texts);
 
+        $file = $this->createMock(File::class);
+
         $unitTests->createUnitTest($file);
     }
 }

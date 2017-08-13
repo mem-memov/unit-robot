@@ -24,6 +24,9 @@ final class MethodsTest extends TestCase
     {
         $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters);
 
+        $methodReflection = $this->createMock(\ReflectionMethod::class);
+        $className = 'some $className value';
+
         $methods->createMethod($methodReflection, $className);
     }
 }

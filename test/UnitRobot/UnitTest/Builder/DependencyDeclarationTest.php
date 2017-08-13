@@ -12,12 +12,14 @@ final class DependencyDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->useStatement = 'some useStatement value';
+        $this->useStatement = 'some $this->useStatement value';
     }
 
     public function testItCanAppend(): void
     {
         $dependencyDeclaration = new DependencyDeclaration($this->useStatement);
+
+        $text = $this->createMock(Text::class);
 
         $dependencyDeclaration->append($text);
     }

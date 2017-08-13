@@ -8,6 +8,7 @@ class MethodDeclarations
     private $propertyDeclarations;
     private $methodDeclarations;
     private $invocationDeclarations;
+    private $parameterDeclarations;
     private $constructDeclaration;
     
     public function __construct(
@@ -17,16 +18,19 @@ class MethodDeclarations
         $this->propertyDeclarations = $propertyDeclarations;
         $this->methodDeclarations = [];
         $this->invocationDeclarations = [];
+        $this->parameterDeclarations = [];
         $this->constructDeclaration = null;
     }
     
     public function addDeclaration(
         MethodDeclaration $methodDeclaration,
-        InvocationDeclaration $invocationDeclaration
+        InvocationDeclaration $invocationDeclaration,
+        ParameterDeclarations $parameterDeclarations
     ): void
     {
         $this->methodDeclarations[] = $methodDeclaration;
         $this->invocationDeclarations[] = $invocationDeclaration;
+        $this->parameterDeclarations[] = $parameterDeclarations;
     }
     
     public function setConstructDeclaration(
@@ -48,6 +52,10 @@ class MethodDeclarations
             
             $methodDeclaration->append($text);
             $this->constructDeclaration->append($text);
+            $text->appendLine(''); // space
+            
+            $parameterDeclarations = $this->parameterDeclarations[$index];
+            $parameterDeclarations->append($text);
             $text->appendLine(''); // space
             
             $invocationDeclaration = $this->invocationDeclarations[$index];

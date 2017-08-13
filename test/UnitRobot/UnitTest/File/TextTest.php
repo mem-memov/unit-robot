@@ -11,12 +11,17 @@ final class TextTest extends TestCase
     {
         $text = new Text();
 
+        $line = 'some $line value';
+        $offset = 5;
+
         $text->appendLine($line, $offset);
     }
 
     public function testItCanWriteToFile(): void
     {
         $text = new Text();
+
+        $file = $this->createMock(File::class);
 
         $text->writeToFile($file);
     }

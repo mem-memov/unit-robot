@@ -20,6 +20,9 @@ final class DependenciesTest extends TestCase
     {
         $dependencies = new Dependencies($this->class);
 
+        $sourceText = $this->createMock(Text::class);
+        $unitTest = $this->createMock(UnitTest::class);
+
         $dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
     }
 }

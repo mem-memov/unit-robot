@@ -18,7 +18,7 @@ final class MethodTest extends TestCase
     protected function setUp(): void
     {
         $this->reflection = $this->createMock(\ReflectionMethod::class);
-        $this->className = 'some className value';
+        $this->className = 'some $this->className value';
         $this->methodSignature = $this->createMock(MethodSignature::class);
         $this->methodBody = $this->createMock(MethodBody::class);
         $this->parameters = $this->createMock(Parameters::class);
@@ -27,6 +27,9 @@ final class MethodTest extends TestCase
     public function testItCanCreateTests(): void
     {
         $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters);
+
+        $text = $this->createMock(Text::class);
+        $unitTest = $this->createMock(UnitTest::class);
 
         $method->createTests($text, $unitTest);
     }

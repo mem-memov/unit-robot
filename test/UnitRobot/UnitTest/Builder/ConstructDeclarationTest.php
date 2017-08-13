@@ -12,12 +12,14 @@ final class ConstructDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->className = 'some className value';
+        $this->className = 'some $this->className value';
     }
 
     public function testItCanSetParameters(): void
     {
         $constructDeclaration = new ConstructDeclaration($this->className);
+
+        $parameters = 'some $parameters value';
 
         $constructDeclaration->setParameters($parameters);
     }
@@ -25,6 +27,8 @@ final class ConstructDeclarationTest extends TestCase
     public function testItCanAppend(): void
     {
         $constructDeclaration = new ConstructDeclaration($this->className);
+
+        $text = $this->createMock(Text::class);
 
         $constructDeclaration->append($text);
     }

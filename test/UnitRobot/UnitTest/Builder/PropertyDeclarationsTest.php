@@ -12,6 +12,8 @@ final class PropertyDeclarationsTest extends TestCase
     {
         $propertyDeclarations = new PropertyDeclarations();
 
+        $declaration = $this->createMock(PropertyDeclaration::class);
+
         $propertyDeclarations->addDeclaration($declaration);
     }
 
@@ -19,12 +21,15 @@ final class PropertyDeclarationsTest extends TestCase
     {
         $propertyDeclarations = new PropertyDeclarations();
 
+        $text = $this->createMock(Text::class);
+
         $propertyDeclarations->append($text);
     }
 
     public function testItCanGetParameters(): void
     {
         $propertyDeclarations = new PropertyDeclarations();
+
 
         $propertyDeclarations->getParameters();
     }

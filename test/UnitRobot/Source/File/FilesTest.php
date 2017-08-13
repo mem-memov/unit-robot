@@ -18,6 +18,9 @@ final class FilesTest extends TestCase
     {
         $files = new Files($this->texts);
 
+        $rootPath = 'some $rootPath value';
+        $filePath = 'some $filePath value';
+
         $files->createFile($rootPath, $filePath);
     }
 }

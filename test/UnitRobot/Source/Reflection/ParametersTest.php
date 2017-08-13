@@ -12,6 +12,9 @@ final class ParametersTest extends TestCase
     {
         $parameters = new Parameters();
 
+        $parameterReflections = [];
+        $tokens = $this->createMock(SignatureTokens::class);
+
         $parameters->createMethodParameters($parameterReflections, $tokens);
     }
 }

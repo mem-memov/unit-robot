@@ -27,4 +27,11 @@ class ParameterDeclarations
         
         return implode(', ', $parameters);
     }
+    
+    public function append(Text $text) 
+    {
+        foreach ($this->declarations as $declaration) {
+            $declaration->appendValue($text);
+        }
+    }
 }

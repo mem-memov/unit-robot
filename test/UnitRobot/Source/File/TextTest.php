@@ -18,6 +18,9 @@ final class TextTest extends TestCase
     {
         $text = new Text($this->lines);
 
+        $startLine = 5;
+        $endLine = 5;
+
         $text->extract($startLine, $endLine);
     }
 }

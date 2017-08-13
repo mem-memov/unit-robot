@@ -36,7 +36,14 @@ class Declarations
         string $sourceName
     ): PropertyDeclaration
     {
-        return new PropertyDeclaration($sourceType, $sourceName);
+        return new PropertyDeclaration(
+            $sourceType, 
+            $sourceName,
+            new MockDeclaration(
+                '$this->' . $sourceName,
+                $sourceType
+            )
+        );
     }
     
     public function createMethodDeclaration(
@@ -69,6 +76,13 @@ class Declarations
         string $sourceName
     ): ParameterDeclaration
     {
-        return new ParameterDeclaration($sourceType, $sourceName);
+        return new ParameterDeclaration(
+            $sourceType, 
+            $sourceName,
+            new MockDeclaration(
+                '$' . $sourceName,
+                $sourceType
+            )
+        );
     }
 }

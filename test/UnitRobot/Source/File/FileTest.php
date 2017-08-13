@@ -17,16 +17,17 @@ final class FileTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->rootPath = 'some rootPath value';
-        $this->path = 'some path value';
-        $this->name = 'some name value';
-        $this->content = 'some content value';
+        $this->rootPath = 'some $this->rootPath value';
+        $this->path = 'some $this->path value';
+        $this->name = 'some $this->name value';
+        $this->content = 'some $this->content value';
         $this->texts = $this->createMock(Texts::class);
     }
 
     public function testItCanHasClass(): void
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
+
 
         $file->hasClass();
     }
@@ -35,6 +36,7 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
 
+
         $file->getClassName();
     }
 
@@ -42,12 +44,15 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
 
+
         $file->getText();
     }
 
     public function testItCanCreateUnitTestFile(): void
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
+
+        $unitTestDirectory = $this->createMock(UnitTestDirectory::class);
 
         $file->createUnitTestFile($unitTestDirectory);
     }

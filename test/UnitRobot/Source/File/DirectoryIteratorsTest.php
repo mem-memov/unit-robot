@@ -11,6 +11,8 @@ final class DirectoryIteratorsTest extends TestCase
     {
         $directoryIterators = new DirectoryIterators();
 
+        $directoryPath = 'some $directoryPath value';
+
         $directoryIterators->createRecursivePhpFileIterator($directoryPath);
     }
 }

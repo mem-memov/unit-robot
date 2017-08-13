@@ -7,13 +7,16 @@ class PropertyDeclaration
 {
     private $type;
     private $name;
+    private $mockDeclaration;
     
     public function __construct(
         string $type,
-        string $name
+        string $name,
+        MockDeclaration $mockDeclaration
     ) {
         $this->type = $type;
         $this->name = $name;
+        $this->mockDeclaration = $mockDeclaration;
     }
     
     public function appendProperty(Text $text): void
@@ -21,19 +24,9 @@ class PropertyDeclaration
         $text->appendLine('protected $' . $this->name . ';', 1);
     }
     
-   public function appendValue(Text $text): void
-   {
-        if ('string' === $this->type) {
-           $text->appendLine('$this->' . $this->name . ' = \'some ' . $this->name . ' value\';', 2);
-        } elseif ('int' === $this->type) {
-           $text->appendLine('$this->' . $this->name . ' = 5;', 2);
-        } elseif ('bool' === $this->type) {
-           $text->appendLine('$this->' . $this->name . ' = true;', 2);
-        } elseif ('array' === $this->type) {
-            $text->appendLine('$this->' . $this->name . ' = [];', 2);
-        } else {
-            $text->appendLine('$this->' . $this->name . ' = $this->createMock(' . $this->type . '::class);', 2);
-        }   
+    public function appendValue(Text $text): void
+    {
+        $this->mockDeclaration->append($text);
     }
     
     public function getParameter(): string

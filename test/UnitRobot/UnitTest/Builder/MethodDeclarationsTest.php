@@ -19,12 +19,18 @@ final class MethodDeclarationsTest extends TestCase
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
 
-        $methodDeclarations->addDeclaration($methodDeclaration, $invocationDeclaration);
+        $methodDeclaration = $this->createMock(MethodDeclaration::class);
+        $invocationDeclaration = $this->createMock(InvocationDeclaration::class);
+        $parameterDeclarations = $this->createMock(ParameterDeclarations::class);
+
+        $methodDeclarations->addDeclaration($methodDeclaration, $invocationDeclaration, $parameterDeclarations);
     }
 
     public function testItCanSetConstructDeclaration(): void
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
+
+        $constructDeclaration = $this->createMock(ConstructDeclaration::class);
 
         $methodDeclarations->setConstructDeclaration($constructDeclaration);
     }
@@ -32,6 +38,8 @@ final class MethodDeclarationsTest extends TestCase
     public function testItCanAppend(): void
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
+
+        $text = $this->createMock(Text::class);
 
         $methodDeclarations->append($text);
     }

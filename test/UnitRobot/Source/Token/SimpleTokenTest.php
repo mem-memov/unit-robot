@@ -11,12 +11,14 @@ final class SimpleTokenTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->string = 'some string value';
+        $this->string = 'some $this->string value';
     }
 
     public function testItCanHasVariable(): void
     {
         $simpleToken = new SimpleToken($this->string);
+
+        $value = 'some $value value';
 
         $simpleToken->hasVariable($value);
     }
@@ -25,6 +27,7 @@ final class SimpleTokenTest extends TestCase
     {
         $simpleToken = new SimpleToken($this->string);
 
+
         $simpleToken->isTypePart();
     }
 
@@ -32,12 +35,14 @@ final class SimpleTokenTest extends TestCase
     {
         $simpleToken = new SimpleToken($this->string);
 
+
         $simpleToken->getString();
     }
 
     public function testItCanToString(): void
     {
         $simpleToken = new SimpleToken($this->string);
+
 
         $simpleToken->toString();
     }

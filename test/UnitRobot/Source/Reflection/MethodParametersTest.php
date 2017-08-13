@@ -22,12 +22,17 @@ final class MethodParametersTest extends TestCase
     {
         $methodParameters = new MethodParameters($this->parameters);
 
+        $unitTest = $this->createMock(UnitTest::class);
+
         $methodParameters->addPropertiesToUnitTest($unitTest);
     }
 
     public function testItCanFillUnitTestMethod(): void
     {
         $methodParameters = new MethodParameters($this->parameters);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);
 
         $methodParameters->fillUnitTestMethod($declarations, $parameterDeclarations);
     }

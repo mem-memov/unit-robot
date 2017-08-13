@@ -18,6 +18,8 @@ final class MethodBodiesTest extends TestCase
     {
         $methodBodies = new MethodBodies($this->tokens);
 
+        $methodBody = 'some $methodBody value';
+
         $methodBodies->createMethodBody($methodBody);
     }
 }

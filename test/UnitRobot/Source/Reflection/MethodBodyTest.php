@@ -23,6 +23,8 @@ final class MethodBodyTest extends TestCase
     {
         $methodBody = new MethodBody($this->reflection, $this->tokens);
 
+        $text = $this->createMock(Text::class);
+
         $methodBody->getTokens($text);
     }
 }

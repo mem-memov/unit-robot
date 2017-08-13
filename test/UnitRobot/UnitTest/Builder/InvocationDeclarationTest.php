@@ -14,14 +14,16 @@ final class InvocationDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->instance = 'some instance value';
-        $this->method = 'some method value';
-        $this->parameters = 'some parameters value';
+        $this->instance = 'some $this->instance value';
+        $this->method = 'some $this->method value';
+        $this->parameters = 'some $this->parameters value';
     }
 
     public function testItCanAppend(): void
     {
         $invocationDeclaration = new InvocationDeclaration($this->instance, $this->method, $this->parameters);
+
+        $text = $this->createMock(Text::class);
 
         $invocationDeclaration->append($text);
     }

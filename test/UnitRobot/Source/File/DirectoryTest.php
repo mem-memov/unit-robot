@@ -16,7 +16,7 @@ final class DirectoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->path = 'some path value';
+        $this->path = 'some $this->path value';
         $this->directoryIterators = $this->createMock(DirectoryIterators::class);
         $this->files = $this->createMock(Files::class);
         $this->reflections = $this->createMock(Reflections::class);
@@ -25,6 +25,8 @@ final class DirectoryTest extends TestCase
     public function testItCanCreateTests(): void
     {
         $directory = new Directory($this->path, $this->directoryIterators, $this->files, $this->reflections);
+
+        $unitTestDirectory = $this->createMock(UnitTestDirectory::class);
 
         $directory->createTests($unitTestDirectory);
     }

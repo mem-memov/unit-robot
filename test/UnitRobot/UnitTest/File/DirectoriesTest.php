@@ -18,6 +18,8 @@ final class DirectoriesTest extends TestCase
     {
         $directories = new Directories($this->files);
 
+        $path = 'some $path value';
+
         $directories->createDirectory($path);
     }
 }

@@ -12,12 +12,14 @@ final class MethodDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->methodName = 'some methodName value';
+        $this->methodName = 'some $this->methodName value';
     }
 
     public function testItCanAppend(): void
     {
         $methodDeclaration = new MethodDeclaration($this->methodName);
+
+        $text = $this->createMock(Text::class);
 
         $methodDeclaration->append($text);
     }

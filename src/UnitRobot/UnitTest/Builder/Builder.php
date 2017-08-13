@@ -63,12 +63,14 @@ class Builder
     
     public function addMethodDeclaration(
         MethodDeclaration $methodDeclaration,
-        InvocationDeclaration $invocationDeclaration
+        InvocationDeclaration $invocationDeclaration,
+        ParameterDeclarations $parameterDeclarations
     ): void
     {
         $this->methodDeclarations->addDeclaration(
             $methodDeclaration,
-            $invocationDeclaration
+            $invocationDeclaration,
+            $parameterDeclarations
         );
     }
     

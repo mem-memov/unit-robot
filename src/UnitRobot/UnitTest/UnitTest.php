@@ -101,7 +101,8 @@ class UnitTest
         
         $this->builder->addMethodDeclaration(
             $methodDeclaration,
-            $invocationDeclaration
+            $invocationDeclaration,
+            $parameterDeclarations
         );
     }
     

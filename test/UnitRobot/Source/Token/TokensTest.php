@@ -11,6 +11,8 @@ final class TokensTest extends TestCase
     {
         $tokens = new Tokens();
 
+        $phpCode = 'some $phpCode value';
+
         $tokens->createTokens($phpCode);
     }
 }

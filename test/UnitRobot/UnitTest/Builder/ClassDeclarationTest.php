@@ -12,12 +12,14 @@ final class ClassDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->className = 'some className value';
+        $this->className = 'some $this->className value';
     }
 
     public function testItCanAppend(): void
     {
         $classDeclaration = new ClassDeclaration($this->className);
+
+        $text = $this->createMock(Text::class);
 
         $classDeclaration->append($text);
     }

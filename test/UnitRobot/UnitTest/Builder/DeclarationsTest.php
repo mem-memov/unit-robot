@@ -11,12 +11,16 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
+        $sourceClassNamespace = 'some $sourceClassNamespace value';
+
         $declarations->createNamespaceDeclaration($sourceClassNamespace);
     }
 
     public function testItCanCreateDependencyDeclaration(): void
     {
         $declarations = new Declarations();
+
+        $sourceUseStatement = 'some $sourceUseStatement value';
 
         $declarations->createDependencyDeclaration($sourceUseStatement);
     }
@@ -25,12 +29,16 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
+        $sourceClassShortName = 'some $sourceClassShortName value';
+
         $declarations->createClassDeclaration($sourceClassShortName);
     }
 
     public function testItCanCreateConstructDeclaration(): void
     {
         $declarations = new Declarations();
+
+        $sourceClassShortName = 'some $sourceClassShortName value';
 
         $declarations->createConstructDeclaration($sourceClassShortName);
     }
@@ -39,12 +47,17 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
+        $sourceType = 'some $sourceType value';
+        $sourceName = 'some $sourceName value';
+
         $declarations->createPropertyDeclaration($sourceType, $sourceName);
     }
 
     public function testItCanCreateMethodDeclaration(): void
     {
         $declarations = new Declarations();
+
+        $sourceMethodName = 'some $sourceMethodName value';
 
         $declarations->createMethodDeclaration($sourceMethodName);
     }
@@ -53,6 +66,10 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
+        $sourceClassShortName = 'some $sourceClassShortName value';
+        $sourceMethodName = 'some $sourceMethodName value';
+        $sourceParameterNames = 'some $sourceParameterNames value';
+
         $declarations->createInvocationDeclaration($sourceClassShortName, $sourceMethodName, $sourceParameterNames);
     }
 
@@ -60,12 +77,16 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
+
         $declarations->createParameterDeclarations();
     }
 
     public function testItCanCreateParameterDeclaration(): void
     {
         $declarations = new Declarations();
+
+        $sourceType = 'some $sourceType value';
+        $sourceName = 'some $sourceName value';
 
         $declarations->createParameterDeclaration($sourceType, $sourceName);
     }
