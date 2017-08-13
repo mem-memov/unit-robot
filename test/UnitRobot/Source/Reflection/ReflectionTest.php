@@ -11,12 +11,14 @@ use PHPUnit\Framework\TestCase;
 final class ReflectionTest extends TestCase
 {
     protected $class;
+    protected $dependencies;
     protected $methods;
     protected $unitTests;
 
     protected function setUp(): void
     {
         $this->class = $this->createMock(\ReflectionClass::class);
+        $this->dependencies = $this->createMock(Dependencies::class);
         $this->methods = $this->createMock(Methods::class);
         $this->unitTests = $this->createMock(UnitTests::class);
     }

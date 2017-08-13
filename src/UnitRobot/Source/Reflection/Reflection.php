@@ -8,15 +8,18 @@ use MemMemov\UnitRobot\UnitTest\UnitTests;
 class Reflection
 {
     private $class;
+    private $dependencies;
     private $methods;
     private $unitTests;
     
     public function __construct(
         \ReflectionClass $class,
+        Dependencies $dependencies,
         Methods $methods,
         UnitTests $unitTests
     ) {
         $this->class = $class;
+        $this->dependencies = $dependencies;
         $this->methods = $methods;
         $this->unitTests = $unitTests;
     }
@@ -31,11 +34,7 @@ class Reflection
         $unitTest->setNamespace($this->class->getNamespaceName());
         $unitTest->setClassName($this->class->getShortName());
         
-        $prelude = $sourceText->extract(1, $this->class->getStartLine() - 1);
-        preg_match_all('/(use .+;)/', $prelude, $matches);
-        foreach ($matches[1] as $useStatement) {
-            $unitTest->addDependency($useStatement);
-        }
+        $this->dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
  
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
         

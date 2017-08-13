@@ -18,8 +18,11 @@ class Reflections
     
     public function createReflection(string $className): Reflection
     {
+        $class = new \ReflectionClass($className);
+        
         return new Reflection(
-            new \ReflectionClass($className),
+            $class,
+            new Dependencies($class),
             $this->methods,
             $this->unitTests
         );
