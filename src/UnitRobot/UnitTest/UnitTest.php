@@ -79,16 +79,24 @@ class UnitTest
     
     public function addMethod(
         string $sourceMethodName,
-        string $sourceClassName
+        string $sourceClassName,
+        MethodParameters $sourceMethodParameters
     ): void
     {
         $methodDeclaration = $this->declarations->createMethodDeclaration(
             $sourceMethodName
         );
         
+        $parameterDeclarations = $this->declarations->createParameterDeclarations();
+        $sourceMethodParameters->fillUnitTestMethod(
+            $this->declarations,
+            $parameterDeclarations
+        );
+        
         $invocationDeclaration = $this->declarations->createInvocationDeclaration(
             $sourceClassName,
-            $sourceMethodName
+            $sourceMethodName,
+            $parameterDeclarations->getParameters()
         );
         
         $this->builder->addMethodDeclaration(

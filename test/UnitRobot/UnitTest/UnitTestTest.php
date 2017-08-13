@@ -28,35 +28,35 @@ final class UnitTestTest extends TestCase
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-        $unitTest->setNamespace();
+        $unitTest->setNamespace($sourceClassNamespace);
     }
 
     public function testItCanSetClassName(): void
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-        $unitTest->setClassName();
+        $unitTest->setClassName($sourceClassName);
     }
 
     public function testItCanAddDependency(): void
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-        $unitTest->addDependency();
+        $unitTest->addDependency($sourceUseStatement);
     }
 
     public function testItCanAddProperty(): void
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-        $unitTest->addProperty();
+        $unitTest->addProperty($sourceType, $sourceName);
     }
 
     public function testItCanAddMethod(): void
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-        $unitTest->addMethod();
+        $unitTest->addMethod($sourceMethodName, $sourceClassName, $sourceMethodParameters);
     }
 
     public function testItCanWrite(): void

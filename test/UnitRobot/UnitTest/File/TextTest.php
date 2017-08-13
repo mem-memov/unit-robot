@@ -11,13 +11,13 @@ final class TextTest extends TestCase
     {
         $text = new Text();
 
-        $text->appendLine();
+        $text->appendLine($line, $offset);
     }
 
     public function testItCanWriteToFile(): void
     {
         $text = new Text();
 
-        $text->writeToFile();
+        $text->writeToFile($file);
     }
 }

@@ -19,20 +19,20 @@ final class MethodDeclarationsTest extends TestCase
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
 
-        $methodDeclarations->addDeclaration();
+        $methodDeclarations->addDeclaration($methodDeclaration, $invocationDeclaration);
     }
 
     public function testItCanSetConstructDeclaration(): void
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
 
-        $methodDeclarations->setConstructDeclaration();
+        $methodDeclarations->setConstructDeclaration($constructDeclaration);
     }
 
     public function testItCanAppend(): void
     {
         $methodDeclarations = new MethodDeclarations($this->propertyDeclarations);
 
-        $methodDeclarations->append();
+        $methodDeclarations->append($text);
     }
 }

@@ -19,6 +19,6 @@ final class NamespaceDeclarationTest extends TestCase
     {
         $namespaceDeclaration = new NamespaceDeclaration($this->namespaceName);
 
-        $namespaceDeclaration->append();
+        $namespaceDeclaration->append($text);
     }
 }

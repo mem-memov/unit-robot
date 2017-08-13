@@ -24,6 +24,6 @@ final class MethodsTest extends TestCase
     {
         $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters);
 
-        $methods->createMethod();
+        $methods->createMethod($methodReflection, $className);
     }
 }

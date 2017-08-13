@@ -49,6 +49,6 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
 
-        $file->createUnitTestFile();
+        $file->createUnitTestFile($unitTestDirectory);
     }
 }

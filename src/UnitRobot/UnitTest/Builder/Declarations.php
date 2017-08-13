@@ -48,13 +48,27 @@ class Declarations
     
     public function createInvocationDeclaration(
         string $sourceClassShortName,
-        string $sourceMethodName
+        string $sourceMethodName,
+        string $sourceParameterNames
     ): InvocationDeclaration
     {
         return new InvocationDeclaration(
             '$' . lcfirst($sourceClassShortName),
             $sourceMethodName,
-            ''
+            $sourceParameterNames
         );
+    }
+    
+    public function createParameterDeclarations(): ParameterDeclarations
+    {
+        return new ParameterDeclarations();
+    }
+    
+    public function createParameterDeclaration(
+        string $sourceType,
+        string $sourceName
+    ): ParameterDeclaration
+    {
+        return new ParameterDeclaration($sourceType, $sourceName);
     }
 }

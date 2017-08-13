@@ -18,6 +18,6 @@ final class MethodSignaturesTest extends TestCase
     {
         $methodSignatures = new MethodSignatures($this->tokens);
 
-        $methodSignatures->createMethodSignature();
+        $methodSignatures->createMethodSignature($methodSignature);
     }
 }

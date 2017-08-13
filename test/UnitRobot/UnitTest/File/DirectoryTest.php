@@ -20,6 +20,6 @@ final class DirectoryTest extends TestCase
     {
         $directory = new Directory($this->path, $this->files);
 
-        $directory->createFile();
+        $directory->createFile($path, $sourceFileName);
     }
 }

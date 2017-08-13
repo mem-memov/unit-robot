@@ -2,8 +2,11 @@
 namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
+use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
+use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 
-class MethodParameters
+class MethodParameters implements UnitTestMethodParameters
 {
     private $parameters;
     
@@ -17,6 +20,19 @@ class MethodParameters
     {
         foreach ($this->parameters as $parameter) {
             $parameter->addPropertyToUnitTest($unitTest);
+        }
+    }
+    
+    public function fillUnitTestMethod(
+        UnitTestDeclarations $declarations,
+        UnitTestParameterDeclarations $parameterDeclarations
+    ): void
+    {
+        foreach ($this->parameters as $parameter) {
+            $parameter->fillUnitTestMethod(
+                $declarations,
+                $parameterDeclarations
+            );
         }
     }
 }

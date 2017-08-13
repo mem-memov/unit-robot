@@ -20,6 +20,6 @@ final class DependenciesTest extends TestCase
     {
         $dependencies = new Dependencies($this->class);
 
-        $dependencies->addDependenciesToUnitTest();
+        $dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
     }
 }

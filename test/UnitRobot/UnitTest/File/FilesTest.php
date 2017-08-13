@@ -11,6 +11,6 @@ final class FilesTest extends TestCase
     {
         $files = new Files();
 
-        $files->create();
+        $files->create($rootPath, $path, $name);
     }
 }

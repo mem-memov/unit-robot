@@ -19,6 +19,6 @@ final class ClassDeclarationTest extends TestCase
     {
         $classDeclaration = new ClassDeclaration($this->className);
 
-        $classDeclaration->append();
+        $classDeclaration->append($text);
     }
 }

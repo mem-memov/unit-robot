@@ -25,6 +25,6 @@ final class DirectoriesTest extends TestCase
     {
         $directories = new Directories($this->directoryIterators, $this->files, $this->reflections);
 
-        $directories->createDirectory();
+        $directories->createDirectory($path);
     }
 }

@@ -24,7 +24,7 @@ final class ComplexTokenTest extends TestCase
     {
         $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
 
-        $complexToken->hasVariable();
+        $complexToken->hasVariable($value);
     }
 
     public function testItCanIsTypePart(): void

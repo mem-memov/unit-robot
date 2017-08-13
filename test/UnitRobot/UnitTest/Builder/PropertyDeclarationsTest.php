@@ -12,14 +12,14 @@ final class PropertyDeclarationsTest extends TestCase
     {
         $propertyDeclarations = new PropertyDeclarations();
 
-        $propertyDeclarations->addDeclaration();
+        $propertyDeclarations->addDeclaration($declaration);
     }
 
     public function testItCanAppend(): void
     {
         $propertyDeclarations = new PropertyDeclarations();
 
-        $propertyDeclarations->append();
+        $propertyDeclarations->append($text);
     }
 
     public function testItCanGetParameters(): void

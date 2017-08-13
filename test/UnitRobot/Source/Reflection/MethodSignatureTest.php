@@ -23,6 +23,6 @@ final class MethodSignatureTest extends TestCase
     {
         $methodSignature = new MethodSignature($this->reflection, $this->tokens);
 
-        $methodSignature->getTokens();
+        $methodSignature->getTokens($methodString);
     }
 }

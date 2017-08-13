@@ -19,6 +19,6 @@ final class DependencyDeclarationTest extends TestCase
     {
         $dependencyDeclaration = new DependencyDeclaration($this->useStatement);
 
-        $dependencyDeclaration->append();
+        $dependencyDeclaration->append($text);
     }
 }

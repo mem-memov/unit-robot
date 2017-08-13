@@ -25,48 +25,48 @@ final class BuilderTest extends TestCase
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->setNamespaceDeclaration();
+        $builder->setNamespaceDeclaration($namespaceDeclaration);
     }
 
     public function testItCanSetСlassDeclaration(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->setСlassDeclaration();
+        $builder->setСlassDeclaration($classDeclaration);
     }
 
     public function testItCanSetConstructDeclaration(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->setConstructDeclaration();
+        $builder->setConstructDeclaration($constructDeclaration);
     }
 
     public function testItCanAddDependencyDeclaration(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->addDependencyDeclaration();
+        $builder->addDependencyDeclaration($dependencyDeclaration);
     }
 
     public function testItCanAddPropertyDeclaration(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->addPropertyDeclaration();
+        $builder->addPropertyDeclaration($propertyDeclaration);
     }
 
     public function testItCanAddMethodDeclaration(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->addMethodDeclaration();
+        $builder->addMethodDeclaration($methodDeclaration, $invocationDeclaration);
     }
 
     public function testItCanWrite(): void
     {
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
 
-        $builder->write();
+        $builder->write($text);
     }
 }

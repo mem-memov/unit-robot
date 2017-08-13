@@ -12,13 +12,13 @@ final class DependencyDeclarationsTest extends TestCase
     {
         $dependencyDeclarations = new DependencyDeclarations();
 
-        $dependencyDeclarations->addDeclaration();
+        $dependencyDeclarations->addDeclaration($declaration);
     }
 
     public function testItCanAppend(): void
     {
         $dependencyDeclarations = new DependencyDeclarations();
 
-        $dependencyDeclarations->append();
+        $dependencyDeclarations->append($text);
     }
 }

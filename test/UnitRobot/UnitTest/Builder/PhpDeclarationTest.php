@@ -12,6 +12,6 @@ final class PhpDeclarationTest extends TestCase
     {
         $phpDeclaration = new PhpDeclaration();
 
-        $phpDeclaration->append();
+        $phpDeclaration->append($text);
     }
 }

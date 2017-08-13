@@ -23,6 +23,6 @@ final class InvocationDeclarationTest extends TestCase
     {
         $invocationDeclaration = new InvocationDeclaration($this->instance, $this->method, $this->parameters);
 
-        $invocationDeclaration->append();
+        $invocationDeclaration->append($text);
     }
 }

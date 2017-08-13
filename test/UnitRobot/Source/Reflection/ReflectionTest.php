@@ -27,6 +27,6 @@ final class ReflectionTest extends TestCase
     {
         $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
 
-        $reflection->createTests();
+        $reflection->createTests($sourceText, $unitTestFile);
     }
 }

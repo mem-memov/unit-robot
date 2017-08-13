@@ -46,7 +46,8 @@ class Method
         } else {
             $unitTest->addMethod(
                 $this->reflection->getName(),
-                $this->className
+                $this->className,
+                $parameters
             );
         }
     }

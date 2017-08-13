@@ -4,6 +4,9 @@ declare(strict_types=1);
 namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
+use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
+use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 use PHPUnit\Framework\TestCase;
 
 final class ParameterTest extends TestCase
@@ -21,6 +24,13 @@ final class ParameterTest extends TestCase
     {
         $parameter = new Parameter($this->reflection, $this->type);
 
-        $parameter->addPropertyToUnitTest();
+        $parameter->addPropertyToUnitTest($unitTest);
+    }
+
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $parameter = new Parameter($this->reflection, $this->type);
+
+        $parameter->fillUnitTestMethod($declarations, $parameterDeclarations);
     }
 }

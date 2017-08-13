@@ -2,8 +2,11 @@
 namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
+use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
+use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 
-class Parameter
+class Parameter implements UnitTestMethodParameters
 {
     private $reflection;
     private $type;
@@ -19,5 +22,18 @@ class Parameter
     public function addPropertyToUnitTest(UnitTest $unitTest): void
     {
         $unitTest->addProperty($this->type, $this->reflection->getName());
+    }
+    
+    public function fillUnitTestMethod(
+        UnitTestDeclarations $declarations,
+        UnitTestParameterDeclarations $parameterDeclarations
+    ): void
+    {
+        $parameterDeclaration = $declarations->createParameterDeclaration(
+            $this->type,
+            $this->reflection->getName()
+        );
+        
+        $parameterDeclarations->addDeclaration($parameterDeclaration);
     }
 }

@@ -12,6 +12,6 @@ final class ParametersTest extends TestCase
     {
         $parameters = new Parameters();
 
-        $parameters->createMethodParameters();
+        $parameters->createMethodParameters($parameterReflections, $tokens);
     }
 }

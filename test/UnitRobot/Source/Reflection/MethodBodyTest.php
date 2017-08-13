@@ -23,6 +23,6 @@ final class MethodBodyTest extends TestCase
     {
         $methodBody = new MethodBody($this->reflection, $this->tokens);
 
-        $methodBody->getTokens();
+        $methodBody->getTokens($text);
     }
 }

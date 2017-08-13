@@ -19,6 +19,6 @@ final class MethodDeclarationTest extends TestCase
     {
         $methodDeclaration = new MethodDeclaration($this->methodName);
 
-        $methodDeclaration->append();
+        $methodDeclaration->append($text);
     }
 }

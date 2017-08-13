@@ -22,6 +22,6 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name);
 
-        $file->create();
+        $file->create($content);
     }
 }

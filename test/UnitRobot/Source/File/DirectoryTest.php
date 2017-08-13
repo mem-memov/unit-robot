@@ -26,6 +26,6 @@ final class DirectoryTest extends TestCase
     {
         $directory = new Directory($this->path, $this->directoryIterators, $this->files, $this->reflections);
 
-        $directory->createTests();
+        $directory->createTests($unitTestDirectory);
     }
 }

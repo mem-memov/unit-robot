@@ -11,48 +11,62 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
-        $declarations->createNamespaceDeclaration();
+        $declarations->createNamespaceDeclaration($sourceClassNamespace);
     }
 
     public function testItCanCreateDependencyDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createDependencyDeclaration();
+        $declarations->createDependencyDeclaration($sourceUseStatement);
     }
 
     public function testItCanCreateClassDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createClassDeclaration();
+        $declarations->createClassDeclaration($sourceClassShortName);
     }
 
     public function testItCanCreateConstructDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createConstructDeclaration();
+        $declarations->createConstructDeclaration($sourceClassShortName);
     }
 
     public function testItCanCreatePropertyDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createPropertyDeclaration();
+        $declarations->createPropertyDeclaration($sourceType, $sourceName);
     }
 
     public function testItCanCreateMethodDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createMethodDeclaration();
+        $declarations->createMethodDeclaration($sourceMethodName);
     }
 
     public function testItCanCreateInvocationDeclaration(): void
     {
         $declarations = new Declarations();
 
-        $declarations->createInvocationDeclaration();
+        $declarations->createInvocationDeclaration($sourceClassShortName, $sourceMethodName, $sourceParameterNames);
+    }
+
+    public function testItCanCreateParameterDeclarations(): void
+    {
+        $declarations = new Declarations();
+
+        $declarations->createParameterDeclarations();
+    }
+
+    public function testItCanCreateParameterDeclaration(): void
+    {
+        $declarations = new Declarations();
+
+        $declarations->createParameterDeclaration($sourceType, $sourceName);
     }
 }

@@ -21,6 +21,6 @@ final class ReflectionsTest extends TestCase
     {
         $reflections = new Reflections($this->methods, $this->unitTests);
 
-        $reflections->createReflection();
+        $reflections->createReflection($className);
     }
 }

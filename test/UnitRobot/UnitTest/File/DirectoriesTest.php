@@ -18,6 +18,6 @@ final class DirectoriesTest extends TestCase
     {
         $directories = new Directories($this->files);
 
-        $directories->createDirectory();
+        $directories->createDirectory($path);
     }
 }

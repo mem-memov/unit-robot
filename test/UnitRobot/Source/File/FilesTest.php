@@ -18,6 +18,6 @@ final class FilesTest extends TestCase
     {
         $files = new Files($this->texts);
 
-        $files->createFile();
+        $files->createFile($rootPath, $filePath);
     }
 }

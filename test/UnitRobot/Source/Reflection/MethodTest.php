@@ -28,6 +28,6 @@ final class MethodTest extends TestCase
     {
         $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters);
 
-        $method->createTests();
+        $method->createTests($text, $unitTest);
     }
 }
