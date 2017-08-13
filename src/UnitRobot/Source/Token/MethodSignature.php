@@ -14,25 +14,9 @@ class MethodSignature
     public function getParameterType(string $parameterName): string
     {
         foreach ($this->tokens as $index => $token) {
-            //echo 'f ' .$token->toString() ."\n";
+            
             if ($token->hasVariable($parameterName)) {
-                $type = null;
-                for ($reverse = $index-1; $reverse > 0; $reverse--) {
-                    $reverseToken = $this->tokens[$reverse];
-                    //echo 'r ' .$reverseToken->toString() ."\n";
-                    if ($reverseToken->isWhitespace()) {
-                        continue;
-                    } elseif ($reverseToken->isString()) {
-                        $type = $reverseToken->getString();
-                        break;
-                    } else {
-                        throw new \Exception('Unexpected token ' . $reverseToken->toString());
-                    }
-                }
-                if (is_null($type)) {
-                    throw new \Exception('Type not found for parameter $' . $parameterName);
-                }
-                
+                $type = $this->tokens[$index - 2];
                 return $token->getString();
             } 
         }

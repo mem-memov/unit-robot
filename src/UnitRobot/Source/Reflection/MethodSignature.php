@@ -7,8 +7,6 @@ use MemMemov\UnitRobot\Source\Token\MethodSignature as SignatureTokens;
 
 class MethodSignature
 {
-    private const METHOD_SIGNATURE_PATTERN = '/(.|\n)+?$/m';
-    
     private $reflection;
     private $tokens;
     
@@ -20,16 +18,10 @@ class MethodSignature
         $this->tokens = $tokens;
     }
     
-    public function getTokens(Text $text): SignatureTokens
+    public function getTokens(string $methodString): SignatureTokens
     {
-        $startLine = $this->reflection->getStartLine(); // body start ){-case
-        
-        $methodText = $text->extract(0, $startLine);
-        
-        preg_match(self::METHOD_SIGNATURE_PATTERN, $methodText, $matches);
-var_dump($matches);
-        $methodSignature = trim($matches[0]);
-echo 'SIGNATURE --> ' . $startLine . ' '. $methodSignature . "\n";
+        $methodSignature = strstr($methodString, '{', true);
+
         $signatureTokens = $this->tokens->createMethodSignature($methodSignature);
         
         return $signatureTokens;

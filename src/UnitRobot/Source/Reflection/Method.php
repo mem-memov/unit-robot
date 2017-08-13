@@ -25,9 +25,12 @@ class Method
     
     public function createTests(Text $text, UnitTest $unitTest): void
     {
-echo 'METHOD ------------> ' . $this->reflection->getName() . "\n"; 
+        $startLine = $this->reflection->getStartLine();
+        $endLine = $this->reflection->getEndLine();
         
-        $signatureTokens = $this->methodSignature->getTokens($text);
+        $methodString = $text->extract($startLine-1, $endLine);
+        
+        $signatureTokens = $this->methodSignature->getTokens($methodString);
         $parameterReflections = $this->reflection->getParameters();
        
         $parameters = $this->parameters->createMethodParameters(

@@ -5,7 +5,7 @@ class Tokens
 {
     public function createTokens(string $phpCode): array
     {
-        $tokens = token_get_all('<?php ' . $phpCode . ' ?>');
+        $tokens = token_get_all('<?php ' . $phpCode);
         
         $objects = [];
         foreach ($tokens as $token) {

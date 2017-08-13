@@ -16,7 +16,19 @@ final class ComplexTokenTest extends TestCase
     {
     }
 
-    public function testItCanIsVariable(): void
+    public function testItCanHasVariable(): void
+    {
+    }
+
+    public function testItCanIsWhitespace(): void
+    {
+    }
+
+    public function testItCanIsString(): void
+    {
+    }
+
+    public function testItCanGetString(): void
     {
     }
 
