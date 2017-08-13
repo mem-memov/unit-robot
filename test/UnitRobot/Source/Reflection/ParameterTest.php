@@ -14,7 +14,7 @@ final class ParameterTest extends TestCase
     protected function setUp(): void
     {
         $this->reflection = $this->createMock(ReflectionParameter::class);
-        $this->type = $this->createMock(string::class);
+        $this->type = 'some type value';
     }
 
     public function testItCanAddPropertyToUnitTest(): void

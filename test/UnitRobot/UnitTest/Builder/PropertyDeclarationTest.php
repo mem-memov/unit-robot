@@ -13,8 +13,8 @@ final class PropertyDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->type = $this->createMock(string::class);
-        $this->name = $this->createMock(string::class);
+        $this->type = 'some type value';
+        $this->name = 'some name value';
     }
 
     public function testItCanAppendProperty(): void

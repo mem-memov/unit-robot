@@ -12,7 +12,7 @@ final class MethodParametersTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->parameters = $this->createMock(array::class);
+        $this->parameters = [];
     }
 
     public function testItCanAddPropertiesToUnitTest(): void

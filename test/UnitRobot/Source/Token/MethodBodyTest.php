@@ -11,7 +11,7 @@ final class MethodBodyTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->tokens = $this->createMock(array::class);
+        $this->tokens = [];
     }
 
 }

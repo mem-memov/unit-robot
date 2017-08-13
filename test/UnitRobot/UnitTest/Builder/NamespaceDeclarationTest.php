@@ -12,7 +12,7 @@ final class NamespaceDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->namespaceName = $this->createMock(string::class);
+        $this->namespaceName = 'some namespaceName value';
     }
 
     public function testItCanAppend(): void

@@ -23,6 +23,17 @@ class PropertyDeclaration
     
    public function appendValue(Text $text)
    {
-       $text->appendLine('$this->' . $this->name . ' = $this->createMock(' . $this->type . '::class);', 2);
-   }
+       var_dump($this->type);
+        if ('string' === $this->type) {
+           $text->appendLine('$this->' . $this->name . ' = \'some ' . $this->name . ' value\';', 2);
+        } elseif ('int' === $this->type) {
+           $text->appendLine('$this->' . $this->name . ' = 5;', 2);
+        } elseif ('bool' === $this->type) {
+           $text->appendLine('$this->' . $this->name . ' = true;', 2);
+        } elseif ('array' === $this->type) {
+            $text->appendLine('$this->' . $this->name . ' = [];', 2);
+        } else {
+            $text->appendLine('$this->' . $this->name . ' = $this->createMock(' . $this->type . '::class);', 2);
+        }   
+    }
 }

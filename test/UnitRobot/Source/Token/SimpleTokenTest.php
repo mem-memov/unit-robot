@@ -11,7 +11,7 @@ final class SimpleTokenTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->string = $this->createMock(string::class);
+        $this->string = 'some string value';
     }
 
     public function testItCanHasVariable(): void

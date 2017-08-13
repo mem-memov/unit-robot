@@ -11,7 +11,7 @@ final class TextTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->lines = $this->createMock(array::class);
+        $this->lines = [];
     }
 
     public function testItCanExtract(): void

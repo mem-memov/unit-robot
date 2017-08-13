@@ -12,7 +12,7 @@ final class ClassDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->className = $this->createMock(string::class);
+        $this->className = 'some className value';
     }
 
     public function testItCanAppend(): void

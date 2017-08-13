@@ -12,7 +12,7 @@ final class DirectoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->path = $this->createMock(string::class);
+        $this->path = 'some path value';
         $this->files = $this->createMock(Files::class);
     }
 
