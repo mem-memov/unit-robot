@@ -38,4 +38,15 @@ class PropertyDeclarations
         $text->appendLine('}', 1);
         $text->appendLine('');
     }
+    
+    public function getParameters(): string
+    {
+        $parameters = [];
+        
+        foreach ($this->declarations as $declaration) {
+            $parameters[] = $declaration->getParameter();
+        }
+        
+        return implode(', ', $parameters);
+    }
 }

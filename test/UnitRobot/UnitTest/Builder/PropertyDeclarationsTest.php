@@ -17,4 +17,9 @@ final class PropertyDeclarationsTest extends TestCase
     {
         $propertyDeclarations = new PropertyDeclarations();
     }
+
+    public function testItCanGetParameters(): void
+    {
+        $propertyDeclarations = new PropertyDeclarations();
+    }
 }

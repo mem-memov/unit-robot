@@ -25,6 +25,6 @@ final class ReflectionTest extends TestCase
 
     public function testItCanCreateTests(): void
     {
-        $reflection = new Reflection();
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
     }
 }

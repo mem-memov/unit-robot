@@ -18,6 +18,6 @@ final class DirectoryTest extends TestCase
 
     public function testItCanCreateFile(): void
     {
-        $directory = new Directory();
+        $directory = new Directory($this->path, $this->files);
     }
 }

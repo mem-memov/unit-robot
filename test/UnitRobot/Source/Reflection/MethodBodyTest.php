@@ -21,6 +21,6 @@ final class MethodBodyTest extends TestCase
 
     public function testItCanGetTokens(): void
     {
-        $methodBody = new MethodBody();
+        $methodBody = new MethodBody($this->reflection, $this->tokens);
     }
 }

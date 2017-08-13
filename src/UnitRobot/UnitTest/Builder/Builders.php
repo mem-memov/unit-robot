@@ -13,11 +13,13 @@ class Builders
     
     public function createBuilder(): Builder
     {
+        $propertyDeclarations = new PropertyDeclarations();
+        
         return new Builder(
             $this->phpDeclaration,
             new DependencyDeclarations(),
-            new MethodDeclarations(),
-            new PropertyDeclarations()
+            new MethodDeclarations($propertyDeclarations),
+            $propertyDeclarations
         );
     }
 }

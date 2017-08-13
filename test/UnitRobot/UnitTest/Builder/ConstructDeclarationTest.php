@@ -15,8 +15,13 @@ final class ConstructDeclarationTest extends TestCase
         $this->className = 'some className value';
     }
 
+    public function testItCanSetParameters(): void
+    {
+        $constructDeclaration = new ConstructDeclaration($this->className);
+    }
+
     public function testItCanAppend(): void
     {
-        $constructDeclaration = new ConstructDeclaration();
+        $constructDeclaration = new ConstructDeclaration($this->className);
     }
 }

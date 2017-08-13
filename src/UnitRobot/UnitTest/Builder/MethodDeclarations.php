@@ -5,11 +5,15 @@ use MemMemov\UnitRobot\UnitTest\File\Text;
 
 class MethodDeclarations
 {
+    private $propertyDeclarations;
     private $declarations;
     private $constructDeclaration;
     
-    public function __construct()
+    public function __construct(
+        PropertyDeclarations $propertyDeclarations
+    )
     {
+        $this->propertyDeclarations = $propertyDeclarations;
         $this->declarations = [];
         $this->constructDeclaration = null;
     }
@@ -28,6 +32,9 @@ class MethodDeclarations
     
     public function append(Text $text) 
     {
+        $constructorParameters = $this->propertyDeclarations->getParameters();
+        $this->constructDeclaration->setParameters($constructorParameters);
+        
         foreach ($this->declarations as $index => $methodDeclaration) {
             if (0 !== $index) {
                 $text->appendLine(''); // space

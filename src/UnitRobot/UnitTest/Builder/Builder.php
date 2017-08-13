@@ -80,7 +80,9 @@ class Builder
         
         $this->propertyDeclarations->append($text);
         
-        $this->methodDeclarations->append($text);
+        $constructorParameters = $this->propertyDeclarations->getParameters();
+        
+        $this->methodDeclarations->append($text, $constructorParameters);
         
         $text->appendLine('}'); // close class
     }

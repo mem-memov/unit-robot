@@ -17,6 +17,6 @@ final class DependencyDeclarationTest extends TestCase
 
     public function testItCanAppend(): void
     {
-        $dependencyDeclaration = new DependencyDeclaration();
+        $dependencyDeclaration = new DependencyDeclaration($this->useStatement);
     }
 }

@@ -16,6 +16,6 @@ final class FilesTest extends TestCase
 
     public function testItCanCreateFile(): void
     {
-        $files = new Files();
+        $files = new Files($this->texts);
     }
 }

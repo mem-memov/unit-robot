@@ -16,12 +16,12 @@ class PropertyDeclaration
         $this->name = $name;
     }
     
-    public function appendProperty(Text $text) 
+    public function appendProperty(Text $text): void
     {
         $text->appendLine('protected $' . $this->name . ';', 1);
     }
     
-   public function appendValue(Text $text)
+   public function appendValue(Text $text): void
    {
         if ('string' === $this->type) {
            $text->appendLine('$this->' . $this->name . ' = \'some ' . $this->name . ' value\';', 2);
@@ -34,5 +34,10 @@ class PropertyDeclaration
         } else {
             $text->appendLine('$this->' . $this->name . ' = $this->createMock(' . $this->type . '::class);', 2);
         }   
+    }
+    
+    public function getParameter(): string
+    {
+        return '$this->' . $this->name;
     }
 }

@@ -17,6 +17,6 @@ final class ClassDeclarationTest extends TestCase
 
     public function testItCanAppend(): void
     {
-        $classDeclaration = new ClassDeclaration();
+        $classDeclaration = new ClassDeclaration($this->className);
     }
 }

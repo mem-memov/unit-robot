@@ -16,21 +16,21 @@ final class SimpleTokenTest extends TestCase
 
     public function testItCanHasVariable(): void
     {
-        $simpleToken = new SimpleToken();
+        $simpleToken = new SimpleToken($this->string);
     }
 
     public function testItCanIsTypePart(): void
     {
-        $simpleToken = new SimpleToken();
+        $simpleToken = new SimpleToken($this->string);
     }
 
     public function testItCanGetString(): void
     {
-        $simpleToken = new SimpleToken();
+        $simpleToken = new SimpleToken($this->string);
     }
 
     public function testItCanToString(): void
     {
-        $simpleToken = new SimpleToken();
+        $simpleToken = new SimpleToken($this->string);
     }
 }

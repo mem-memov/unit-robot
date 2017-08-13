@@ -20,6 +20,6 @@ final class FileTest extends TestCase
 
     public function testItCanCreate(): void
     {
-        $file = new File();
+        $file = new File($this->rootPath, $this->path, $this->name);
     }
 }

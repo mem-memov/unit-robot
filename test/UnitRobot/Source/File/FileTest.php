@@ -26,21 +26,21 @@ final class FileTest extends TestCase
 
     public function testItCanHasClass(): void
     {
-        $file = new File();
+        $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
     }
 
     public function testItCanGetClassName(): void
     {
-        $file = new File();
+        $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
     }
 
     public function testItCanGetText(): void
     {
-        $file = new File();
+        $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
     }
 
     public function testItCanCreateUnitTestFile(): void
     {
-        $file = new File();
+        $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
     }
 }

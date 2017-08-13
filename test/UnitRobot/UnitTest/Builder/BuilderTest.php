@@ -23,36 +23,36 @@ final class BuilderTest extends TestCase
 
     public function testItCanSetNamespaceDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanSetСlassDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanSetConstructDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanAddDependencyDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanAddPropertyDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanAddMethodDeclaration(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 
     public function testItCanWrite(): void
     {
-        $builder = new Builder();
+        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations);
     }
 }

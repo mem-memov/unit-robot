@@ -22,21 +22,21 @@ final class ComplexTokenTest extends TestCase
 
     public function testItCanHasVariable(): void
     {
-        $complexToken = new ComplexToken();
+        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
     }
 
     public function testItCanIsTypePart(): void
     {
-        $complexToken = new ComplexToken();
+        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
     }
 
     public function testItCanGetString(): void
     {
-        $complexToken = new ComplexToken();
+        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
     }
 
     public function testItCanToString(): void
     {
-        $complexToken = new ComplexToken();
+        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
     }
 }

@@ -22,6 +22,6 @@ final class MethodsTest extends TestCase
 
     public function testItCanCreateMethod(): void
     {
-        $methods = new Methods();
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters);
     }
 }

@@ -24,6 +24,6 @@ final class MethodTest extends TestCase
 
     public function testItCanCreateTests(): void
     {
-        $method = new Method();
+        $method = new Method($this->reflection, $this->methodSignature, $this->methodBody, $this->parameters);
     }
 }

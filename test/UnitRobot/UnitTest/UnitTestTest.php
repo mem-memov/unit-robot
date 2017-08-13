@@ -26,31 +26,31 @@ final class UnitTestTest extends TestCase
 
     public function testItCanSetNamespace(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 
     public function testItCanSetClassName(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 
     public function testItCanAddDependency(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 
     public function testItCanAddProperty(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 
     public function testItCanAddMethod(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 
     public function testItCanWrite(): void
     {
-        $unitTest = new UnitTest();
+        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
     }
 }

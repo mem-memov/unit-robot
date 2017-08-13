@@ -16,6 +16,6 @@ final class MethodSignatureTest extends TestCase
 
     public function testItCanGetParameterType(): void
     {
-        $methodSignature = new MethodSignature();
+        $methodSignature = new MethodSignature($this->tokens);
     }
 }
