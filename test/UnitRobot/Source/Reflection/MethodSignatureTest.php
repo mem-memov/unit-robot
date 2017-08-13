@@ -15,7 +15,7 @@ final class MethodSignatureTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->reflection = $this->createMock(ReflectionMethod::class);
+        $this->reflection = $this->createMock(\ReflectionMethod::class);
         $this->tokens = $this->createMock(Tokens::class);
     }
 

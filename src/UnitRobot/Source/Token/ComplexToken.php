@@ -25,14 +25,9 @@ class ComplexToken implements Token
         return $this->string === '$' . $value && 'T_VARIABLE' === $this->name;
     }
     
-    public function isWhitespace(): bool
+    public function isTypePart(): bool
     {
-        return 'T_WHITESPACE' === $this->name;
-    }
-    
-    public function isString(): bool
-    {
-        return 'T_STRING' === $this->name;
+        return in_array($this->name, ['T_NS_SEPARATOR', 'T_STRING', 'T_ARRAY']);;
     }
     
     public function getString(): string

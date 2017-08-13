@@ -16,12 +16,7 @@ class SimpleToken implements Token
         return false;
     }
     
-    public function isWhitespace(): bool
-    {
-        return false;
-    }
-    
-    public function isString(): bool
+    public function isTypePart(): bool
     {
         return false;
     }

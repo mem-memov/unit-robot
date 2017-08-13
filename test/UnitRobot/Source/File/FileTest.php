@@ -21,7 +21,7 @@ final class FileTest extends TestCase
         $this->path = 'some path value';
         $this->name = 'some name value';
         $this->content = 'some content value';
-        $this->texts = $this->createMock(,::class);
+        $this->texts = $this->createMock(::class);
     }
 
     public function testItCanHasClass(): void

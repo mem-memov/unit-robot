@@ -18,11 +18,7 @@ final class SimpleTokenTest extends TestCase
     {
     }
 
-    public function testItCanIsWhitespace(): void
-    {
-    }
-
-    public function testItCanIsString(): void
+    public function testItCanIsTypePart(): void
     {
     }
 

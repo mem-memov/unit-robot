@@ -16,8 +16,15 @@ class MethodSignature
         foreach ($this->tokens as $index => $token) {
             
             if ($token->hasVariable($parameterName)) {
-                $type = $this->tokens[$index - 2];
-                return $type->getString();
+                $type = '';
+                for ($revert = $index-2; $revert > 0; $revert--) {
+                    $typePart = $this->tokens[$revert];
+                    if (!$typePart->isTypePart()) {
+                        return $type;
+                    }
+                    $type = $typePart->getString() . $type;
+                }
+                
             } 
         }
         throw new \Exception('Parameter $' . $parameterName . ' missing');

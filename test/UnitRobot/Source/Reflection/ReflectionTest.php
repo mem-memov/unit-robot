@@ -16,7 +16,7 @@ final class ReflectionTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->class = $this->createMock(ReflectionClass::class);
+        $this->class = $this->createMock(\ReflectionClass::class);
         $this->methods = $this->createMock(Methods::class);
         $this->unitTests = $this->createMock(UnitTests::class);
     }

@@ -13,7 +13,7 @@ final class ParameterTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->reflection = $this->createMock(ReflectionParameter::class);
+        $this->reflection = $this->createMock(\ReflectionParameter::class);
         $this->type = 'some type value';
     }
 

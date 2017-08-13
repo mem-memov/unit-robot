@@ -23,7 +23,6 @@ class PropertyDeclaration
     
    public function appendValue(Text $text)
    {
-       var_dump($this->type);
         if ('string' === $this->type) {
            $text->appendLine('$this->' . $this->name . ' = \'some ' . $this->name . ' value\';', 2);
         } elseif ('int' === $this->type) {
