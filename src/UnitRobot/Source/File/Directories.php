@@ -12,9 +12,9 @@ class Directories
     private $reflections;
     
     public function __construct(
-        $directoryIterators,
-        $files,
-        $reflections
+        DirectoryIterators $directoryIterators,
+        Files $files,
+        Reflections $reflections
     ) {
         $this->directoryIterators = $directoryIterators;
         $this->files = $files;

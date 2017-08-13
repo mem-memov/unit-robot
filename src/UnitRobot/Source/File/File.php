@@ -20,7 +20,7 @@ class File
         string $path, 
         string $name,
         string $content,
-        $texts
+        Texts $texts
     ) {
         $this->rootPath = $rootPath;
         $this->path = $path;
