@@ -10,9 +10,11 @@ final class PropertyDeclarationsTest extends TestCase
 {
     public function testItCanAddDeclaration(): void
     {
+        $propertyDeclarations = new PropertyDeclarations();
     }
 
     public function testItCanAppend(): void
     {
+        $propertyDeclarations = new PropertyDeclarations();
     }
 }

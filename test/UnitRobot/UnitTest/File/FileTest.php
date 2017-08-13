@@ -20,5 +20,6 @@ final class FileTest extends TestCase
 
     public function testItCanCreate(): void
     {
+        $file = new File();
     }
 }

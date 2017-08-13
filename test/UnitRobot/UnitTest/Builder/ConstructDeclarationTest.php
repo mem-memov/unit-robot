@@ -6,17 +6,17 @@ namespace MemMemov\UnitRobot\UnitTest\Builder;
 use MemMemov\UnitRobot\UnitTest\File\Text;
 use PHPUnit\Framework\TestCase;
 
-final class DependencyDeclarationTest extends TestCase
+final class ConstructDeclarationTest extends TestCase
 {
-    protected $useStatement;
+    protected $className;
 
     protected function setUp(): void
     {
-        $this->useStatement = 'some useStatement value';
+        $this->className = 'some className value';
     }
 
     public function testItCanAppend(): void
     {
-        $dependencyDeclaration = new DependencyDeclaration();
+        $constructDeclaration = new ConstructDeclaration();
     }
 }

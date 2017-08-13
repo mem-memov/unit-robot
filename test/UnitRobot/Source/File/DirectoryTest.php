@@ -24,5 +24,6 @@ final class DirectoryTest extends TestCase
 
     public function testItCanCreateTests(): void
     {
+        $directory = new Directory();
     }
 }

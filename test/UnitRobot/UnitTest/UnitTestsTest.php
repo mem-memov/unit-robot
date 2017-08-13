@@ -24,5 +24,6 @@ final class UnitTestsTest extends TestCase
 
     public function testItCanCreateUnitTest(): void
     {
+        $unitTests = new UnitTests();
     }
 }

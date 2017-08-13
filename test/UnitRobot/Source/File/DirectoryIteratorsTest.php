@@ -9,5 +9,6 @@ final class DirectoryIteratorsTest extends TestCase
 {
     public function testItCanCreateRecursivePhpFileIterator(): void
     {
+        $directoryIterators = new DirectoryIterators();
     }
 }

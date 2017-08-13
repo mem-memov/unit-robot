@@ -10,9 +10,16 @@ final class MethodDeclarationsTest extends TestCase
 {
     public function testItCanAddDeclaration(): void
     {
+        $methodDeclarations = new MethodDeclarations();
+    }
+
+    public function testItCanSetConstructDeclaration(): void
+    {
+        $methodDeclarations = new MethodDeclarations();
     }
 
     public function testItCanAppend(): void
     {
+        $methodDeclarations = new MethodDeclarations();
     }
 }

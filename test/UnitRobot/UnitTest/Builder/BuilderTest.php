@@ -23,25 +23,36 @@ final class BuilderTest extends TestCase
 
     public function testItCanSetNamespaceDeclaration(): void
     {
+        $builder = new Builder();
     }
 
     public function testItCanSetСlassDeclaration(): void
     {
+        $builder = new Builder();
+    }
+
+    public function testItCanSetConstructDeclaration(): void
+    {
+        $builder = new Builder();
     }
 
     public function testItCanAddDependencyDeclaration(): void
     {
+        $builder = new Builder();
     }
 
     public function testItCanAddPropertyDeclaration(): void
     {
+        $builder = new Builder();
     }
 
     public function testItCanAddMethodDeclaration(): void
     {
+        $builder = new Builder();
     }
 
     public function testItCanWrite(): void
     {
+        $builder = new Builder();
     }
 }

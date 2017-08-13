@@ -45,6 +45,12 @@ class UnitTest
         );
 
         $this->builder->setСlassDeclaration($classDeclaration);
+        
+        $constructDeclaration = $this->declarations->createConstructDeclaration(
+            $sourceClassName
+        );
+        
+        $this->builder->setConstructDeclaration($constructDeclaration);
     }
     
     public function addDependency(

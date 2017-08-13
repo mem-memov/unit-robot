@@ -38,10 +38,10 @@ class Method
             $signatureTokens
         );
         
-        if ( ! $this->reflection->isConstructor()) {
-            $unitTest->addMethod($this->reflection->getName());
-        } else {
+        if ($this->reflection->isConstructor()) {
             $parameters->addPropertiesToUnitTest($unitTest);
+        } else {
+            $unitTest->addMethod($this->reflection->getName());
         }
     }
 }

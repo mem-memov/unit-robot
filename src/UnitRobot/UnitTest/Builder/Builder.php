@@ -40,6 +40,13 @@ class Builder
         $this->classDeclaration = $classDeclaration;
     }
     
+    public function setConstructDeclaration(
+        ConstructDeclaration $constructDeclaration
+    ): void
+    {
+        $this->methodDeclarations->setConstructDeclaration($constructDeclaration);
+    }
+    
     public function addDependencyDeclaration(
         DependencyDeclaration $dependencyDeclaration
     ): void

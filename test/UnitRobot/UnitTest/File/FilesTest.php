@@ -9,5 +9,6 @@ final class FilesTest extends TestCase
 {
     public function testItCanCreate(): void
     {
+        $files = new Files();
     }
 }

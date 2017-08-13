@@ -25,5 +25,6 @@ final class ReflectionTest extends TestCase
 
     public function testItCanCreateTests(): void
     {
+        $reflection = new Reflection();
     }
 }

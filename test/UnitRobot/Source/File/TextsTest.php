@@ -9,5 +9,6 @@ final class TextsTest extends TestCase
 {
     public function testItCanCreateText(): void
     {
+        $texts = new Texts();
     }
 }

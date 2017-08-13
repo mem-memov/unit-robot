@@ -9,5 +9,6 @@ final class TokensTest extends TestCase
 {
     public function testItCanCreateTokens(): void
     {
+        $tokens = new Tokens();
     }
 }

@@ -24,9 +24,11 @@ final class ConfigurationTest extends TestCase
 
     public function testItCanCreateSourceDirectory(): void
     {
+        $configuration = new Configuration();
     }
 
     public function testItCanCreateUnitTestDirectory(): void
     {
+        $configuration = new Configuration();
     }
 }

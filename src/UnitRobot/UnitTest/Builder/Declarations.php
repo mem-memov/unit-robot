@@ -24,6 +24,13 @@ class Declarations
         return new ClassDeclaration($sourceClassShortName . 'Test');
     }
     
+    public function createConstructDeclaration(
+        string $sourceClassShortName
+    ): ConstructDeclaration
+    {
+        return new ConstructDeclaration($sourceClassShortName);
+    }
+    
     public function createPropertyDeclaration(
         string $sourceType,
         string $sourceName
