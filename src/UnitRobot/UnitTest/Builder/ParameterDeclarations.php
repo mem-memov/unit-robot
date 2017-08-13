@@ -33,5 +33,9 @@ class ParameterDeclarations
         foreach ($this->declarations as $declaration) {
             $declaration->appendValue($text);
         }
+        
+        if (!empty($this->declarations)) {
+            $text->appendLine(''); // space
+        }
     }
 }

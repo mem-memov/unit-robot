@@ -33,7 +33,6 @@ final class ComplexTokenTest extends TestCase
     {
         $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
 
-
         $complexToken->isTypePart();
     }
 
@@ -41,14 +40,12 @@ final class ComplexTokenTest extends TestCase
     {
         $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
 
-
         $complexToken->getString();
     }
 
     public function testItCanToString(): void
     {
         $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
-
 
         $complexToken->toString();
     }

@@ -41,7 +41,6 @@ final class PropertyDeclarationTest extends TestCase
     {
         $propertyDeclaration = new PropertyDeclaration($this->type, $this->name, $this->mockDeclaration);
 
-
         $propertyDeclaration->getParameter();
     }
 }

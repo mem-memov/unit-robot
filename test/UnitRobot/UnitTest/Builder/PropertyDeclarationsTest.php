@@ -30,7 +30,6 @@ final class PropertyDeclarationsTest extends TestCase
     {
         $propertyDeclarations = new PropertyDeclarations();
 
-
         $propertyDeclarations->getParameters();
     }
 }

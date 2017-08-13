@@ -27,7 +27,6 @@ final class SimpleTokenTest extends TestCase
     {
         $simpleToken = new SimpleToken($this->string);
 
-
         $simpleToken->isTypePart();
     }
 
@@ -35,14 +34,12 @@ final class SimpleTokenTest extends TestCase
     {
         $simpleToken = new SimpleToken($this->string);
 
-
         $simpleToken->getString();
     }
 
     public function testItCanToString(): void
     {
         $simpleToken = new SimpleToken($this->string);
-
 
         $simpleToken->toString();
     }

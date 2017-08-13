@@ -28,7 +28,6 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
 
-
         $file->hasClass();
     }
 
@@ -36,14 +35,12 @@ final class FileTest extends TestCase
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
 
-
         $file->getClassName();
     }
 
     public function testItCanGetText(): void
     {
         $file = new File($this->rootPath, $this->path, $this->name, $this->content, $this->texts);
-
 
         $file->getText();
     }

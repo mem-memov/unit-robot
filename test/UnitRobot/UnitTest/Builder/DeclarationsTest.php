@@ -77,7 +77,6 @@ final class DeclarationsTest extends TestCase
     {
         $declarations = new Declarations();
 
-
         $declarations->createParameterDeclarations();
     }
 

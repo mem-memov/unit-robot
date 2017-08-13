@@ -21,7 +21,6 @@ final class ParameterDeclarationsTest extends TestCase
     {
         $parameterDeclarations = new ParameterDeclarations();
 
-
         $parameterDeclarations->getParameters();
     }
 

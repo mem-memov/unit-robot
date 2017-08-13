@@ -18,7 +18,6 @@ final class BuildersTest extends TestCase
     {
         $builders = new Builders($this->phpDeclaration);
 
-
         $builders->createBuilder();
     }
 }

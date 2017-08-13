@@ -56,7 +56,6 @@ class MethodDeclarations
             
             $parameterDeclarations = $this->parameterDeclarations[$index];
             $parameterDeclarations->append($text);
-            $text->appendLine(''); // space
             
             $invocationDeclaration = $this->invocationDeclarations[$index];
             $invocationDeclaration->append($text);

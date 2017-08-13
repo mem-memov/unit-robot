@@ -18,7 +18,6 @@ final class UnitRobotTest extends TestCase
     {
         $unitRobot = new UnitRobot($this->configuration);
 
-
         $unitRobot->createTests();
     }
 }

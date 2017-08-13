@@ -11,7 +11,6 @@ final class TextsTest extends TestCase
     {
         $texts = new Texts();
 
-
         $texts->createText();
     }
 }

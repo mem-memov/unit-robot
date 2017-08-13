@@ -23,7 +23,6 @@ final class ParameterDeclarationTest extends TestCase
     {
         $parameterDeclaration = new ParameterDeclaration($this->type, $this->name, $this->mockDeclaration);
 
-
         $parameterDeclaration->getParameter();
     }
 

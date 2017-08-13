@@ -76,7 +76,6 @@ final class UnitTestTest extends TestCase
     {
         $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
 
-
         $unitTest->write();
     }
 }
