@@ -12,6 +12,7 @@ final class MethodDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->methodName = $this->createMock(string::class);
     }
 
     public function testItCanAppend(): void

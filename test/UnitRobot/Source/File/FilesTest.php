@@ -11,6 +11,7 @@ final class FilesTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->texts = $this->createMock(Texts::class);
     }
 
     public function testItCanCreateFile(): void

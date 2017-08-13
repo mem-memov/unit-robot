@@ -15,6 +15,8 @@ final class MethodBodyTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->reflection = $this->createMock(ReflectionMethod::class);
+        $this->tokens = $this->createMock(Tokens::class);
     }
 
     public function testItCanGetTokens(): void

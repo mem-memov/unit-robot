@@ -11,6 +11,7 @@ final class BuildersTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->phpDeclaration = $this->createMock(PhpDeclaration::class);
     }
 
     public function testItCanCreateBuilder(): void

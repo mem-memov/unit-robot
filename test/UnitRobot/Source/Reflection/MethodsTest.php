@@ -15,6 +15,9 @@ final class MethodsTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->methodSignatureTokens = $this->createMock(MethodSignatureTokens::class);
+        $this->methodBodyTokens = $this->createMock(MethodBodyTokens::class);
+        $this->parameters = $this->createMock(Parameters::class);
     }
 
     public function testItCanCreateMethod(): void

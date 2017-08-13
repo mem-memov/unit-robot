@@ -17,6 +17,9 @@ final class UnitTestsTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->declarations = $this->createMock(Declarations::class);
+        $this->builders = $this->createMock(Builders::class);
+        $this->texts = $this->createMock(Texts::class);
     }
 
     public function testItCanCreateUnitTest(): void

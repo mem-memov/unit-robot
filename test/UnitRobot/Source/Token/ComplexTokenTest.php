@@ -14,6 +14,10 @@ final class ComplexTokenTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->code = $this->createMock(int::class);
+        $this->name = $this->createMock(string::class);
+        $this->string = $this->createMock(string::class);
+        $this->line = $this->createMock(int::class);
     }
 
     public function testItCanHasVariable(): void

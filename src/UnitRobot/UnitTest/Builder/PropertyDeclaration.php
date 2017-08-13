@@ -20,4 +20,9 @@ class PropertyDeclaration
     {
         $text->appendLine('protected $' . $this->name . ';', 1);
     }
+    
+   public function appendValue(Text $text)
+   {
+       $text->appendLine('$this->' . $this->name . ' = $this->createMock(' . $this->type . '::class);', 2);
+   }
 }

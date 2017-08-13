@@ -12,6 +12,8 @@ final class DirectoryTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->path = $this->createMock(string::class);
+        $this->files = $this->createMock(Files::class);
     }
 
     public function testItCanCreateFile(): void

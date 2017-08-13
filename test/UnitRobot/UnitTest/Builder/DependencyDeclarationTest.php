@@ -12,6 +12,7 @@ final class DependencyDeclarationTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->useStatement = $this->createMock(string::class);
     }
 
     public function testItCanAppend(): void

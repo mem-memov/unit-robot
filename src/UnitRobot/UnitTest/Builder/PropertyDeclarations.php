@@ -24,12 +24,16 @@ class PropertyDeclarations
         }
         
         foreach ($this->declarations as $declaration) {
-            $declaration->appendProperty($text, 1);
+            $declaration->appendProperty($text);
         }
         
         $text->appendLine('');
         $text->appendLine('protected function setUp(): void', 1);
         $text->appendLine('{', 1);
+        
+        foreach ($this->declarations as $declaration) {
+            $declaration->appendValue($text);
+        }
         
         $text->appendLine('}', 1);
         $text->appendLine('');

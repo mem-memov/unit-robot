@@ -14,7 +14,11 @@ class Parameters
         
         foreach ($parameterReflections as $reflection) {
             $type = $tokens->getParameterType($reflection->getName());
-            $parameters[] = new Parameter($reflection);
+
+            $parameters[] = new Parameter(
+                $reflection,
+                $tokens->getParameterType($reflection->getName())
+            );
         }
         
         return new MethodParameters($parameters);

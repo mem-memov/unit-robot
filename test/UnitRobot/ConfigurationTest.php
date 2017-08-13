@@ -17,6 +17,9 @@ final class ConfigurationTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->config = $this->createMock(array::class);
+        $this->sourceDirectories = $this->createMock(SourceDirectories::class);
+        $this->unitTestDirectories = $this->createMock(UnitTestDirectories::class);
     }
 
     public function testItCanCreateSourceDirectory(): void

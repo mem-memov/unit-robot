@@ -17,6 +17,11 @@ final class FileTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->rootPath = $this->createMock(string::class);
+        $this->path = $this->createMock(string::class);
+        $this->name = $this->createMock(string::class);
+        $this->content = $this->createMock(string::class);
+        $this->texts = $this->createMock(,::class);
     }
 
     public function testItCanHasClass(): void

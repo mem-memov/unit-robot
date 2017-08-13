@@ -13,6 +13,8 @@ final class ReflectionsTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->methods = $this->createMock(Methods::class);
+        $this->unitTests = $this->createMock(UnitTests::class);
     }
 
     public function testItCanCreateReflection(): void

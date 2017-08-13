@@ -17,7 +17,7 @@ class MethodSignature
             
             if ($token->hasVariable($parameterName)) {
                 $type = $this->tokens[$index - 2];
-                return $token->getString();
+                return $type->getString();
             } 
         }
         throw new \Exception('Parameter $' . $parameterName . ' missing');

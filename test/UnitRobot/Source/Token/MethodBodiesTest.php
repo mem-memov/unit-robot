@@ -11,6 +11,7 @@ final class MethodBodiesTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->tokens = $this->createMock(Tokens::class);
     }
 
     public function testItCanCreateMethodBody(): void

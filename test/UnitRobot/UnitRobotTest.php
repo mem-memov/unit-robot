@@ -11,6 +11,7 @@ final class UnitRobotTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->configuration = $this->createMock(Configuration::class);
     }
 
     public function testItCanCreateTests(): void
