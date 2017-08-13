@@ -6,7 +6,8 @@ use MemMemov\UnitRobot\UnitTest\File\Text;
 class MethodDeclarations
 {
     private $propertyDeclarations;
-    private $declarations;
+    private $methodDeclarations;
+    private $invocationDeclarations;
     private $constructDeclaration;
     
     public function __construct(
@@ -14,13 +15,18 @@ class MethodDeclarations
     )
     {
         $this->propertyDeclarations = $propertyDeclarations;
-        $this->declarations = [];
+        $this->methodDeclarations = [];
+        $this->invocationDeclarations = [];
         $this->constructDeclaration = null;
     }
     
-    public function addDeclaration(MethodDeclaration $declaration): void
+    public function addDeclaration(
+        MethodDeclaration $methodDeclaration,
+        InvocationDeclaration $invocationDeclaration
+    ): void
     {
-        $this->declarations[] = $declaration;
+        $this->methodDeclarations[] = $methodDeclaration;
+        $this->invocationDeclarations[] = $invocationDeclaration;
     }
     
     public function setConstructDeclaration(
@@ -35,12 +41,17 @@ class MethodDeclarations
         $constructorParameters = $this->propertyDeclarations->getParameters();
         $this->constructDeclaration->setParameters($constructorParameters);
         
-        foreach ($this->declarations as $index => $methodDeclaration) {
+        foreach ($this->methodDeclarations as $index => $methodDeclaration) {
             if (0 !== $index) {
                 $text->appendLine(''); // space
             }
+            
             $methodDeclaration->append($text);
             $this->constructDeclaration->append($text);
+            $text->appendLine(''); // space
+            
+            $invocationDeclaration = $this->invocationDeclarations[$index];
+            $invocationDeclaration->append($text);
             $text->appendLine('}', 1); // close method
         }
     }

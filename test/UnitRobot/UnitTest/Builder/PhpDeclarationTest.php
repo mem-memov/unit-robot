@@ -11,5 +11,7 @@ final class PhpDeclarationTest extends TestCase
     public function testItCanAppend(): void
     {
         $phpDeclaration = new PhpDeclaration();
+
+        $phpDeclaration->append();
     }
 }

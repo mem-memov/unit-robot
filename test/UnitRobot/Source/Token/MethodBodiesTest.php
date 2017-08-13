@@ -17,5 +17,7 @@ final class MethodBodiesTest extends TestCase
     public function testItCanCreateMethodBody(): void
     {
         $methodBodies = new MethodBodies($this->tokens);
+
+        $methodBodies->createMethodBody();
     }
 }

@@ -77,13 +77,24 @@ class UnitTest
         $this->builder->addPropertyDeclaration($propertyDeclaration);
     }
     
-    public function addMethod(string $sourceMethodName): void
+    public function addMethod(
+        string $sourceMethodName,
+        string $sourceClassName
+    ): void
     {
         $methodDeclaration = $this->declarations->createMethodDeclaration(
             $sourceMethodName
         );
         
-        $this->builder->addMethodDeclaration($methodDeclaration);
+        $invocationDeclaration = $this->declarations->createInvocationDeclaration(
+            $sourceClassName,
+            $sourceMethodName
+        );
+        
+        $this->builder->addMethodDeclaration(
+            $methodDeclaration,
+            $invocationDeclaration
+        );
     }
     
     public function write(): void

@@ -11,10 +11,14 @@ final class DependencyDeclarationsTest extends TestCase
     public function testItCanAddDeclaration(): void
     {
         $dependencyDeclarations = new DependencyDeclarations();
+
+        $dependencyDeclarations->addDeclaration();
     }
 
     public function testItCanAppend(): void
     {
         $dependencyDeclarations = new DependencyDeclarations();
+
+        $dependencyDeclarations->append();
     }
 }

@@ -39,7 +39,10 @@ class Reflection
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
         
         foreach ($methodReflections as $methodReflection) {
-            $method = $this->methods->createMethod($methodReflection);
+            $method = $this->methods->createMethod(
+                $methodReflection, 
+                $this->class->getShortName()
+            );
             $method->createTests($sourceText, $unitTest);
         }
         

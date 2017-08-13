@@ -7,17 +7,20 @@ use MemMemov\UnitRobot\UnitTest\UnitTest;
 class Method
 {
     private $reflection;
+    private $className;
     private $methodSignature;
     private $methodBody;
     private $parameters;
     
     public function __construct(
         \ReflectionMethod $reflection,
+        string $className,
         MethodSignature $methodSignature,
         MethodBody $methodBody,
         Parameters $parameters
     ) {
         $this->reflection = $reflection;
+        $this->className = $className;
         $this->methodSignature = $methodSignature;
         $this->methodBody = $methodBody;
         $this->parameters = $parameters;
@@ -41,7 +44,10 @@ class Method
         if ($this->reflection->isConstructor()) {
             $parameters->addPropertiesToUnitTest($unitTest);
         } else {
-            $unitTest->addMethod($this->reflection->getName());
+            $unitTest->addMethod(
+                $this->reflection->getName(),
+                $this->className
+            );
         }
     }
 }

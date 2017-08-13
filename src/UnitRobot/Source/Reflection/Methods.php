@@ -21,11 +21,13 @@ class Methods
     }
     
     public function createMethod(
-        \ReflectionMethod $methodReflection
+        \ReflectionMethod $methodReflection,
+        string $className
     ): Method
     {
         return new Method(
             $methodReflection,
+            $className,
             new MethodSignature(
                 $methodReflection,
                 $this->methodSignatureTokens

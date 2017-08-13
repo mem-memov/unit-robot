@@ -20,5 +20,7 @@ final class ParameterTest extends TestCase
     public function testItCanAddPropertyToUnitTest(): void
     {
         $parameter = new Parameter($this->reflection, $this->type);
+
+        $parameter->addPropertyToUnitTest();
     }
 }

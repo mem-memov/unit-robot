@@ -17,5 +17,7 @@ final class TextTest extends TestCase
     public function testItCanExtract(): void
     {
         $text = new Text($this->lines);
+
+        $text->extract();
     }
 }

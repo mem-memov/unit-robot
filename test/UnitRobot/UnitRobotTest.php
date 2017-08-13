@@ -17,5 +17,7 @@ final class UnitRobotTest extends TestCase
     public function testItCanCreateTests(): void
     {
         $unitRobot = new UnitRobot($this->configuration);
+
+        $unitRobot->createTests();
     }
 }

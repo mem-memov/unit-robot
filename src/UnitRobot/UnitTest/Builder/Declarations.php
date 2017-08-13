@@ -45,4 +45,16 @@ class Declarations
     {
         return new MethodDeclaration('testItCan' . ucfirst($sourceMethodName));
     }
+    
+    public function createInvocationDeclaration(
+        string $sourceClassShortName,
+        string $sourceMethodName
+    ): InvocationDeclaration
+    {
+        return new InvocationDeclaration(
+            '$' . lcfirst($sourceClassShortName),
+            $sourceMethodName,
+            ''
+        );
+    }
 }

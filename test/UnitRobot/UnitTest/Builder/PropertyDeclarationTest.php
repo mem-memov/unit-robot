@@ -20,15 +20,21 @@ final class PropertyDeclarationTest extends TestCase
     public function testItCanAppendProperty(): void
     {
         $propertyDeclaration = new PropertyDeclaration($this->type, $this->name);
+
+        $propertyDeclaration->appendProperty();
     }
 
     public function testItCanAppendValue(): void
     {
         $propertyDeclaration = new PropertyDeclaration($this->type, $this->name);
+
+        $propertyDeclaration->appendValue();
     }
 
     public function testItCanGetParameter(): void
     {
         $propertyDeclaration = new PropertyDeclaration($this->type, $this->name);
+
+        $propertyDeclaration->getParameter();
     }
 }

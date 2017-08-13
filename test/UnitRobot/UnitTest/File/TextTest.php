@@ -10,10 +10,14 @@ final class TextTest extends TestCase
     public function testItCanAppendLine(): void
     {
         $text = new Text();
+
+        $text->appendLine();
     }
 
     public function testItCanWriteToFile(): void
     {
         $text = new Text();
+
+        $text->writeToFile();
     }
 }

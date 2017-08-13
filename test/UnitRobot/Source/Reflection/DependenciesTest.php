@@ -19,5 +19,7 @@ final class DependenciesTest extends TestCase
     public function testItCanAddDependenciesToUnitTest(): void
     {
         $dependencies = new Dependencies($this->class);
+
+        $dependencies->addDependenciesToUnitTest();
     }
 }

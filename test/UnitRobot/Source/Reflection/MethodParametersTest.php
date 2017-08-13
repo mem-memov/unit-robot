@@ -18,5 +18,7 @@ final class MethodParametersTest extends TestCase
     public function testItCanAddPropertiesToUnitTest(): void
     {
         $methodParameters = new MethodParameters($this->parameters);
+
+        $methodParameters->addPropertiesToUnitTest();
     }
 }

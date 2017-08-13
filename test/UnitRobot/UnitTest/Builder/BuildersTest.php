@@ -17,5 +17,7 @@ final class BuildersTest extends TestCase
     public function testItCanCreateBuilder(): void
     {
         $builders = new Builders($this->phpDeclaration);
+
+        $builders->createBuilder();
     }
 }

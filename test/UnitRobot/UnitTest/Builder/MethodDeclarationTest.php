@@ -18,5 +18,7 @@ final class MethodDeclarationTest extends TestCase
     public function testItCanAppend(): void
     {
         $methodDeclaration = new MethodDeclaration($this->methodName);
+
+        $methodDeclaration->append();
     }
 }

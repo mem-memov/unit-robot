@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 final class MethodTest extends TestCase
 {
     protected $reflection;
+    protected $className;
     protected $methodSignature;
     protected $methodBody;
     protected $parameters;
@@ -17,6 +18,7 @@ final class MethodTest extends TestCase
     protected function setUp(): void
     {
         $this->reflection = $this->createMock(\ReflectionMethod::class);
+        $this->className = 'some className value';
         $this->methodSignature = $this->createMock(MethodSignature::class);
         $this->methodBody = $this->createMock(MethodBody::class);
         $this->parameters = $this->createMock(Parameters::class);
@@ -24,6 +26,8 @@ final class MethodTest extends TestCase
 
     public function testItCanCreateTests(): void
     {
-        $method = new Method($this->reflection, $this->methodSignature, $this->methodBody, $this->parameters);
+        $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters);
+
+        $method->createTests();
     }
 }

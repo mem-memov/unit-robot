@@ -62,10 +62,14 @@ class Builder
     }
     
     public function addMethodDeclaration(
-        MethodDeclaration $methodDeclaration
+        MethodDeclaration $methodDeclaration,
+        InvocationDeclaration $invocationDeclaration
     ): void
     {
-        $this->methodDeclarations->addDeclaration($methodDeclaration);
+        $this->methodDeclarations->addDeclaration(
+            $methodDeclaration,
+            $invocationDeclaration
+        );
     }
     
     public function write(Text $text): void

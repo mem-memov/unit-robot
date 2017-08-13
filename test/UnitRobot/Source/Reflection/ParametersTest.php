@@ -11,5 +11,7 @@ final class ParametersTest extends TestCase
     public function testItCanCreateMethodParameters(): void
     {
         $parameters = new Parameters();
+
+        $parameters->createMethodParameters();
     }
 }
