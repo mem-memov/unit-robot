@@ -1,6 +1,8 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection;
+namespace MemMemov\UnitRobot\Source\Reflection\Method;
 
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
+use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;
 
@@ -9,15 +11,18 @@ class Methods
     private $methodSignatureTokens;
     private $methodBodyTokens;
     private $parameters;
+    private $calls;
     
     public function __construct(
         MethodSignatureTokens $methodSignatureTokens,
         MethodBodyTokens $methodBodyTokens,
-        Parameters $parameters
+        Parameters $parameters,
+        Calls $calls
     ) {
         $this->methodSignatureTokens = $methodSignatureTokens;
         $this->methodBodyTokens = $methodBodyTokens;
         $this->parameters = $parameters;
+        $this->calls = $calls;
     }
     
     public function createMethod(
@@ -36,7 +41,8 @@ class Methods
                 $methodReflection,
                 $this->methodBodyTokens
             ),
-            $this->parameters
+            $this->parameters,
+            $this->calls
         );
     }
 }

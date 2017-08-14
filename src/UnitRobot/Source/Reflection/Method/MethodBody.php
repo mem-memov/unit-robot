@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection;
+namespace MemMemov\UnitRobot\Source\Reflection\Method;
 
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as Tokens;

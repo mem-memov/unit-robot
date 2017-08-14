@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\Reflection;
 
+use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
 use PHPUnit\Framework\TestCase;
 

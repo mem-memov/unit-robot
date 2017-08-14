@@ -1,6 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection;
 
+use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
 
 class Reflections

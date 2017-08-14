@@ -6,8 +6,9 @@ use MemMemov\UnitRobot\Source\File\DirectoryIterators as SourceDirectoryIterator
 use MemMemov\UnitRobot\Source\File\Files as SourceFiles;
 use MemMemov\UnitRobot\Source\File\Texts as SourceTexts;
 use MemMemov\UnitRobot\Source\Reflection\Reflections as SourceReflections;
-use MemMemov\UnitRobot\Source\Reflection\Methods as SourceMethods;
-use MemMemov\UnitRobot\Source\Reflection\Parameters as SourceParameters;
+use MemMemov\UnitRobot\Source\Reflection\Method\Methods as SourceMethods;
+use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters as SourceParameters;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls as SourceCalls;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as SourceTokenMethodSignatures;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as SourceTokenMethodBodies;
@@ -36,7 +37,8 @@ $unitRobot = new UnitRobot(
                 new SourceMethods(
                     new SourceTokenMethodSignatures($sourceTokens),
                     new SourceTokenMethodBodies($sourceTokens),
-                    new SourceParameters()
+                    new SourceParameters(),
+                    new SourceCalls()
                 ),
                 new UnitTests(
                     new UnitTestDeclarations(),
