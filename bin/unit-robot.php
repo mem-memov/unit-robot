@@ -9,6 +9,7 @@ use MemMemov\UnitRobot\Source\Reflection\Reflections as SourceReflections;
 use MemMemov\UnitRobot\Source\Reflection\Method\Methods as SourceMethods;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters as SourceParameters;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls as SourceCalls;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Positionings as SourcePositionings;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as SourceTokenMethodSignatures;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as SourceTokenMethodBodies;
@@ -38,7 +39,9 @@ $unitRobot = new UnitRobot(
                     new SourceTokenMethodSignatures($sourceTokens),
                     new SourceTokenMethodBodies($sourceTokens),
                     new SourceParameters(),
-                    new SourceCalls()
+                    new SourceCalls(
+                        new SourcePositionings()
+                    )
                 ),
                 new UnitTests(
                     new UnitTestDeclarations(),

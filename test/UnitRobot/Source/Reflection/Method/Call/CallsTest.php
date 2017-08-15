@@ -7,9 +7,16 @@ use PHPUnit\Framework\TestCase;
 
 final class CallsTest extends TestCase
 {
+    protected $positionings;
+
+    protected function setUp(): void
+    {
+        $this->positionings = $this->createMock(Positionings::class);
+    }
+
     public function testItCanCreateMethodCalls(): void
     {
-        $calls = new Calls();
+        $calls = new Calls($this->positionings);
 
         $methodString = 'some $methodString value';
 
