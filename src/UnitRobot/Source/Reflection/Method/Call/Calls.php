@@ -3,50 +3,29 @@ namespace MemMemov\UnitRobot\Source\Reflection\Method\Call;
 
 class Calls
 {
+    private $parser;
     private $positionings;
     
     public function __construct(
+        Parse $parser,
         Positionings $positionings
     ) {
+        $this->parser = $parser;
         $this->positionings = $positionings;
     }
     
     public function createMethodCalls(string $methodString): MethodCalls
     {
-        $methodCalls = new MethodCalls();
+        $parsedMatches = $this->parser->parseMethod($methodString);
         
-        $variablePattern = '\$(this\s*->){0,1}\s*([_[:alnum:]]+)';
-        $assignmentPattern = '((' . $variablePattern . ')\s*=\s*)';
-        $returnPattern = '\s+(return)\s+';
-        $functionPattern = '([_[:alnum:]]+)\(';
-        $callPattern = $variablePattern.'\s*->\s*'.$functionPattern;
-        $invocationPattern = '/(' . $assignmentPattern . '|' . $returnPattern . '){0,1}' .$callPattern.'/mU';
-        preg_match_all($invocationPattern, $methodString, $matches);
+        $callPositionings = new CallPositionings();
+        $parsedMatches->fillCallPositionings($callPositionings, $this->positionings);
 
-        $callCount = count($matches[0]);
-        
         $callPositionings = $this->positionings->createCallPositionings($methodString, $matches);
-
-        foreach ($matches[0] as $index => $callMatch) {
-
-            $callVariable = $matches[8][$index];
-            $method = $matches[9][$index];
-            $callVariableType = $matches[7][$index] === 'this->'
-                ? 'property'
-                : 'parameter';
-                
-            $hasResult = '' !== $matches[5][$index];
-            if ($hasResult) {
-                $resultVariable = $matches[5][$index];
-                $resultVariableType = $matches[7][$index] === 'this->'
-                    ? 'property'
-                    : 'parameter';
-            };
-            
-            $methodCall = new MethodCall();
-            $methodCalls->addCall($methodCall);
-        }
         
+        $methodCalls = new MethodCalls();
+        $parsedMatches->fillMethodCalls($methodCalls, $callPositionings, $this->callTypes);
+
         return $methodCalls;
     }
 }

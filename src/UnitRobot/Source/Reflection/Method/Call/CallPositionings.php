@@ -14,4 +14,9 @@ class CallPositionings
     {
         $this->positionings[] = $positioning;
     }
+    
+    public function getByIndex(int $index): CallPositioning
+    {
+        return $this->positionings[$index];
+    }
 }
