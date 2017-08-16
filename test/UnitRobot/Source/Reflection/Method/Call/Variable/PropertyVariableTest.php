@@ -11,7 +11,7 @@ final class PropertyVariableTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->variableName = $this->createMock(::class);
+        $this->variableName = 'some $this->variableName value';
     }
 
     public function testItCanToString(): void

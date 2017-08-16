@@ -6,7 +6,7 @@ class ParameterVariable implements Variable
     private $variableName;
     
     public function __construct(
-        $variableName
+        string $variableName
     ) {
         $this->variableName = $variableName;
     }
