@@ -28,9 +28,13 @@ final class DirectoryTest extends TestCase
 
         $unitTestDirectory = $this->createMock(UnitTestDirectory::class);
 
+        $this->filePaths = 'some $this->filePaths value';
+
         $this->directoryIterators->expects($this->once())
             ->method('createRecursivePhpFileIterator')
             ->willReturn($this->filePaths);
+
+        $this->file = 'some $this->file value';
 
         $this->files->expects($this->once())
             ->method('createFile')
@@ -39,17 +43,25 @@ final class DirectoryTest extends TestCase
         $file->expects($this->once())
             ->method('hasClass');
 
+        $className = 'some $className value';
+
         $file->expects($this->once())
             ->method('getClassName')
             ->willReturn($className);
+
+        $this->reflection = 'some $this->reflection value';
 
         $this->reflections->expects($this->once())
             ->method('createReflection')
             ->willReturn($this->reflection);
 
+        $unitTestFile = 'some $unitTestFile value';
+
         $file->expects($this->once())
             ->method('createUnitTestFile')
             ->willReturn($unitTestFile);
+
+        $sourceText = 'some $sourceText value';
 
         $file->expects($this->once())
             ->method('getText')

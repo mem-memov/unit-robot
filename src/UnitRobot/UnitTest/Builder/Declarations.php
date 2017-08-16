@@ -102,9 +102,18 @@ class Declarations
     public function createResultCallDeclaration(
         string $callVariable,
         string $method,
-        string $resultVariable
+        string $resultVariable,
+        string $resultVariableType
     ): ResultCallDeclaration
     {
-        return new ResultCallDeclaration($callVariable, $method, $resultVariable);
+        return new ResultCallDeclaration(
+            $callVariable, 
+            $method, 
+            $resultVariable,
+            new MockDeclaration(
+                $resultVariable,
+                $resultVariableType
+            )
+        );
     }
 }

@@ -30,6 +30,8 @@ final class UnitTestTest extends TestCase
 
         $sourceClassNamespace = 'some $sourceClassNamespace value';
 
+        $this->namespaceDeclaration = 'some $this->namespaceDeclaration value';
+
         $this->declarations->expects($this->once())
             ->method('createNamespaceDeclaration')
             ->willReturn($this->namespaceDeclaration);
@@ -46,9 +48,13 @@ final class UnitTestTest extends TestCase
 
         $sourceClassName = 'some $sourceClassName value';
 
+        $this->classDeclaration = 'some $this->classDeclaration value';
+
         $this->declarations->expects($this->once())
             ->method('createClassDeclaration')
             ->willReturn($this->classDeclaration);
+
+        $this->constructDeclaration = 'some $this->constructDeclaration value';
 
         $this->declarations->expects($this->once())
             ->method('createConstructDeclaration')
@@ -66,6 +72,8 @@ final class UnitTestTest extends TestCase
 
         $sourceUseStatement = 'some $sourceUseStatement value';
 
+        $this->dependencyDeclaration = 'some $this->dependencyDeclaration value';
+
         $this->declarations->expects($this->once())
             ->method('createDependencyDeclaration')
             ->willReturn($this->dependencyDeclaration);
@@ -82,6 +90,8 @@ final class UnitTestTest extends TestCase
 
         $sourceType = 'some $sourceType value';
         $sourceName = 'some $sourceName value';
+
+        $this->propertyDeclaration = 'some $this->propertyDeclaration value';
 
         $this->declarations->expects($this->once())
             ->method('createPropertyDeclaration')
@@ -102,9 +112,13 @@ final class UnitTestTest extends TestCase
         $sourceMethodParameters = $this->createMock(MethodParameters::class);
         $sourceMethodCalls = $this->createMock(MethodCalls::class);
 
+        $this->methodDeclaration = 'some $this->methodDeclaration value';
+
         $this->declarations->expects($this->once())
             ->method('createMethodDeclaration')
             ->willReturn($this->methodDeclaration);
+
+        $this->parameterDeclarations = 'some $this->parameterDeclarations value';
 
         $this->declarations->expects($this->once())
             ->method('createParameterDeclarations')
@@ -113,12 +127,16 @@ final class UnitTestTest extends TestCase
         $sourceMethodParameters->expects($this->once())
             ->method('fillUnitTestMethod');
 
+        $this->invocationDeclaration = 'some $this->invocationDeclaration value';
+
         $this->declarations->expects($this->once())
             ->method('createInvocationDeclaration')
             ->willReturn($this->invocationDeclaration);
 
         $parameterDeclarations->expects($this->once())
             ->method('getParameters');
+
+        $this->callDeclarations = 'some $this->callDeclarations value';
 
         $this->declarations->expects($this->once())
             ->method('createCallDeclarations')

@@ -35,25 +35,37 @@ final class MethodTest extends TestCase
         $text = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
 
+        $this->startLine = 'some $this->startLine value';
+
         $this->reflection->expects($this->once())
             ->method('getStartLine')
             ->willReturn($this->startLine);
+
+        $this->endLine = 'some $this->endLine value';
 
         $this->reflection->expects($this->once())
             ->method('getEndLine')
             ->willReturn($this->endLine);
 
+        $methodString = 'some $methodString value';
+
         $text->expects($this->once())
             ->method('extract')
             ->willReturn($methodString);
+
+        $this->signatureTokens = 'some $this->signatureTokens value';
 
         $this->methodSignature->expects($this->once())
             ->method('getTokens')
             ->willReturn($this->signatureTokens);
 
+        $this->parameterReflections = 'some $this->parameterReflections value';
+
         $this->reflection->expects($this->once())
             ->method('getParameters')
             ->willReturn($this->parameterReflections);
+
+        $this->parameters = 'some $this->parameters value';
 
         $this->parameters->expects($this->once())
             ->method('createMethodParameters')
@@ -64,6 +76,8 @@ final class MethodTest extends TestCase
 
         $parameters->expects($this->once())
             ->method('addPropertiesToUnitTest');
+
+        $this->calls = 'some $this->calls value';
 
         $this->calls->expects($this->once())
             ->method('createMethodCalls')

@@ -25,6 +25,8 @@ final class MethodSignatureTest extends TestCase
 
         $methodString = 'some $methodString value';
 
+        $this->signatureTokens = 'some $this->signatureTokens value';
+
         $this->tokens->expects($this->once())
             ->method('createMethodSignature')
             ->willReturn($this->signatureTokens);

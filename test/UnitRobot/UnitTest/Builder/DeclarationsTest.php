@@ -114,7 +114,8 @@ final class DeclarationsTest extends TestCase
         $callVariable = 'some $callVariable value';
         $method = 'some $method value';
         $resultVariable = 'some $resultVariable value';
+        $resultVariableType = 'some $resultVariableType value';
 
-        $declarations->createResultCallDeclaration($callVariable, $method, $resultVariable);
+        $declarations->createResultCallDeclaration($callVariable, $method, $resultVariable, $resultVariableType);
     }
 }

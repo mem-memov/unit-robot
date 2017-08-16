@@ -20,6 +20,8 @@ final class MethodBodiesTest extends TestCase
 
         $methodBody = 'some $methodBody value';
 
+        $this->tokens = 'some $this->tokens value';
+
         $this->tokens->expects($this->once())
             ->method('createTokens')
             ->willReturn($this->tokens);

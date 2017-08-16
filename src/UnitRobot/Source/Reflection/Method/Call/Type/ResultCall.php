@@ -29,7 +29,8 @@ class ResultCall implements Call
         $callDeclaration = $declarations->createResultCallDeclaration(
             $this->callVariable->toString(), 
             $this->method,
-            $this->resultVariable->toString()
+            $this->resultVariable->toString(),
+            'string' //TODO
         );
         
         $callDeclarations->addDeclaration($callDeclaration);

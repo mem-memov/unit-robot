@@ -18,9 +18,13 @@ final class UnitRobotTest extends TestCase
     {
         $unitRobot = new UnitRobot($this->configuration);
 
+        $this->sourceDirectory = 'some $this->sourceDirectory value';
+
         $this->configuration->expects($this->once())
             ->method('createSourceDirectory')
             ->willReturn($this->sourceDirectory);
+
+        $this->unitTestDirectory = 'some $this->unitTestDirectory value';
 
         $this->configuration->expects($this->once())
             ->method('createUnitTestDirectory')

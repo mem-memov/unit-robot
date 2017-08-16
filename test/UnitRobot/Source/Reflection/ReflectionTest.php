@@ -37,6 +37,8 @@ final class ReflectionTest extends TestCase
         $this->class->expects($this->once())
             ->method('isInterface');
 
+        $this->unitTest = 'some $this->unitTest value';
+
         $this->unitTests->expects($this->once())
             ->method('createUnitTest')
             ->willReturn($this->unitTest);
@@ -56,9 +58,13 @@ final class ReflectionTest extends TestCase
         $this->dependencies->expects($this->once())
             ->method('addDependenciesToUnitTest');
 
+        $this->methodReflections = 'some $this->methodReflections value';
+
         $this->class->expects($this->once())
             ->method('getMethods')
             ->willReturn($this->methodReflections);
+
+        $this->method = 'some $this->method value';
 
         $this->methods->expects($this->once())
             ->method('createMethod')

@@ -23,6 +23,8 @@ final class DependenciesTest extends TestCase
         $sourceText = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
 
+        $prelude = 'some $prelude value';
+
         $sourceText->expects($this->once())
             ->method('extract')
             ->willReturn($prelude);

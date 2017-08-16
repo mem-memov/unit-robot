@@ -42,6 +42,8 @@ final class ParameterTest extends TestCase
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);
 
+        $parameterDeclaration = 'some $parameterDeclaration value';
+
         $declarations->expects($this->once())
             ->method('createParameterDeclaration')
             ->willReturn($parameterDeclaration);

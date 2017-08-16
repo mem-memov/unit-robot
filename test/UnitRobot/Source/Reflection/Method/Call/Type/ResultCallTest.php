@@ -28,6 +28,8 @@ final class ResultCallTest extends TestCase
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
 
+        $callDeclaration = 'some $callDeclaration value';
+
         $declarations->expects($this->once())
             ->method('createResultCallDeclaration')
             ->willReturn($callDeclaration);
