@@ -44,7 +44,7 @@ class Reflection
                 $methodReflection, 
                 $this->class->getShortName()
             );
-            $method->createTests($sourceText, $unitTest);
+            $method->createTest($sourceText, $unitTest);
         }
         
         $unitTest->write();

@@ -10,4 +10,9 @@ class PropertyVariable implements Variable
     ) {
         $this->variableName = $variableName;
     }
+    
+    public function toString(): string
+    {
+        return '$this->' . $this->variableName;
+    }
 }

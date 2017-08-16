@@ -19,7 +19,8 @@ class Builders
             $this->phpDeclaration,
             new DependencyDeclarations(),
             new MethodDeclarations($propertyDeclarations),
-            $propertyDeclarations
+            $propertyDeclarations,
+            new CallDeclarations()
         );
     }
 }

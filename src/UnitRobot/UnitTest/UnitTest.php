@@ -80,7 +80,8 @@ class UnitTest
     public function addMethod(
         string $sourceMethodName,
         string $sourceClassName,
-        MethodParameters $sourceMethodParameters
+        MethodParameters $sourceMethodParameters,
+        MethodCalls $sourceMethodCalls
     ): void
     {
         $methodDeclaration = $this->declarations->createMethodDeclaration(
@@ -99,13 +100,20 @@ class UnitTest
             $parameterDeclarations->getParameters()
         );
         
+        $callDeclarations = $this->declarations->createCallDeclarations();
+        $sourceMethodCalls->fillUnitTestMethod(
+            $this->declarations,
+            $callDeclarations
+        );
+        
         $this->builder->addMethodDeclaration(
             $methodDeclaration,
             $invocationDeclaration,
-            $parameterDeclarations
+            $parameterDeclarations,
+            $callDeclarations
         );
     }
-    
+
     public function write(): void
     {
         $this->builder->write($this->text);

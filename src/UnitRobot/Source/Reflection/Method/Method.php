@@ -31,15 +31,13 @@ class Method
         $this->calls = $calls;
     }
     
-    public function createTests(Text $text, UnitTest $unitTest): void
+    public function createTest(Text $text, UnitTest $unitTest): void
     {
         $startLine = $this->reflection->getStartLine();
         $endLine = $this->reflection->getEndLine();
         
         $methodString = $text->extract($startLine-1, $endLine);
-        
-        $calls = $this->calls->createMethodCalls($methodString);
-        
+
         $signatureTokens = $this->methodSignature->getTokens($methodString);
         $parameterReflections = $this->reflection->getParameters();
        
@@ -51,10 +49,12 @@ class Method
         if ($this->reflection->isConstructor()) {
             $parameters->addPropertiesToUnitTest($unitTest);
         } else {
+            $calls = $this->calls->createMethodCalls($methodString);
             $unitTest->addMethod(
                 $this->reflection->getName(),
                 $this->className,
-                $parameters
+                $parameters,
+                $calls
             );
         }
     }

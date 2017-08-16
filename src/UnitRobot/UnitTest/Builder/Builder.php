@@ -11,12 +11,14 @@ class Builder
     private $classDeclaration;
     private $methodDeclarations;
     private $propertyDeclarations;
+    private $callDeclarations;
     
     public function __construct(
         PhpDeclaration $phpDeclaration,
         DependencyDeclarations $dependencyDeclarations,
         MethodDeclarations $methodDeclarations,
-        PropertyDeclarations $propertyDeclarations
+        PropertyDeclarations $propertyDeclarations,
+        CallDeclarations $callDeclarations
     ) {
         $this->phpDeclaration = $phpDeclaration;
         $this->namespaceDeclaration = null;
@@ -24,6 +26,7 @@ class Builder
         $this->classDeclaration = null;
         $this->methodDeclarations = $methodDeclarations;
         $this->propertyDeclarations = $propertyDeclarations;
+        $this->callDeclarations = $callDeclarations;
     }
     
     public function setNamespaceDeclaration(
@@ -86,8 +89,10 @@ class Builder
         
         $this->propertyDeclarations->append($text);
         
-        $constructorParameters = $this->propertyDeclarations->getParameters();
+        $this->callDeclarations->append($text);
         
+        $constructorParameters = $this->propertyDeclarations->getParameters();
+
         $this->methodDeclarations->append($text, $constructorParameters);
         
         $text->appendLine('}'); // close class

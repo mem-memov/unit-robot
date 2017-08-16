@@ -85,4 +85,17 @@ class Declarations
             )
         );
     }
+    
+    public function createCallDeclarations(): CallDeclarations
+    {
+        return new CallDeclarations();
+    }
+    
+    public function createSimpleCallDeclaration(
+        string $variable, 
+        string $method
+    ): SimpleCallDeclaration
+    {
+        return new SimpleCallDeclaration($variable, $method);
+    }
 }

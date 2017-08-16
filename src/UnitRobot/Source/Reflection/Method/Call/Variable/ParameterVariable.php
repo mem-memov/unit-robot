@@ -10,4 +10,9 @@ class ParameterVariable implements Variable
     ) {
         $this->variableName = $variableName;
     }
+    
+    public function toString(): string
+    {
+        return '$' . $this->variableName;
+    }
 }
