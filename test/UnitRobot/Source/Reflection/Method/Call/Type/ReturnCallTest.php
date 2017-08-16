@@ -10,19 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class ReturnCallTest extends TestCase
 {
-    public function testItCan__create(): void
+    protected $callVariable;
+    protected $method;
+
+    protected function setUp(): void
     {
-        $returnCall = new ReturnCall();
-
-        $callVariable = $this->createMock(Variable::class);
-        $method = 'some $method value';
-
-        $returnCall->__create($callVariable, $method);
+        $this->callVariable = $this->createMock(Variable::class);
+        $this->method = 'some $this->method value';
     }
 
     public function testItCanFillUnitTestMethod(): void
     {
-        $returnCall = new ReturnCall();
+        $returnCall = new ReturnCall($this->callVariable, $this->method);
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);

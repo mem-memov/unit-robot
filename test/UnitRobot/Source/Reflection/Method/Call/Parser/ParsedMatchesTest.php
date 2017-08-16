@@ -27,6 +27,10 @@ final class ParsedMatchesTest extends TestCase
         $callPositionings = $this->createMock(CallPositionings::class);
         $positionings = $this->createMock(Positionings::class);
 
+        $positionings->expects($this->once())
+            ->method('createPositioning')
+            ->willReturn($positioning);
+
         $callPositionings->expects($this->once())
             ->method('addPositioning');
 
@@ -48,11 +52,27 @@ final class ParsedMatchesTest extends TestCase
         $variables->expects($this->once())
             ->method('createParameterVariable');
 
+        $callPositionings->expects($this->once())
+            ->method('getByIndex')
+            ->willReturn($callPositioning);
+
         $variables->expects($this->once())
             ->method('createPropertyVariable');
 
         $variables->expects($this->once())
             ->method('createParameterVariable');
+
+        $callTypes->expects($this->once())
+            ->method('createResultCall')
+            ->willReturn($methodCall);
+
+        $callTypes->expects($this->once())
+            ->method('createReturnCall')
+            ->willReturn($methodCall);
+
+        $callTypes->expects($this->once())
+            ->method('createSimpleCall')
+            ->willReturn($methodCall);
 
         $methodCalls->expects($this->once())
             ->method('addCall');

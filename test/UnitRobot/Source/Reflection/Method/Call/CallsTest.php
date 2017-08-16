@@ -29,6 +29,10 @@ final class CallsTest extends TestCase
 
         $methodString = 'some $methodString value';
 
+        $this->parser->expects($this->once())
+            ->method('parseMethod')
+            ->willReturn($this->parsedMatches);
+
         $parsedMatches->expects($this->once())
             ->method('fillCallPositionings');
 

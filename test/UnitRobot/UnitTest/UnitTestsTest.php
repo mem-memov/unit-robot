@@ -28,6 +28,14 @@ final class UnitTestsTest extends TestCase
 
         $file = $this->createMock(File::class);
 
+        $this->builders->expects($this->once())
+            ->method('createBuilder')
+            ->willReturn($this->builder);
+
+        $this->texts->expects($this->once())
+            ->method('createText')
+            ->willReturn($this->text);
+
         $unitTests->createUnitTest($file);
     }
 }

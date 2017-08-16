@@ -5,21 +5,21 @@ use MemMemov\UnitRobot\UnitTest\File\Text;
 
 class SimpleCallDeclaration implements CallDeclaration
 {
-    private $variableName;
-    private $methodName;
+    private $variable;
+    private $method;
     
     public function __construct(
-        string $variableName,
-        string $methodName
+        string $variable,
+        string $method
     ) {
-        $this->variableName = $variableName;
-        $this->methodName = $methodName;
+        $this->variable = $variable;
+        $this->method = $method;
     }
     
     public function appendExpectation(Text $text): void
     {
-        $text->appendLine($this->variableName . '->expects($this->once())', 2);
-        $text->appendLine('->method(\'' . $this->methodName . '\');', 3);
+        $text->appendLine($this->variable . '->expects($this->once())', 2);
+        $text->appendLine('->method(\'' . $this->method . '\');', 3);
         $text->appendLine('');
     }
 }

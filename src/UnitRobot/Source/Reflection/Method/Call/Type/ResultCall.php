@@ -11,12 +11,11 @@ class ResultCall implements Call
     private $method;
     private $resultVariable;
     
-    public function __create(
+    public function __construct(
         Variable $callVariable,
         string $method,
         Variable $resultVariable
-    ): SimpleCall
-    {
+    ) {
         $this->callVariable = $callVariable;
         $this->method = $method;
         $this->resultVariable = $resultVariable;
@@ -27,6 +26,12 @@ class ResultCall implements Call
         UnitTestCallDeclarations $callDeclarations
     ): void
     {
+        $callDeclaration = $declarations->createResultCallDeclaration(
+            $this->callVariable->toString(), 
+            $this->method,
+            $this->resultVariable->toString()
+        );
         
+        $callDeclarations->addDeclaration($callDeclaration);
     }
 }

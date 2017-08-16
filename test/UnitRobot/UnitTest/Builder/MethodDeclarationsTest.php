@@ -42,6 +42,10 @@ final class MethodDeclarationsTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $this->propertyDeclarations->expects($this->once())
+            ->method('getParameters')
+            ->willReturn($this->constructorParameters);
+
         $this->constructDeclaration->expects($this->once())
             ->method('setParameters');
 

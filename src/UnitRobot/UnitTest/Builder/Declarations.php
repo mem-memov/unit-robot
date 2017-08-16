@@ -98,4 +98,13 @@ class Declarations
     {
         return new SimpleCallDeclaration($variable, $method);
     }
+    
+    public function createResultCallDeclaration(
+        string $callVariable,
+        string $method,
+        string $resultVariable
+    ): ResultCallDeclaration
+    {
+        return new ResultCallDeclaration($callVariable, $method, $resultVariable);
+    }
 }

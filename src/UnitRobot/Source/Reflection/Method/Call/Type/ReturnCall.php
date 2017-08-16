@@ -10,11 +10,10 @@ class ReturnCall implements Call
     private $callVariable;
     private $method;
     
-    public function __create(
+    public function __construct(
         Variable $callVariable,
         string $method
-    ): SimpleCall
-    {
+    ) {
         $this->callVariable = $callVariable;
         $this->method = $method;
     }

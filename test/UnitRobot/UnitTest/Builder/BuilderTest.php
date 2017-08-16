@@ -116,6 +116,10 @@ final class BuilderTest extends TestCase
         $this->callDeclarations->expects($this->once())
             ->method('append');
 
+        $this->propertyDeclarations->expects($this->once())
+            ->method('getParameters')
+            ->willReturn($this->constructorParameters);
+
         $this->methodDeclarations->expects($this->once())
             ->method('append');
 

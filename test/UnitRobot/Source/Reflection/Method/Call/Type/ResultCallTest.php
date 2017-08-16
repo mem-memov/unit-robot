@@ -10,23 +10,36 @@ use PHPUnit\Framework\TestCase;
 
 final class ResultCallTest extends TestCase
 {
-    public function testItCan__create(): void
+    protected $callVariable;
+    protected $method;
+    protected $resultVariable;
+
+    protected function setUp(): void
     {
-        $resultCall = new ResultCall();
-
-        $callVariable = $this->createMock(Variable::class);
-        $method = 'some $method value';
-        $resultVariable = $this->createMock(Variable::class);
-
-        $resultCall->__create($callVariable, $method, $resultVariable);
+        $this->callVariable = $this->createMock(Variable::class);
+        $this->method = 'some $this->method value';
+        $this->resultVariable = $this->createMock(Variable::class);
     }
 
     public function testItCanFillUnitTestMethod(): void
     {
-        $resultCall = new ResultCall();
+        $resultCall = new ResultCall($this->callVariable, $this->method, $this->resultVariable);
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
+
+        $declarations->expects($this->once())
+            ->method('createResultCallDeclaration')
+            ->willReturn($callDeclaration);
+
+        $this->callVariable->expects($this->once())
+            ->method('toString');
+
+        $this->resultVariable->expects($this->once())
+            ->method('toString');
+
+        $callDeclarations->expects($this->once())
+            ->method('addDeclaration');
 
         $resultCall->fillUnitTestMethod($declarations, $callDeclarations);
     }

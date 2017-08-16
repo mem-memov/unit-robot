@@ -18,6 +18,14 @@ final class UnitRobotTest extends TestCase
     {
         $unitRobot = new UnitRobot($this->configuration);
 
+        $this->configuration->expects($this->once())
+            ->method('createSourceDirectory')
+            ->willReturn($this->sourceDirectory);
+
+        $this->configuration->expects($this->once())
+            ->method('createUnitTestDirectory')
+            ->willReturn($this->unitTestDirectory);
+
         $sourceDirectory->expects($this->once())
             ->method('createTests');
 

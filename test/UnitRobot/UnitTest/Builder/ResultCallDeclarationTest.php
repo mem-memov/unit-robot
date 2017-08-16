@@ -6,20 +6,22 @@ namespace MemMemov\UnitRobot\UnitTest\Builder;
 use MemMemov\UnitRobot\UnitTest\File\Text;
 use PHPUnit\Framework\TestCase;
 
-final class SimpleCallDeclarationTest extends TestCase
+final class ResultCallDeclarationTest extends TestCase
 {
-    protected $variable;
+    protected $callVariable;
     protected $method;
+    protected $resultVariable;
 
     protected function setUp(): void
     {
-        $this->variable = 'some $this->variable value';
+        $this->callVariable = 'some $this->callVariable value';
         $this->method = 'some $this->method value';
+        $this->resultVariable = 'some $this->resultVariable value';
     }
 
     public function testItCanAppendExpectation(): void
     {
-        $simpleCallDeclaration = new SimpleCallDeclaration($this->variable, $this->method);
+        $resultCallDeclaration = new ResultCallDeclaration($this->callVariable, $this->method, $this->resultVariable);
 
         $text = $this->createMock(Text::class);
 
@@ -35,6 +37,9 @@ final class SimpleCallDeclarationTest extends TestCase
         $text->expects($this->once())
             ->method('appendLine');
 
-        $simpleCallDeclaration->appendExpectation($text);
+        $text->expects($this->once())
+            ->method('appendLine');
+
+        $resultCallDeclaration->appendExpectation($text);
     }
 }

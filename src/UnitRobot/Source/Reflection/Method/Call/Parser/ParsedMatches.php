@@ -84,7 +84,7 @@ class ParsedMatches
                 $resultVariable = $this->matches[7][$index] === 'this->'
                     ? $variables->createPropertyVariable($resultVariableName)
                     : $variables->createParameterVariable($resultVariableName);
-                    
+                
                 $methodCall = $callTypes->createResultCall(
                     $callVariable,
                     $method,

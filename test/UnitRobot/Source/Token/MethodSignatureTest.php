@@ -26,6 +26,10 @@ final class MethodSignatureTest extends TestCase
         $typePart->expects($this->once())
             ->method('isTypePart');
 
+        $typePart->expects($this->once())
+            ->method('getString')
+            ->willReturn($type);
+
         $methodSignature->getParameterType($parameterName);
     }
 }

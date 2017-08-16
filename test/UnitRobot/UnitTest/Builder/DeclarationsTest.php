@@ -106,4 +106,15 @@ final class DeclarationsTest extends TestCase
 
         $declarations->createSimpleCallDeclaration($variable, $method);
     }
+
+    public function testItCanCreateResultCallDeclaration(): void
+    {
+        $declarations = new Declarations();
+
+        $callVariable = 'some $callVariable value';
+        $method = 'some $method value';
+        $resultVariable = 'some $resultVariable value';
+
+        $declarations->createResultCallDeclaration($callVariable, $method, $resultVariable);
+    }
 }

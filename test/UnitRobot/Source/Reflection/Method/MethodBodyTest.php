@@ -25,6 +25,22 @@ final class MethodBodyTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $this->reflection->expects($this->once())
+            ->method('getStartLine')
+            ->willReturn($this->startLine);
+
+        $this->reflection->expects($this->once())
+            ->method('getEndLine')
+            ->willReturn($this->endLine);
+
+        $text->expects($this->once())
+            ->method('extract')
+            ->willReturn($methodText);
+
+        $this->tokens->expects($this->once())
+            ->method('createMethodBody')
+            ->willReturn($this->bodyTokens);
+
         $methodBody->getTokens($text);
     }
 }
