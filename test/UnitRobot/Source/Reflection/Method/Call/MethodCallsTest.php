@@ -27,6 +27,9 @@ final class MethodCallsTest extends TestCase
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
 
+        $call->expects($this->once())
+            ->method('fillUnitTestMethod');
+
         $methodCalls->fillUnitTestMethod($declarations, $callDeclarations);
     }
 }

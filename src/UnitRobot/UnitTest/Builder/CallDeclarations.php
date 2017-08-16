@@ -20,9 +20,5 @@ class CallDeclarations
         foreach ($this->declarations as $declaration) {
             $declaration->appendExpectation($text);
         }
-        
-        if (!empty($this->declarations)) {
-            $text->appendLine(''); // space
-        }
     }
 }

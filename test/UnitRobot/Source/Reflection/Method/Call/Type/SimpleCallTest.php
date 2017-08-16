@@ -26,6 +26,12 @@ final class SimpleCallTest extends TestCase
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
 
+        $this->callVariable->expects($this->once())
+            ->method('toString');
+
+        $callDeclarations->expects($this->once())
+            ->method('addDeclaration');
+
         $simpleCall->fillUnitTestMethod($declarations, $callDeclarations);
     }
 }

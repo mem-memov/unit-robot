@@ -23,6 +23,18 @@ final class SimpleCallDeclarationTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $text->expects($this->once())
+            ->method('appendLine');
+
+        $this->expects($this->once())
+            ->method('once');
+
+        $text->expects($this->once())
+            ->method('appendLine');
+
+        $text->expects($this->once())
+            ->method('appendLine');
+
         $simpleCallDeclaration->appendExpectation($text);
     }
 }

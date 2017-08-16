@@ -26,6 +26,12 @@ final class ParameterTest extends TestCase
 
         $unitTest = $this->createMock(UnitTest::class);
 
+        $unitTest->expects($this->once())
+            ->method('addProperty');
+
+        $this->reflection->expects($this->once())
+            ->method('getName');
+
         $parameter->addPropertyToUnitTest($unitTest);
     }
 
@@ -35,6 +41,12 @@ final class ParameterTest extends TestCase
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);
+
+        $this->reflection->expects($this->once())
+            ->method('getName');
+
+        $parameterDeclarations->expects($this->once())
+            ->method('addDeclaration');
 
         $parameter->fillUnitTestMethod($declarations, $parameterDeclarations);
     }

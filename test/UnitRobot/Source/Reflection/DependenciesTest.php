@@ -23,6 +23,12 @@ final class DependenciesTest extends TestCase
         $sourceText = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
 
+        $this->class->expects($this->once())
+            ->method('getStartLine');
+
+        $unitTest->expects($this->once())
+            ->method('addDependency');
+
         $dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
     }
 }

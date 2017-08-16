@@ -25,6 +25,9 @@ final class PropertyDeclarationTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $text->expects($this->once())
+            ->method('appendLine');
+
         $propertyDeclaration->appendProperty($text);
     }
 
@@ -33,6 +36,9 @@ final class PropertyDeclarationTest extends TestCase
         $propertyDeclaration = new PropertyDeclaration($this->type, $this->name, $this->mockDeclaration);
 
         $text = $this->createMock(Text::class);
+
+        $this->mockDeclaration->expects($this->once())
+            ->method('append');
 
         $propertyDeclaration->appendValue($text);
     }

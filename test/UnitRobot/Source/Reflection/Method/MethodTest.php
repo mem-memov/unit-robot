@@ -35,6 +35,18 @@ final class MethodTest extends TestCase
         $text = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
 
+        $this->reflection->expects($this->once())
+            ->method('isConstructor');
+
+        $parameters->expects($this->once())
+            ->method('addPropertiesToUnitTest');
+
+        $unitTest->expects($this->once())
+            ->method('addMethod');
+
+        $this->reflection->expects($this->once())
+            ->method('getName');
+
         $method->createTest($text, $unitTest);
     }
 }

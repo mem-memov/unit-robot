@@ -21,6 +21,12 @@ final class NamespaceDeclarationTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $text->expects($this->once())
+            ->method('appendLine');
+
+        $text->expects($this->once())
+            ->method('appendLine');
+
         $namespaceDeclaration->append($text);
     }
 }

@@ -19,6 +19,7 @@ class SimpleCallDeclaration implements CallDeclaration
     public function appendExpectation(Text $text): void
     {
         $text->appendLine($this->variableName . '->expects($this->once())', 2);
-        $text->appendLine('->method(' . $this->methodName . ');', 3);
+        $text->appendLine('->method(\'' . $this->methodName . '\');', 3);
+        $text->appendLine('');
     }
 }

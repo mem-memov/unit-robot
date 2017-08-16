@@ -32,6 +32,9 @@ final class ParameterDeclarationTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $this->mockDeclaration->expects($this->once())
+            ->method('append');
+
         $parameterDeclaration->appendValue($text);
     }
 }

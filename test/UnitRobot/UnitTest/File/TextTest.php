@@ -23,6 +23,9 @@ final class TextTest extends TestCase
 
         $file = $this->createMock(File::class);
 
+        $file->expects($this->once())
+            ->method('create');
+
         $text->writeToFile($file);
     }
 }

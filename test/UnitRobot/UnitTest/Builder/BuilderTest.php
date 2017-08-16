@@ -47,6 +47,9 @@ final class BuilderTest extends TestCase
 
         $constructDeclaration = $this->createMock(ConstructDeclaration::class);
 
+        $this->methodDeclarations->expects($this->once())
+            ->method('setConstructDeclaration');
+
         $builder->setConstructDeclaration($constructDeclaration);
     }
 
@@ -56,6 +59,9 @@ final class BuilderTest extends TestCase
 
         $dependencyDeclaration = $this->createMock(DependencyDeclaration::class);
 
+        $this->dependencyDeclarations->expects($this->once())
+            ->method('addDeclaration');
+
         $builder->addDependencyDeclaration($dependencyDeclaration);
     }
 
@@ -64,6 +70,9 @@ final class BuilderTest extends TestCase
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
 
         $propertyDeclaration = $this->createMock(PropertyDeclaration::class);
+
+        $this->propertyDeclarations->expects($this->once())
+            ->method('addDeclaration');
 
         $builder->addPropertyDeclaration($propertyDeclaration);
     }
@@ -75,8 +84,12 @@ final class BuilderTest extends TestCase
         $methodDeclaration = $this->createMock(MethodDeclaration::class);
         $invocationDeclaration = $this->createMock(InvocationDeclaration::class);
         $parameterDeclarations = $this->createMock(ParameterDeclarations::class);
+        $callDeclarations = $this->createMock(CallDeclarations::class);
 
-        $builder->addMethodDeclaration($methodDeclaration, $invocationDeclaration, $parameterDeclarations);
+        $this->methodDeclarations->expects($this->once())
+            ->method('addDeclaration');
+
+        $builder->addMethodDeclaration($methodDeclaration, $invocationDeclaration, $parameterDeclarations, $callDeclarations);
     }
 
     public function testItCanWrite(): void
@@ -84,6 +97,30 @@ final class BuilderTest extends TestCase
         $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
 
         $text = $this->createMock(Text::class);
+
+        $this->phpDeclaration->expects($this->once())
+            ->method('append');
+
+        $this->namespaceDeclaration->expects($this->once())
+            ->method('append');
+
+        $this->dependencyDeclarations->expects($this->once())
+            ->method('append');
+
+        $this->classDeclaration->expects($this->once())
+            ->method('append');
+
+        $this->propertyDeclarations->expects($this->once())
+            ->method('append');
+
+        $this->callDeclarations->expects($this->once())
+            ->method('append');
+
+        $this->methodDeclarations->expects($this->once())
+            ->method('append');
+
+        $text->expects($this->once())
+            ->method('appendLine');
 
         $builder->write($text);
     }

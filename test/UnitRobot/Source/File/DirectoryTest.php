@@ -28,6 +28,12 @@ final class DirectoryTest extends TestCase
 
         $unitTestDirectory = $this->createMock(UnitTestDirectory::class);
 
+        $file->expects($this->once())
+            ->method('hasClass');
+
+        $reflection->expects($this->once())
+            ->method('createTests');
+
         $directory->createTests($unitTestDirectory);
     }
 }

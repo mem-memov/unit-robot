@@ -21,6 +21,9 @@ final class DependencyDeclarationTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $text->expects($this->once())
+            ->method('appendLine');
+
         $dependencyDeclaration->append($text);
     }
 }

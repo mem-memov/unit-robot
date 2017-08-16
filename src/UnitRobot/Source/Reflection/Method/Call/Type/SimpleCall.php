@@ -27,5 +27,7 @@ class SimpleCall implements Call
             $this->callVariable->toString(), 
             $this->method
         );
+        
+        $callDeclarations->addDeclaration($callDeclaration);
     }
 }

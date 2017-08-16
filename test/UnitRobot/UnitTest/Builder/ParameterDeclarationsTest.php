@@ -21,6 +21,9 @@ final class ParameterDeclarationsTest extends TestCase
     {
         $parameterDeclarations = new ParameterDeclarations();
 
+        $declaration->expects($this->once())
+            ->method('getParameter');
+
         $parameterDeclarations->getParameters();
     }
 
@@ -29,6 +32,12 @@ final class ParameterDeclarationsTest extends TestCase
         $parameterDeclarations = new ParameterDeclarations();
 
         $text = $this->createMock(Text::class);
+
+        $declaration->expects($this->once())
+            ->method('appendValue');
+
+        $text->expects($this->once())
+            ->method('appendLine');
 
         $parameterDeclarations->append($text);
     }

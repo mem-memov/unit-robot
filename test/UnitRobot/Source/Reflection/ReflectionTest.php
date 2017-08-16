@@ -31,6 +31,36 @@ final class ReflectionTest extends TestCase
         $sourceText = $this->createMock(Text::class);
         $unitTestFile = $this->createMock(UnitTestFile::class);
 
+        $this->class->expects($this->once())
+            ->method('isAbstract');
+
+        $this->class->expects($this->once())
+            ->method('isInterface');
+
+        $unitTest->expects($this->once())
+            ->method('setNamespace');
+
+        $this->class->expects($this->once())
+            ->method('getNamespaceName');
+
+        $unitTest->expects($this->once())
+            ->method('setClassName');
+
+        $this->class->expects($this->once())
+            ->method('getShortName');
+
+        $this->dependencies->expects($this->once())
+            ->method('addDependenciesToUnitTest');
+
+        $this->class->expects($this->once())
+            ->method('getShortName');
+
+        $method->expects($this->once())
+            ->method('createTest');
+
+        $unitTest->expects($this->once())
+            ->method('write');
+
         $reflection->createTests($sourceText, $unitTestFile);
     }
 }

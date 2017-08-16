@@ -20,6 +20,12 @@ final class MethodSignatureTest extends TestCase
 
         $parameterName = 'some $parameterName value';
 
+        $token->expects($this->once())
+            ->method('hasVariable');
+
+        $typePart->expects($this->once())
+            ->method('isTypePart');
+
         $methodSignature->getParameterType($parameterName);
     }
 }

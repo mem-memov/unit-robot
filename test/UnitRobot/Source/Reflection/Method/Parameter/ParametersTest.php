@@ -15,6 +15,15 @@ final class ParametersTest extends TestCase
         $parameterReflections = [];
         $tokens = $this->createMock(SignatureTokens::class);
 
+        $reflection->expects($this->once())
+            ->method('getName');
+
+        $tokens->expects($this->once())
+            ->method('getParameterType');
+
+        $reflection->expects($this->once())
+            ->method('getName');
+
         $parameters->createMethodParameters($parameterReflections, $tokens);
     }
 }

@@ -23,6 +23,9 @@ final class CallDeclarationsTest extends TestCase
 
         $text = $this->createMock(Text::class);
 
+        $declaration->expects($this->once())
+            ->method('appendExpectation');
+
         $callDeclarations->append($text);
     }
 }
