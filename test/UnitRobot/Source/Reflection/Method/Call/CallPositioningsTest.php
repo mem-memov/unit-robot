@@ -15,4 +15,13 @@ final class CallPositioningsTest extends TestCase
 
         $callPositionings->addPositioning($positioning);
     }
+
+    public function testItCanGetByIndex(): void
+    {
+        $callPositionings = new CallPositionings();
+
+        $index = 5;
+
+        $callPositionings->getByIndex($index);
+    }
 }

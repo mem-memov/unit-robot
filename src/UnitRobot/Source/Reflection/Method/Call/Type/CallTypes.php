@@ -1,7 +1,7 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Method\Call;
+namespace MemMemov\UnitRobot\Source\Reflection\Method\Call\Type;
 
-use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variable\Type;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variable;
 
 class CallTypes
 {
@@ -25,8 +25,8 @@ class CallTypes
         Variable $callVariable,
         string $method,
         Variable $resultVariable
-    ): ResulCall
+    ): ResultCall
     {
-        return new ResulCall($callVariable, $method, $resultVariable);
+        return new ResultCall($callVariable, $method, $resultVariable);
     }
 }

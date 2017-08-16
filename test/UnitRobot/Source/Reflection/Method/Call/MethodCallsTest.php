@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\Reflection\Method\Call;
 
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Type\Call;
 use PHPUnit\Framework\TestCase;
 
 final class MethodCallsTest extends TestCase
@@ -11,7 +12,7 @@ final class MethodCallsTest extends TestCase
     {
         $methodCalls = new MethodCalls();
 
-        $call = $this->createMock(MethodCall::class);
+        $call = $this->createMock(Call::class);
 
         $methodCalls->addCall($call);
     }

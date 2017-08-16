@@ -7,13 +7,14 @@ use PHPUnit\Framework\TestCase;
 
 final class PositioningsTest extends TestCase
 {
-    public function testItCanCreateCallPositionings(): void
+    public function testItCanCreatePositioning(): void
     {
         $positionings = new Positionings();
 
-        $methodString = 'some $methodString value';
-        $matches = [];
+        $beforeParametersPosition = 5;
+        $openBracketPosition = 5;
+        $closeBracketPosition = 5;
 
-        $positionings->createCallPositionings($methodString, $matches);
+        $positionings->createPositioning($beforeParametersPosition, $openBracketPosition, $closeBracketPosition);
     }
 }

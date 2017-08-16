@@ -1,11 +1,11 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection\Method\Call\Parser;
 
-use MemMemov\UnitRobot\Source\Reflection\Method\CallTypes;
-use MemMemov\UnitRobot\Source\Reflection\Method\CallPositionings;
-use MemMemov\UnitRobot\Source\Reflection\Method\MethodCalls;
-use MemMemov\UnitRobot\Source\Reflection\Method\Positionings;
-use MemMemov\UnitRobot\Source\Reflection\Method\Variable\Variables;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Type\CallTypes;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\CallPositionings;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\MethodCalls;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Positionings;
+use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variables;
 
 class ParsedMatches
 {
@@ -18,6 +18,7 @@ class ParsedMatches
     }
     
     public function fillCallPositionings(
+        string $methodString,
         CallPositionings $callPositionings, 
         Positionings $positionings
     ): void
@@ -75,7 +76,7 @@ class ParsedMatches
                 
             $callPositioning = $callPositionings->getByIndex($index);
 
-            $hasResult = ('' !== $matches[5][$index]);
+            $hasResult = ('' !== $this->matches[5][$index]);
             $isReturn = ('return' === $this->matches[6][$index]);
             
             if ($hasResult) {
