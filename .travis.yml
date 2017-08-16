@@ -4,6 +4,6 @@ php:
 install:
  - composer install
 script: 
- - rm test
+ - rm -rf test
  - bin/unit-robot
  - vendor/bin/phpunit
