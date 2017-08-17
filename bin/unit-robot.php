@@ -13,6 +13,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Call\Parser\Parser as SourcePars
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Positionings as SourcePositionings;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Type\CallTypes as SourceCallTypes;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variables as SourceVariables;
+use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructors as SourceConstructors;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as SourceTokenMethodSignatures;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as SourceTokenMethodBodies;
@@ -29,6 +30,9 @@ require __DIR__ . '/../vendor/autoload.php';
 $configuration = require __DIR__ . '/../unit-robot.config.php';
 
 $sourceTokens = new SourceTokens();
+$sourceParameters = new SourceParameters();
+$sourceTokenMethodSignatures = new SourceTokenMethodSignatures($sourceTokens);
+
 $unitRobot = new UnitRobot(
     new Configuration(
         $configuration,
@@ -39,14 +43,18 @@ $unitRobot = new UnitRobot(
             ),
             new SourceReflections(
                 new SourceMethods(
-                    new SourceTokenMethodSignatures($sourceTokens),
+                    $sourceTokenMethodSignatures,
                     new SourceTokenMethodBodies($sourceTokens),
-                    new SourceParameters(),
+                    $sourceParameters,
                     new SourceCalls(
                         new SourceParser(),
                         new SourcePositionings(),
                         new SourceCallTypes(),
                         new SourceVariables()
+                    ),
+                    new SourceConstructors(
+                        $sourceTokenMethodSignatures,
+                        $sourceParameters
                     )
                 ),
                 new UnitTests(

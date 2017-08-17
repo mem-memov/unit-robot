@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace MemMemov\UnitRobot\Source\Reflection\Method;
 
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
+use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructors;
+use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructor;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;

@@ -2,6 +2,8 @@
 namespace MemMemov\UnitRobot\Source\Reflection\Method;
 
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
+use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructors;
+use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructor;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;
@@ -12,17 +14,20 @@ class Methods
     private $methodBodyTokens;
     private $parameters;
     private $calls;
+    private $constructors;
     
     public function __construct(
         MethodSignatureTokens $methodSignatureTokens,
         MethodBodyTokens $methodBodyTokens,
         Parameters $parameters,
-        Calls $calls
+        Calls $calls,
+        Constructors $constructors
     ) {
         $this->methodSignatureTokens = $methodSignatureTokens;
         $this->methodBodyTokens = $methodBodyTokens;
         $this->parameters = $parameters;
         $this->calls = $calls;
+        $this->constructors = $constructors;
     }
     
     public function createConstructor(
@@ -31,23 +36,21 @@ class Methods
     {
         $constructorReflection = $class->getconstructor();
         $className = $class->getShortName();
-        
+
         if (is_null($constructorReflection)) {
-            return new EmptyConstructor(
-                $className,
-                $this->parameters
+            
+            return $this->constructors->createEmptyConstructor(
+                $className
             );
-        }
-        
-        return new ParameterizedConstructor(
-            $constructorReflection,
-            $className,
-            new MethodSignature(
+            
+        } else {
+            
+            return $this->constructors->createParameterizedConstructor(
                 $constructorReflection,
-                $this->methodSignatureTokens
-            ),
-            $this->parameters
-        );
+                $className
+            );
+            
+        }
     }
     
     public function createMethod(
