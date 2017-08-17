@@ -11,18 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterTest extends TestCase
 {
-    protected $reflection;
-    protected $type;
-
-    protected function setUp(): void
-    {
-        $this->reflection = $this->createMock(\ReflectionParameter::class);
-        $this->type = 'some $this->type value';
-    }
-
     public function testItCanAddPropertyToUnitTest(): void
     {
-        $parameter = new Parameter($this->reflection, $this->type);
+        $parameter = new Parameter();
 
         $unitTest = $this->createMock(UnitTest::class);
 
@@ -37,7 +28,7 @@ final class ParameterTest extends TestCase
 
     public function testItCanFillUnitTestMethod(): void
     {
-        $parameter = new Parameter($this->reflection, $this->type);
+        $parameter = new Parameter();
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);

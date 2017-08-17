@@ -8,16 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ClassDeclarationTest extends TestCase
 {
-    protected $className;
-
-    protected function setUp(): void
-    {
-        $this->className = 'some $this->className value';
-    }
-
     public function testItCanAppend(): void
     {
-        $classDeclaration = new ClassDeclaration($this->className);
+        $classDeclaration = new ClassDeclaration();
 
         $text = $this->createMock(Text::class);
 

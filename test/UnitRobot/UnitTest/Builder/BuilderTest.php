@@ -8,24 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 final class BuilderTest extends TestCase
 {
-    protected $phpDeclaration;
-    protected $dependencyDeclarations;
-    protected $methodDeclarations;
-    protected $propertyDeclarations;
-    protected $callDeclarations;
-
-    protected function setUp(): void
-    {
-        $this->phpDeclaration = $this->createMock(PhpDeclaration::class);
-        $this->dependencyDeclarations = $this->createMock(DependencyDeclarations::class);
-        $this->methodDeclarations = $this->createMock(MethodDeclarations::class);
-        $this->propertyDeclarations = $this->createMock(PropertyDeclarations::class);
-        $this->callDeclarations = $this->createMock(CallDeclarations::class);
-    }
-
     public function testItCanSetNamespaceDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $namespaceDeclaration = $this->createMock(NamespaceDeclaration::class);
 
@@ -34,7 +19,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanSetСlassDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $classDeclaration = $this->createMock(ClassDeclaration::class);
 
@@ -43,7 +28,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanSetConstructDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $constructDeclaration = $this->createMock(ConstructDeclaration::class);
 
@@ -55,7 +40,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanAddDependencyDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $dependencyDeclaration = $this->createMock(DependencyDeclaration::class);
 
@@ -67,7 +52,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanAddPropertyDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $propertyDeclaration = $this->createMock(PropertyDeclaration::class);
 
@@ -79,7 +64,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanAddMethodDeclaration(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $methodDeclaration = $this->createMock(MethodDeclaration::class);
         $invocationDeclaration = $this->createMock(InvocationDeclaration::class);
@@ -94,7 +79,7 @@ final class BuilderTest extends TestCase
 
     public function testItCanWrite(): void
     {
-        $builder = new Builder($this->phpDeclaration, $this->dependencyDeclarations, $this->methodDeclarations, $this->propertyDeclarations, $this->callDeclarations);
+        $builder = new Builder();
 
         $text = $this->createMock(Text::class);
 

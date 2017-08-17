@@ -8,18 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 final class SimpleCallDeclarationTest extends TestCase
 {
-    protected $variable;
-    protected $method;
-
-    protected function setUp(): void
-    {
-        $this->variable = 'some $this->variable value';
-        $this->method = 'some $this->method value';
-    }
-
     public function testItCanAppendExpectation(): void
     {
-        $simpleCallDeclaration = new SimpleCallDeclaration($this->variable, $this->method);
+        $simpleCallDeclaration = new SimpleCallDeclaration();
 
         $text = $this->createMock(Text::class);
 

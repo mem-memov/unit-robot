@@ -25,6 +25,31 @@ class Methods
         $this->calls = $calls;
     }
     
+    public function createConstructor(
+        \ReflectionClass $class
+    ): Constructor
+    {
+        $constructorReflection = $class->getconstructor();
+        $className = $class->getShortName();
+        
+        if (is_null($constructorReflection)) {
+            return new EmptyConstructor(
+                $className,
+                $this->parameters
+            );
+        }
+        
+        return new ParameterizedConstructor(
+            $constructorReflection,
+            $className,
+            new MethodSignature(
+                $constructorReflection,
+                $this->methodSignatureTokens
+            ),
+            $this->parameters
+        );
+    }
+    
     public function createMethod(
         \ReflectionMethod $methodReflection,
         string $className

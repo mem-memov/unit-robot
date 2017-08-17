@@ -8,16 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodDeclarationTest extends TestCase
 {
-    protected $methodName;
-
-    protected function setUp(): void
-    {
-        $this->methodName = 'some $this->methodName value';
-    }
-
     public function testItCanAppend(): void
     {
-        $methodDeclaration = new MethodDeclaration($this->methodName);
+        $methodDeclaration = new MethodDeclaration();
 
         $text = $this->createMock(Text::class);
 

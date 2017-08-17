@@ -11,22 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitTestTest extends TestCase
 {
-    protected $declarations;
-    protected $builder;
-    protected $text;
-    protected $file;
-
-    protected function setUp(): void
-    {
-        $this->declarations = $this->createMock(Declarations::class);
-        $this->builder = $this->createMock(Builder::class);
-        $this->text = $this->createMock(Text::class);
-        $this->file = $this->createMock(File::class);
-    }
-
     public function testItCanSetNamespace(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $sourceClassNamespace = 'some $sourceClassNamespace value';
 
@@ -44,7 +31,7 @@ final class UnitTestTest extends TestCase
 
     public function testItCanSetClassName(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $sourceClassName = 'some $sourceClassName value';
 
@@ -68,7 +55,7 @@ final class UnitTestTest extends TestCase
 
     public function testItCanAddDependency(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $sourceUseStatement = 'some $sourceUseStatement value';
 
@@ -86,7 +73,7 @@ final class UnitTestTest extends TestCase
 
     public function testItCanAddProperty(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $sourceType = 'some $sourceType value';
         $sourceName = 'some $sourceName value';
@@ -105,7 +92,7 @@ final class UnitTestTest extends TestCase
 
     public function testItCanAddMethod(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $sourceMethodName = 'some $sourceMethodName value';
         $sourceClassName = 'some $sourceClassName value';
@@ -153,7 +140,7 @@ final class UnitTestTest extends TestCase
 
     public function testItCanWrite(): void
     {
-        $unitTest = new UnitTest($this->declarations, $this->builder, $this->text, $this->file);
+        $unitTest = new UnitTest();
 
         $this->builder->expects($this->once())
             ->method('write');

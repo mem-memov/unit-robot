@@ -7,16 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class PropertyVariableTest extends TestCase
 {
-    protected $variableName;
-
-    protected function setUp(): void
-    {
-        $this->variableName = 'some $this->variableName value';
-    }
-
     public function testItCanToString(): void
     {
-        $propertyVariable = new PropertyVariable($this->variableName);
+        $propertyVariable = new PropertyVariable();
 
         $propertyVariable->toString();
     }

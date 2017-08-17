@@ -11,16 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodParametersTest extends TestCase
 {
-    protected $parameters;
-
-    protected function setUp(): void
-    {
-        $this->parameters = [];
-    }
-
     public function testItCanAddPropertiesToUnitTest(): void
     {
-        $methodParameters = new MethodParameters($this->parameters);
+        $methodParameters = new MethodParameters();
 
         $unitTest = $this->createMock(UnitTest::class);
 
@@ -32,7 +25,7 @@ final class MethodParametersTest extends TestCase
 
     public function testItCanFillUnitTestMethod(): void
     {
-        $methodParameters = new MethodParameters($this->parameters);
+        $methodParameters = new MethodParameters();
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);

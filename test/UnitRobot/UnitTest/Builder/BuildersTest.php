@@ -7,16 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class BuildersTest extends TestCase
 {
-    protected $phpDeclaration;
-
-    protected function setUp(): void
-    {
-        $this->phpDeclaration = $this->createMock(PhpDeclaration::class);
-    }
-
     public function testItCanCreateBuilder(): void
     {
-        $builders = new Builders($this->phpDeclaration);
+        $builders = new Builders();
 
         $builders->createBuilder();
     }

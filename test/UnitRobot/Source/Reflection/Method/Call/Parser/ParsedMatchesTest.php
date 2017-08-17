@@ -12,16 +12,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ParsedMatchesTest extends TestCase
 {
-    protected $matches;
-
-    protected function setUp(): void
-    {
-        $this->matches = [];
-    }
-
     public function testItCanFillCallPositionings(): void
     {
-        $parsedMatches = new ParsedMatches($this->matches);
+        $parsedMatches = new ParsedMatches();
 
         $methodString = 'some $methodString value';
         $callPositionings = $this->createMock(CallPositionings::class);
@@ -41,7 +34,7 @@ final class ParsedMatchesTest extends TestCase
 
     public function testItCanFillMethodCalls(): void
     {
-        $parsedMatches = new ParsedMatches($this->matches);
+        $parsedMatches = new ParsedMatches();
 
         $methodCalls = $this->createMock(MethodCalls::class);
         $callPositionings = $this->createMock(CallPositionings::class);
