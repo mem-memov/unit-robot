@@ -6,7 +6,7 @@ class Method
     private $name;
     private $parameters;
     private $retunValue;
-    
+    /*
     public function __construct(
         $name,
         $parameters,
@@ -14,4 +14,5 @@ class Method
     ) {
         
     }
+    */
 }

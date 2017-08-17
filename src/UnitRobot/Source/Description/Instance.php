@@ -6,7 +6,7 @@ class Instance
     private $name;
     private $properties;
     private $methods;
-    
+    /*
     public function __construct(
         InstanceName $name,
         InstanceProperties $properties,
@@ -16,4 +16,5 @@ class Instance
         $this->properties = $properties;
         $this->methods = $methods;
     }
+    */
 }
