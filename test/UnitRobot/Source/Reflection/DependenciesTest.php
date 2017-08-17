@@ -9,9 +9,16 @@ use PHPUnit\Framework\TestCase;
 
 final class DependenciesTest extends TestCase
 {
+    protected $class;
+
+    protected function setUp(): void
+    {
+        $this->class = $this->createMock(\ReflectionClass::class);
+    }
+
     public function testItCanAddDependenciesToUnitTest(): void
     {
-        $dependencies = new Dependencies();
+        $dependencies = new Dependencies($this->class);
 
         $sourceText = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);

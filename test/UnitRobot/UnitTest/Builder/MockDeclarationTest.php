@@ -8,9 +8,18 @@ use PHPUnit\Framework\TestCase;
 
 final class MockDeclarationTest extends TestCase
 {
+    protected $variable;
+    protected $type;
+
+    protected function setUp(): void
+    {
+        $this->variable = 'some $this->variable value';
+        $this->type = 'some $this->type value';
+    }
+
     public function testItCanAppend(): void
     {
-        $mockDeclaration = new MockDeclaration();
+        $mockDeclaration = new MockDeclaration($this->variable, $this->type);
 
         $text = $this->createMock(Text::class);
 

@@ -10,9 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class ConstructorsTest extends TestCase
 {
+    protected $methodSignatureTokens;
+    protected $parameters;
+
+    protected function setUp(): void
+    {
+        $this->methodSignatureTokens = $this->createMock(MethodSignatureTokens::class);
+        $this->parameters = $this->createMock(Parameters::class);
+    }
+
     public function testItCanCreateEmptyConstructor(): void
     {
-        $constructors = new Constructors();
+        $constructors = new Constructors($this->methodSignatureTokens, $this->parameters);
 
         $className = 'some $className value';
 
@@ -21,7 +30,7 @@ final class ConstructorsTest extends TestCase
 
     public function testItCanCreateParameterizedConstructor(): void
     {
-        $constructors = new Constructors();
+        $constructors = new Constructors($this->methodSignatureTokens, $this->parameters);
 
         $constructorReflection = $this->createMock(\ReflectionMethod::class);
         $className = 'some $className value';

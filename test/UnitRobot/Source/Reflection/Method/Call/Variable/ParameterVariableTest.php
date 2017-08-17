@@ -7,9 +7,16 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterVariableTest extends TestCase
 {
+    protected $variableName;
+
+    protected function setUp(): void
+    {
+        $this->variableName = 'some $this->variableName value';
+    }
+
     public function testItCanToString(): void
     {
-        $parameterVariable = new ParameterVariable();
+        $parameterVariable = new ParameterVariable($this->variableName);
 
         $parameterVariable->toString();
     }

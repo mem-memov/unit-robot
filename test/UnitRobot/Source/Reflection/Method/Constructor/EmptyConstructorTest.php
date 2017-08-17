@@ -10,9 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class EmptyConstructorTest extends TestCase
 {
+    protected $className;
+    protected $parameters;
+
+    protected function setUp(): void
+    {
+        $this->className = 'some $this->className value';
+        $this->parameters = $this->createMock(Parameters::class);
+    }
+
     public function testItCanCreateTest(): void
     {
-        $emptyConstructor = new EmptyConstructor();
+        $emptyConstructor = new EmptyConstructor($this->className, $this->parameters);
 
         $text = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);

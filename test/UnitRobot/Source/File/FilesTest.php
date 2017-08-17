@@ -7,9 +7,16 @@ use PHPUnit\Framework\TestCase;
 
 final class FilesTest extends TestCase
 {
+    protected $texts;
+
+    protected function setUp(): void
+    {
+        $this->texts = $this->createMock(Texts::class);
+    }
+
     public function testItCanCreateFile(): void
     {
-        $files = new Files();
+        $files = new Files($this->texts);
 
         $rootPath = 'some $rootPath value';
         $filePath = 'some $filePath value';

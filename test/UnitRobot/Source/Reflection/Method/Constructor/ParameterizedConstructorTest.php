@@ -11,9 +11,22 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterizedConstructorTest extends TestCase
 {
+    protected $reflection;
+    protected $className;
+    protected $methodSignature;
+    protected $parameters;
+
+    protected function setUp(): void
+    {
+        $this->reflection = $this->createMock(\ReflectionMethod::class);
+        $this->className = 'some $this->className value';
+        $this->methodSignature = $this->createMock(MethodSignature::class);
+        $this->parameters = $this->createMock(Parameters::class);
+    }
+
     public function testItCanCreateTest(): void
     {
-        $parameterizedConstructor = new ParameterizedConstructor();
+        $parameterizedConstructor = new ParameterizedConstructor($this->reflection, $this->className, $this->methodSignature, $this->parameters);
 
         $text = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);

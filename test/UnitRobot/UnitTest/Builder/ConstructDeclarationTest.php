@@ -8,9 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 final class ConstructDeclarationTest extends TestCase
 {
+    protected $className;
+
+    protected function setUp(): void
+    {
+        $this->className = 'some $this->className value';
+    }
+
     public function testItCanSetParameters(): void
     {
-        $constructDeclaration = new ConstructDeclaration();
+        $constructDeclaration = new ConstructDeclaration($this->className);
 
         $parameters = 'some $parameters value';
 
@@ -19,7 +26,7 @@ final class ConstructDeclarationTest extends TestCase
 
     public function testItCanAppend(): void
     {
-        $constructDeclaration = new ConstructDeclaration();
+        $constructDeclaration = new ConstructDeclaration($this->className);
 
         $text = $this->createMock(Text::class);
 

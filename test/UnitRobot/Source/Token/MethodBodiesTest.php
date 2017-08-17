@@ -7,9 +7,16 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodBodiesTest extends TestCase
 {
+    protected $tokens;
+
+    protected function setUp(): void
+    {
+        $this->tokens = $this->createMock(Tokens::class);
+    }
+
     public function testItCanCreateMethodBody(): void
     {
-        $methodBodies = new MethodBodies();
+        $methodBodies = new MethodBodies($this->tokens);
 
         $methodBody = 'some $methodBody value';
 

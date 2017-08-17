@@ -11,9 +11,22 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
 {
+    protected $class;
+    protected $dependencies;
+    protected $methods;
+    protected $unitTests;
+
+    protected function setUp(): void
+    {
+        $this->class = $this->createMock(\ReflectionClass::class);
+        $this->dependencies = $this->createMock(Dependencies::class);
+        $this->methods = $this->createMock(Methods::class);
+        $this->unitTests = $this->createMock(UnitTests::class);
+    }
+
     public function testItCanCreateTests(): void
     {
-        $reflection = new Reflection();
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
 
         $sourceText = $this->createMock(Text::class);
         $unitTestFile = $this->createMock(UnitTestFile::class);
@@ -50,6 +63,9 @@ final class ReflectionTest extends TestCase
         $this->methods->expects($this->once())
             ->method('createConstructor')
             ->willReturn($this->constructor);
+
+        $constructor->expects($this->once())
+            ->method('createTest');
 
         $this->methodReflections = 'some $this->methodReflections value';
 

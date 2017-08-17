@@ -38,6 +38,7 @@ class Reflection
         $this->dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
  
         $constructor = $this->methods->createConstructor($this->class);
+        $constructor->createTest($sourceText, $unitTest);
  
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
 

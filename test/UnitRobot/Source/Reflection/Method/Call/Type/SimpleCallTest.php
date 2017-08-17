@@ -10,9 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class SimpleCallTest extends TestCase
 {
+    protected $callVariable;
+    protected $method;
+
+    protected function setUp(): void
+    {
+        $this->callVariable = $this->createMock(Variable::class);
+        $this->method = 'some $this->method value';
+    }
+
     public function testItCanFillUnitTestMethod(): void
     {
-        $simpleCall = new SimpleCall();
+        $simpleCall = new SimpleCall($this->callVariable, $this->method);
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);

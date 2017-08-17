@@ -13,9 +13,24 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodsTest extends TestCase
 {
+    protected $methodSignatureTokens;
+    protected $methodBodyTokens;
+    protected $parameters;
+    protected $calls;
+    protected $constructors;
+
+    protected function setUp(): void
+    {
+        $this->methodSignatureTokens = $this->createMock(MethodSignatureTokens::class);
+        $this->methodBodyTokens = $this->createMock(MethodBodyTokens::class);
+        $this->parameters = $this->createMock(Parameters::class);
+        $this->calls = $this->createMock(Calls::class);
+        $this->constructors = $this->createMock(Constructors::class);
+    }
+
     public function testItCanCreateConstructor(): void
     {
-        $methods = new Methods();
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors);
 
         $class = $this->createMock(\ReflectionClass::class);
 
@@ -36,7 +51,7 @@ final class MethodsTest extends TestCase
 
     public function testItCanCreateMethod(): void
     {
-        $methods = new Methods();
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors);
 
         $methodReflection = $this->createMock(\ReflectionMethod::class);
         $className = 'some $className value';

@@ -10,9 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodSignatureTest extends TestCase
 {
+    protected $reflection;
+    protected $tokens;
+
+    protected function setUp(): void
+    {
+        $this->reflection = $this->createMock(\ReflectionMethod::class);
+        $this->tokens = $this->createMock(Tokens::class);
+    }
+
     public function testItCanGetTokens(): void
     {
-        $methodSignature = new MethodSignature();
+        $methodSignature = new MethodSignature($this->reflection, $this->tokens);
 
         $methodString = 'some $methodString value';
 

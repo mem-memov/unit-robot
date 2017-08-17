@@ -10,9 +10,22 @@ use PHPUnit\Framework\TestCase;
 
 final class CallsTest extends TestCase
 {
+    protected $parser;
+    protected $positionings;
+    protected $callTypes;
+    protected $variables;
+
+    protected function setUp(): void
+    {
+        $this->parser = $this->createMock(Parser::class);
+        $this->positionings = $this->createMock(Positionings::class);
+        $this->callTypes = $this->createMock(CallTypes::class);
+        $this->variables = $this->createMock(Variables::class);
+    }
+
     public function testItCanCreateMethodCalls(): void
     {
-        $calls = new Calls();
+        $calls = new Calls($this->parser, $this->positionings, $this->callTypes, $this->variables);
 
         $methodString = 'some $methodString value';
 
