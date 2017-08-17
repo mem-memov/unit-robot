@@ -54,12 +54,6 @@ final class MethodTest extends TestCase
             ->method('createMethodParameters')
             ->willReturn($this->parameters);
 
-        $this->reflection->expects($this->once())
-            ->method('isConstructor');
-
-        $parameters->expects($this->once())
-            ->method('addPropertiesToUnitTest');
-
         $this->calls = 'some $this->calls value';
 
         $this->calls->expects($this->once())

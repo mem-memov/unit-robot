@@ -46,16 +46,13 @@ class Method
             $signatureTokens
         );
         
-        if ($this->reflection->isConstructor()) {
-            $parameters->addPropertiesToUnitTest($unitTest);
-        } else {
-            $calls = $this->calls->createMethodCalls($methodString);
-            $unitTest->addMethod(
-                $this->reflection->getName(),
-                $this->className,
-                $parameters,
-                $calls
-            );
-        }
+
+        $calls = $this->calls->createMethodCalls($methodString);
+        $unitTest->addMethod(
+            $this->reflection->getName(),
+            $this->className,
+            $parameters,
+            $calls
+        );
     }
 }
