@@ -44,13 +44,15 @@ class Directory
                 $sourceText = $file->getText();
                 $reflection->createTests($sourceText, $unitTestFile); 
                 
-                $instance = $this->instances->createInstance();
-                $reflection->describe(
-                    $instance->getName(),
-                    $instance->getProperties(),
-                    $instance->getMethods(),
-                    $instance->getDependencies()
-                );
+                if ($reflection->needsDescribing()) {
+                    $instance = $this->instances->createInstance();
+                    $reflection->describe(
+                        $instance->getName(),
+                        $instance->getProperties(),
+                        $instance->getMethods(),
+                        $instance->getDependencies()
+                    );
+                }
             }
         }
         
