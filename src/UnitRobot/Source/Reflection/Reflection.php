@@ -78,5 +78,8 @@ class Reflection
         $name->setClass($this->class->getShortName());
 
         $this->dependencies->describe($sourceText, $dependencies);
+        
+        $constructor = $this->methods->createConstructor($this->class);
+        $constructor->describeProperties($sourceText, $properties);
     }
 }

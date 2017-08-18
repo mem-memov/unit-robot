@@ -2,12 +2,23 @@
 namespace MemMemov\UnitRobot\Source\Reflection\Method\Parameter;
 
 use MemMemov\UnitRobot\Source\Token\MethodSignature as SignatureTokens;
+use MemMemov\UnitRobot\Source\Description\Properties as DescriptionProperties;
+use MemMemov\UnitRobot\Source\Reflection\Method\MethodComment;
 
 class Parameters
 {
+    private $descriptionProperties;
+    
+    public function __construct(
+        DescriptionProperties $descriptionProperties
+    ) {
+        $this->descriptionProperties = $descriptionProperties;
+    }
+    
     public function createMethodParameters(
         array $parameterReflections,
-        SignatureTokens $tokens
+        SignatureTokens $tokens,
+        MethodComment $methodComment
     ): MethodParameters
     {
         $parameters = [];
@@ -17,7 +28,11 @@ class Parameters
 
             $parameters[] = new Parameter(
                 $reflection,
-                $tokens->getParameterType($reflection->getName())
+                $tokens->getParameterType($reflection->getName()),
+                $this->descriptionProperties,
+                new ParameterComment(
+                    $methodComment->getParameterComment($reflection->getName())
+                )
             );
         }
         

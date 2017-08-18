@@ -7,6 +7,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
 use PHPUnit\Framework\TestCase;
 
 final class MethodTest extends TestCase
@@ -17,6 +18,7 @@ final class MethodTest extends TestCase
     protected $methodBody;
     protected $parameters;
     protected $calls;
+    protected $methodComments;
 
     protected function setUp(): void
     {
@@ -26,11 +28,12 @@ final class MethodTest extends TestCase
         $this->methodBody = $this->createMock(MethodBody::class);
         $this->parameters = $this->createMock(Parameters::class);
         $this->calls = $this->createMock(Calls::class);
+        $this->methodComments = $this->createMock(MethodComments::class);
     }
 
     public function testItCanCreateTest(): void
     {
-        $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters, $this->calls);
+        $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters, $this->calls, $this->methodComments);
 
         $text = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
@@ -64,6 +67,15 @@ final class MethodTest extends TestCase
         $this->reflection->expects($this->once())
             ->method('getParameters')
             ->willReturn($this->parameterReflections);
+
+        $this->methodComment = 'some $this->methodComment value';
+
+        $this->methodComments->expects($this->once())
+            ->method('createMethodComment')
+            ->willReturn($this->methodComment);
+
+        $this->reflection->expects($this->once())
+            ->method('getDocComment');
 
         $this->parameters = 'some $this->parameters value';
 

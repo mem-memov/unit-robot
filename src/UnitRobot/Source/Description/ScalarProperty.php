@@ -1,16 +1,13 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
-class Variable
+class ScalarProperty implements Property
 {
     private $name;
-    private $type;
     
     public function __construct(
-        string $name,
-        string $type
+        string $name
     ) {
         $this->name = $name;
-        $this->type = $type;
     }
 }

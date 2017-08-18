@@ -7,6 +7,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructor;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;
+use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
 
 class Methods
 {
@@ -15,19 +16,22 @@ class Methods
     private $parameters;
     private $calls;
     private $constructors;
+    private $methodComments;
     
     public function __construct(
         MethodSignatureTokens $methodSignatureTokens,
         MethodBodyTokens $methodBodyTokens,
         Parameters $parameters,
         Calls $calls,
-        Constructors $constructors
+        Constructors $constructors,
+        MethodComments $methodComments
     ) {
         $this->methodSignatureTokens = $methodSignatureTokens;
         $this->methodBodyTokens = $methodBodyTokens;
         $this->parameters = $parameters;
         $this->calls = $calls;
         $this->constructors = $constructors;
+        $this->methodComments = $methodComments;
     }
     
     public function createConstructor(
@@ -44,7 +48,7 @@ class Methods
             );
             
         } else {
-            
+
             return $this->constructors->createParameterizedConstructor(
                 $constructorReflection,
                 $className
@@ -70,7 +74,8 @@ class Methods
                 $this->methodBodyTokens
             ),
             $this->parameters,
-            $this->calls
+            $this->calls,
+            $this->methodComments
         );
     }
 }

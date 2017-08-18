@@ -5,6 +5,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
 
 class Method
 {
@@ -14,6 +15,7 @@ class Method
     private $methodBody;
     private $parameters;
     private $calls;
+    private $methodComments;
     
     public function __construct(
         \ReflectionMethod $reflection,
@@ -21,7 +23,8 @@ class Method
         MethodSignature $methodSignature,
         MethodBody $methodBody,
         Parameters $parameters,
-        Calls $calls
+        Calls $calls,
+        MethodComments $methodComments
     ) {
         $this->reflection = $reflection;
         $this->className = $className;
@@ -29,6 +32,7 @@ class Method
         $this->methodBody = $methodBody;
         $this->parameters = $parameters;
         $this->calls = $calls;
+        $this->methodComments = $methodComments;
     }
     
     public function createTest(Text $text, UnitTest $unitTest): void
@@ -36,14 +40,22 @@ class Method
         $startLine = $this->reflection->getStartLine();
         $endLine = $this->reflection->getEndLine();
         
+        if ($startLine <= 1 || $endLine <= 1) {
+            return; // __wakeup in \Exception
+        }
+        
         $methodString = $text->extract($startLine-1, $endLine);
 
         $signatureTokens = $this->methodSignature->getTokens($methodString);
         $parameterReflections = $this->reflection->getParameters();
-       
+        $methodComment = $this->methodComments->createMethodComment(
+            $this->reflection->getDocComment()
+        );
+        
         $parameters = $this->parameters->createMethodParameters(
             $parameterReflections,
-            $signatureTokens
+            $signatureTokens,
+            $methodComment
         );
         
 

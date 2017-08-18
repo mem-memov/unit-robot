@@ -5,7 +5,7 @@ namespace MemMemov\UnitRobot\Source\Description;
 
 use PHPUnit\Framework\TestCase;
 
-final class VariableTest extends TestCase
+final class CollectionPropertyTest extends TestCase
 {
     protected $name;
     protected $type;

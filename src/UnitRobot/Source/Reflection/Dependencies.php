@@ -49,8 +49,14 @@ class Dependencies
             
             $lastSlashPosition = strrpos($fullClassName, '\\');
             
-            $namespace = substr($fullClassName, 0, $lastSlashPosition);
-            $className = substr($fullClassName, $lastSlashPosition + 1);
+            if (false === $lastSlashPosition) {
+                $namespace = '';
+                $className = $fullClassName;
+            } else {
+                $namespace = substr($fullClassName, 0, $lastSlashPosition);
+                $className = substr($fullClassName, $lastSlashPosition + 1);
+            }
+
             
             $instanceDependency = $this->descriptionDependencies->createDependency($namespace, $className, $alias);
             $instanceDependencies->addDependency($instanceDependency);

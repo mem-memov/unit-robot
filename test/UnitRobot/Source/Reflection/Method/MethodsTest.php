@@ -9,6 +9,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructor;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;
+use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
 use PHPUnit\Framework\TestCase;
 
 final class MethodsTest extends TestCase
@@ -18,6 +19,7 @@ final class MethodsTest extends TestCase
     protected $parameters;
     protected $calls;
     protected $constructors;
+    protected $methodComments;
 
     protected function setUp(): void
     {
@@ -26,11 +28,12 @@ final class MethodsTest extends TestCase
         $this->parameters = $this->createMock(Parameters::class);
         $this->calls = $this->createMock(Calls::class);
         $this->constructors = $this->createMock(Constructors::class);
+        $this->methodComments = $this->createMock(MethodComments::class);
     }
 
     public function testItCanCreateConstructor(): void
     {
-        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors);
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors, $this->methodComments);
 
         $class = $this->createMock(\ReflectionClass::class);
 
@@ -51,7 +54,7 @@ final class MethodsTest extends TestCase
 
     public function testItCanCreateMethod(): void
     {
-        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors);
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->constructors, $this->methodComments);
 
         $methodReflection = $this->createMock(\ReflectionMethod::class);
         $className = 'some $className value';

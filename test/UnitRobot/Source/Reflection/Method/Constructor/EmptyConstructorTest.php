@@ -6,6 +6,7 @@ namespace MemMemov\UnitRobot\Source\Reflection\Method\Constructor;
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\Source\Description\InstanceProperties;
 use PHPUnit\Framework\TestCase;
 
 final class EmptyConstructorTest extends TestCase
@@ -27,5 +28,15 @@ final class EmptyConstructorTest extends TestCase
         $unitTest = $this->createMock(UnitTest::class);
 
         $emptyConstructor->createTest($text, $unitTest);
+    }
+
+    public function testItCanDescribeProperties(): void
+    {
+        $emptyConstructor = new EmptyConstructor($this->className, $this->parameters);
+
+        $text = $this->createMock(Text::class);
+        $properties = $this->createMock(InstanceProperties::class);
+
+        $emptyConstructor->describeProperties($text, $properties);
     }
 }

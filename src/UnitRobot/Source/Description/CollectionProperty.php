@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
-class Variable
+class CollectionProperty implements Property
 {
     private $name;
     private $type;

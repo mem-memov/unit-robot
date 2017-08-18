@@ -136,6 +136,15 @@ final class ReflectionTest extends TestCase
         $this->dependencies->expects($this->once())
             ->method('describe');
 
+        $this->constructor = 'some $this->constructor value';
+
+        $this->methods->expects($this->once())
+            ->method('createConstructor')
+            ->willReturn($this->constructor);
+
+        $constructor->expects($this->once())
+            ->method('describeProperties');
+
         $reflection->describe($sourceText, $name, $properties, $methods, $dependencies);
     }
 }
