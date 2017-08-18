@@ -73,6 +73,9 @@ final class DirectoryTest extends TestCase
         $reflection->expects($this->once())
             ->method('createTests');
 
+        $reflection->expects($this->once())
+            ->method('needsDescribing');
+
         $this->instance = 'some $this->instance value';
 
         $this->instances->expects($this->once())

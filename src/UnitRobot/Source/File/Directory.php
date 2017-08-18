@@ -47,6 +47,7 @@ class Directory
                 if ($reflection->needsDescribing()) {
                     $instance = $this->instances->createInstance();
                     $reflection->describe(
+                        $sourceText,
                         $instance->getName(),
                         $instance->getProperties(),
                         $instance->getMethods(),

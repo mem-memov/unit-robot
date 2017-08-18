@@ -67,6 +67,7 @@ class Reflection
     }
     
     public function describe(
+        Text $sourceText, 
         InstanceName $name,
         InstanceProperties $properties,
         InstanceMethods $methods,
@@ -76,5 +77,6 @@ class Reflection
         $name->setNamespace($this->class->getNamespaceName());
         $name->setClass($this->class->getShortName());
 
+        $this->dependencies->describe($sourceText, $dependencies);
     }
 }

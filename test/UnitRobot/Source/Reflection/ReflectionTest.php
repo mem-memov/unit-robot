@@ -115,6 +115,7 @@ final class ReflectionTest extends TestCase
     {
         $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
 
+        $sourceText = $this->createMock(Text::class);
         $name = $this->createMock(InstanceName::class);
         $properties = $this->createMock(InstanceProperties::class);
         $methods = $this->createMock(InstanceMethods::class);
@@ -132,6 +133,9 @@ final class ReflectionTest extends TestCase
         $this->class->expects($this->once())
             ->method('getShortName');
 
-        $reflection->describe($name, $properties, $methods, $dependencies);
+        $this->dependencies->expects($this->once())
+            ->method('describe');
+
+        $reflection->describe($sourceText, $name, $properties, $methods, $dependencies);
     }
 }
