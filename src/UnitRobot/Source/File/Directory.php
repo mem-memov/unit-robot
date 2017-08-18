@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot\Source\File;
 
 use MemMemov\UnitRobot\Source\Reflection\Reflections;
 use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\Source\Description\Instancies;
 
 class Directory
 {
@@ -10,17 +11,20 @@ class Directory
     private $directoryIterators;
     private $files;
     private $reflections;
+    private $instances;
     
     public function __construct(
         string $path,
         DirectoryIterators $directoryIterators,
         Files $files,
-        Reflections $reflections
+        Reflections $reflections,
+        Instancies $instances
     ) {
         $this->path = $path;
         $this->directoryIterators = $directoryIterators;
         $this->files = $files;
         $this->reflections = $reflections;
+        $this->instances = $instances;
     }
     
     public function createTests(UnitTestDirectory $unitTestDirectory): void
@@ -39,6 +43,14 @@ class Directory
                 
                 $sourceText = $file->getText();
                 $reflection->createTests($sourceText, $unitTestFile); 
+                
+                $instance = $this->instances->createInstance();
+                $reflection->describe(
+                    $instance->getName(),
+                    $instance->getProperties(),
+                    $instance->getMethods(),
+                    $instance->getDependencies()
+                );
             }
         }
         

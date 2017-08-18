@@ -5,15 +5,15 @@ namespace MemMemov\UnitRobot\Source\Description;
 
 use PHPUnit\Framework\TestCase;
 
-final class VariableTest extends TestCase
+final class DependencyTest extends TestCase
 {
     protected $name;
-    protected $type;
+    protected $alias;
 
     protected function setUp(): void
     {
-        $this->name = $this->createMock(::class);
-        $this->type = $this->createMock(::class);
+        $this->name = $this->createMock(InstanceName::class);
+        $this->alias = 'some $this->alias value';
     }
 
 }

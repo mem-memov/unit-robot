@@ -7,6 +7,10 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
+use MemMemov\UnitRobot\Source\Description\InstanceName;
+use MemMemov\UnitRobot\Source\Description\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\InstanceMethods;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
@@ -92,5 +96,42 @@ final class ReflectionTest extends TestCase
             ->method('write');
 
         $reflection->createTests($sourceText, $unitTestFile);
+    }
+
+    public function testItCanNeedsDescribing(): void
+    {
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
+
+        $this->class->expects($this->once())
+            ->method('isAbstract');
+
+        $this->class->expects($this->once())
+            ->method('isInterface');
+
+        $reflection->needsDescribing();
+    }
+
+    public function testItCanDescribe(): void
+    {
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
+
+        $name = $this->createMock(InstanceName::class);
+        $properties = $this->createMock(InstanceProperties::class);
+        $methods = $this->createMock(InstanceMethods::class);
+        $dependencies = $this->createMock(InstanceDependencies::class);
+
+        $name->expects($this->once())
+            ->method('setNamespace');
+
+        $this->class->expects($this->once())
+            ->method('getNamespaceName');
+
+        $name->expects($this->once())
+            ->method('setClass');
+
+        $this->class->expects($this->once())
+            ->method('getShortName');
+
+        $reflection->describe($name, $properties, $methods, $dependencies);
     }
 }

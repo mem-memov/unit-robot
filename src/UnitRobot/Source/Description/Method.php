@@ -6,13 +6,15 @@ class Method
     private $name;
     private $parameters;
     private $retunValue;
-    /*
+    
     public function __construct(
-        $name,
-        $parameters,
-        $retunValue
+        string $name,
+        MethodParameters $parameters,
+        Variable $retunValue
     ) {
-        
+        $this->name = $name;
+        $this->parameters = $parameters;
+        $this->retunValue = $retunValue;
     }
-    */
+    
 }

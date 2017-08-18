@@ -1,6 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot;
 
+use MemMemov\UnitRobot\Source\Description\Instancies as SourceInstancies;
 use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
 use MemMemov\UnitRobot\Source\File\DirectoryIterators as SourceDirectoryIterators;
 use MemMemov\UnitRobot\Source\File\Files as SourceFiles;
@@ -64,7 +65,8 @@ $unitRobot = new UnitRobot(
                     ),
                     new UnitTestTexts()
                 )
-            )
+            ),
+            new SourceInstancies()
         ),
         new UnitTestDirectories(
             new UnitTestFiles()

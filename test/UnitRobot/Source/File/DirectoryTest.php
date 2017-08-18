@@ -5,6 +5,7 @@ namespace MemMemov\UnitRobot\Source\File;
 
 use MemMemov\UnitRobot\Source\Reflection\Reflections;
 use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
+use MemMemov\UnitRobot\Source\Description\Instancies;
 use PHPUnit\Framework\TestCase;
 
 final class DirectoryTest extends TestCase
@@ -13,6 +14,7 @@ final class DirectoryTest extends TestCase
     protected $directoryIterators;
     protected $files;
     protected $reflections;
+    protected $instances;
 
     protected function setUp(): void
     {
@@ -20,11 +22,12 @@ final class DirectoryTest extends TestCase
         $this->directoryIterators = $this->createMock(DirectoryIterators::class);
         $this->files = $this->createMock(Files::class);
         $this->reflections = $this->createMock(Reflections::class);
+        $this->instances = $this->createMock(Instancies::class);
     }
 
     public function testItCanCreateTests(): void
     {
-        $directory = new Directory($this->path, $this->directoryIterators, $this->files, $this->reflections);
+        $directory = new Directory($this->path, $this->directoryIterators, $this->files, $this->reflections, $this->instances);
 
         $unitTestDirectory = $this->createMock(UnitTestDirectory::class);
 
@@ -69,6 +72,27 @@ final class DirectoryTest extends TestCase
 
         $reflection->expects($this->once())
             ->method('createTests');
+
+        $this->instance = 'some $this->instance value';
+
+        $this->instances->expects($this->once())
+            ->method('createInstance')
+            ->willReturn($this->instance);
+
+        $reflection->expects($this->once())
+            ->method('describe');
+
+        $instance->expects($this->once())
+            ->method('getName');
+
+        $instance->expects($this->once())
+            ->method('getProperties');
+
+        $instance->expects($this->once())
+            ->method('getMethods');
+
+        $instance->expects($this->once())
+            ->method('getDependencies');
 
         $directory->createTests($unitTestDirectory);
     }

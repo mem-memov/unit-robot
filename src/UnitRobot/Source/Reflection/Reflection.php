@@ -5,6 +5,10 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
+use MemMemov\UnitRobot\Source\Description\InstanceName;
+use MemMemov\UnitRobot\Source\Description\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\InstanceMethods;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 
 class Reflection
 {
@@ -55,5 +59,22 @@ class Reflection
         }
         
         $unitTest->write();
+    }
+    
+    public function needsDescribing(): bool
+    {
+        return !$this->class->isAbstract() & !$this->class->isInterface();
+    }
+    
+    public function describe(
+        InstanceName $name,
+        InstanceProperties $properties,
+        InstanceMethods $methods,
+        InstanceDependencies $dependencies
+    ): void
+    {
+        $name->setNamespace($this->class->getNamespaceName());
+        $name->setClass($this->class->getShortName());
+
     }
 }

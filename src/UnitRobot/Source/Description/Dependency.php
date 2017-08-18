@@ -1,16 +1,16 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
-class Variable
+class Dependency
 {
     private $name;
-    private $type;
+    private $alias;
     
     public function __construct(
-        $name,
-        $type
+        InstanceName $name,
+        string $alias
     ) {
         $this->name = $name;
-        $this->type = $type;
+        $this->alias = $alias;
     }
 }
