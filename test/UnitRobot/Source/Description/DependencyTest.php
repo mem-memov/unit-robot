@@ -7,12 +7,14 @@ use PHPUnit\Framework\TestCase;
 
 final class DependencyTest extends TestCase
 {
-    protected $name;
+    protected $namespace;
+    protected $class;
     protected $alias;
 
     protected function setUp(): void
     {
-        $this->name = $this->createMock(InstanceName::class);
+        $this->namespace = 'some $this->namespace value';
+        $this->class = 'some $this->class value';
         $this->alias = 'some $this->alias value';
     }
 

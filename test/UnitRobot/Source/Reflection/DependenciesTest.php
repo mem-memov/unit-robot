@@ -6,20 +6,23 @@ namespace MemMemov\UnitRobot\Source\Reflection;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Dependencies as DescriptionDependencies;
 use PHPUnit\Framework\TestCase;
 
 final class DependenciesTest extends TestCase
 {
     protected $class;
+    protected $descriptionDependencies;
 
     protected function setUp(): void
     {
         $this->class = $this->createMock(\ReflectionClass::class);
+        $this->descriptionDependencies = $this->createMock(DescriptionDependencies::class);
     }
 
     public function testItCanAddDependenciesToUnitTest(): void
     {
-        $dependencies = new Dependencies($this->class);
+        $dependencies = new Dependencies($this->class, $this->descriptionDependencies);
 
         $sourceText = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
@@ -41,10 +44,10 @@ final class DependenciesTest extends TestCase
 
     public function testItCanDescribe(): void
     {
-        $dependencies = new Dependencies($this->class);
+        $dependencies = new Dependencies($this->class, $this->descriptionDependencies);
 
         $sourceText = $this->createMock(Text::class);
-        $dependencies = $this->createMock(InstanceDependencies::class);
+        $instanceDependencies = $this->createMock(InstanceDependencies::class);
 
         $prelude = 'some $prelude value';
 
@@ -55,6 +58,15 @@ final class DependenciesTest extends TestCase
         $this->class->expects($this->once())
             ->method('getStartLine');
 
-        $dependencies->describe($sourceText, $dependencies);
+        $this->instanceDependency = 'some $this->instanceDependency value';
+
+        $this->descriptionDependencies->expects($this->once())
+            ->method('createDependency')
+            ->willReturn($this->instanceDependency);
+
+        $instanceDependencies->expects($this->once())
+            ->method('addDependency');
+
+        $dependencies->describe($sourceText, $instanceDependencies);
     }
 }

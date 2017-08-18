@@ -7,4 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 final class InstanceDependenciesTest extends TestCase
 {
+    public function testItCanAddDependency(): void
+    {
+        $instanceDependencies = new InstanceDependencies();
+
+        $dependency = $this->createMock(Dependency::class);
+
+        $instanceDependencies->addDependency($dependency);
+    }
 }
