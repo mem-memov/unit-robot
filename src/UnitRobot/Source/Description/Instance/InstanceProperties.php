@@ -21,7 +21,7 @@ class InstanceProperties
     public function createUnitTests(UnitTest $unitTest): void
     {
         foreach ($this->properties as $property) {
-            $property->createUnitTests($unitTest);
+            $property->addPropertyToUnitTest($unitTest);
         }
     }
 }

@@ -17,7 +17,7 @@ class ArrayProperty implements Property
         $this->type = $type;
     }
     
-    public function createUnitTests(UnitTest $unitTest): void
+    public function addPropertyToUnitTest(UnitTest $unitTest): void
     {
         
     }

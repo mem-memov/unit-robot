@@ -5,5 +5,5 @@ use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 interface Property
 {
-    public function createUnitTests(UnitTest $unitTest): void;
+    public function addPropertyToUnitTest(UnitTest $unitTest): void;
 }
