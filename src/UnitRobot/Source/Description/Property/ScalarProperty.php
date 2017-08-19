@@ -2,6 +2,7 @@
 namespace MemMemov\UnitRobot\Source\Description\Property;
 
 use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarType;
+use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class ScalarProperty implements Property
 {
@@ -14,5 +15,10 @@ class ScalarProperty implements Property
     ) {
         $this->name = $name;
         $this->type = $type;
+    }
+    
+    public function createUnitTests(UnitTest $unitTest): void
+    {
+        
     }
 }

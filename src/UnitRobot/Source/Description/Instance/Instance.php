@@ -48,6 +48,8 @@ class Instance
         
         $this->dependencies->createUnitTests($unitTest);
         
+        $this->properties->createUnitTests($unitTest);
+        
         $unitTest->write();
     }
 }

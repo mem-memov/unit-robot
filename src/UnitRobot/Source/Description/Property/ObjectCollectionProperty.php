@@ -2,6 +2,7 @@
 namespace MemMemov\UnitRobot\Source\Description\Property;
 
 use MemMemov\UnitRobot\Source\Description\Type\Collection\ObjectArrayType;
+use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class ObjectCollectionProperty implements Property
 {
@@ -14,5 +15,10 @@ class ObjectCollectionProperty implements Property
     ) {
         $this->name = $name;
         $this->type = $type;
+    }
+    
+    public function createUnitTests(UnitTest $unitTest): void
+    {
+        
     }
 }
