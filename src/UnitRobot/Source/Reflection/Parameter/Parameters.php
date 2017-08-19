@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Method\Parameter;
+namespace MemMemov\UnitRobot\Source\Reflection\Parameter;
 
 use MemMemov\UnitRobot\Source\Token\MethodSignature as SignatureTokens;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;

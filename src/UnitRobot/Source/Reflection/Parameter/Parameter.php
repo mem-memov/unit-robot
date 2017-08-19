@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Method\Parameter;
+namespace MemMemov\UnitRobot\Source\Reflection\Parameter;
 
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;

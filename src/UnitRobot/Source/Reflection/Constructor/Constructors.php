@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection\Constructor;
 
-use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
+use MemMemov\UnitRobot\Source\Reflection\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodSignature;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
