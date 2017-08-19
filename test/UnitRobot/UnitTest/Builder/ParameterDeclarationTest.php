@@ -8,4 +8,13 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterDeclarationTest extends TestCase
 {
+    protected $type;
+    protected $name;
+
+    protected function setUp(): void
+    {
+        $this->type = 'some $this->type value';
+        $this->name = 'some $this->name value';
+    }
+
 }

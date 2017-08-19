@@ -7,4 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodCommentTest extends TestCase
 {
+    protected $comment;
+
+    protected function setUp(): void
+    {
+        $this->comment = 'some $this->comment value';
+    }
+
 }

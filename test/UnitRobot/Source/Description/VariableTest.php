@@ -7,4 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 final class VariableTest extends TestCase
 {
+    protected $name;
+    protected $type;
+
+    protected function setUp(): void
+    {
+        $this->name = 'some $this->name value';
+        $this->type = 'some $this->type value';
+    }
+
 }

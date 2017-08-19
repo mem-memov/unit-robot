@@ -7,4 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class PropertyVariableTest extends TestCase
 {
+    protected $variableName;
+
+    protected function setUp(): void
+    {
+        $this->variableName = 'some $this->variableName value';
+    }
+
 }

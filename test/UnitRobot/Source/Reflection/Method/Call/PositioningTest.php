@@ -7,4 +7,15 @@ use PHPUnit\Framework\TestCase;
 
 final class PositioningTest extends TestCase
 {
+    protected $beforeParametersPosition;
+    protected $openBracketPosition;
+    protected $closeBracketPosition;
+
+    protected function setUp(): void
+    {
+        $this->beforeParametersPosition = 5;
+        $this->openBracketPosition = 5;
+        $this->closeBracketPosition = 5;
+    }
+
 }

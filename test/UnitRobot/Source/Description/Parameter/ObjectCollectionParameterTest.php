@@ -8,4 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ObjectCollectionParameterTest extends TestCase
 {
+    protected $name;
+
+    protected function setUp(): void
+    {
+        $this->name = 'some $this->name value';
+    }
+
 }

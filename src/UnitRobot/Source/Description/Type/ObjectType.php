@@ -16,4 +16,11 @@ class ObjectType implements Type
         $this->class = $class;
         $this->alias = $alias;
     }
+    
+    public function getForSignature(): string
+    {
+        return empty($this->alias)
+            ? $this->class
+            : $this->alias;
+    }
 }

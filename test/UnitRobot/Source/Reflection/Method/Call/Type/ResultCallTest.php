@@ -10,4 +10,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ResultCallTest extends TestCase
 {
+    protected $method;
+
+    protected function setUp(): void
+    {
+        $this->method = 'some $this->method value';
+    }
+
 }

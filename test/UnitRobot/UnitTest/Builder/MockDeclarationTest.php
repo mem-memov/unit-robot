@@ -8,4 +8,13 @@ use PHPUnit\Framework\TestCase;
 
 final class MockDeclarationTest extends TestCase
 {
+    protected $variable;
+    protected $type;
+
+    protected function setUp(): void
+    {
+        $this->variable = 'some $this->variable value';
+        $this->type = 'some $this->type value';
+    }
+
 }

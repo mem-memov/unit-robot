@@ -15,4 +15,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterTest extends TestCase
 {
+    protected $type;
+
+    protected function setUp(): void
+    {
+        $this->type = 'some $this->type value';
+    }
+
 }

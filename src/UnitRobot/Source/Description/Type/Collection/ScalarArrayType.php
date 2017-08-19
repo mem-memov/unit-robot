@@ -12,4 +12,9 @@ class ScalarArrayType implements ArrayType
     ) {
         $this->itemType = $itemType;
     }
+    
+    public function getForSignature(): string
+    {
+        return 'array';
+    }
 }

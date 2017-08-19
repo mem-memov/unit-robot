@@ -8,4 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodDeclarationTest extends TestCase
 {
+    protected $methodName;
+
+    protected function setUp(): void
+    {
+        $this->methodName = 'some $this->methodName value';
+    }
+
 }

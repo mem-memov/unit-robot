@@ -8,4 +8,13 @@ use PHPUnit\Framework\TestCase;
 
 final class SimpleCallDeclarationTest extends TestCase
 {
+    protected $variable;
+    protected $method;
+
+    protected function setUp(): void
+    {
+        $this->variable = 'some $this->variable value';
+        $this->method = 'some $this->method value';
+    }
+
 }
