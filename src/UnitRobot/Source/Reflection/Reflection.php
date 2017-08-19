@@ -6,10 +6,10 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
-use MemMemov\UnitRobot\Source\Description\InstanceName;
-use MemMemov\UnitRobot\Source\Description\InstanceProperties;
-use MemMemov\UnitRobot\Source\Description\InstanceMethods;
-use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceName;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceMethods;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 
 class Reflection
 {

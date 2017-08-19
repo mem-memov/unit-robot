@@ -3,7 +3,7 @@ namespace MemMemov\UnitRobot\Source\Reflection;
 
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
-use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Dependencies as DescriptionDependencies;
 
 class Dependencies

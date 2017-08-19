@@ -3,7 +3,7 @@ namespace MemMemov\UnitRobot\Source\File;
 
 use MemMemov\UnitRobot\Source\Reflection\Reflections;
 use MemMemov\UnitRobot\UnitTest\File\Directory as UnitTestDirectory;
-use MemMemov\UnitRobot\Source\Description\Instancies;
+use MemMemov\UnitRobot\Source\Description\Instance\Instancies;
 
 class Directory
 {

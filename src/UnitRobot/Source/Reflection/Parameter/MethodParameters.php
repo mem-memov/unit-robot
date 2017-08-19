@@ -5,8 +5,8 @@ use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
 use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
 use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
-use MemMemov\UnitRobot\Source\Description\InstanceProperties;
-use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 
 class MethodParameters implements UnitTestMethodParameters
 {
