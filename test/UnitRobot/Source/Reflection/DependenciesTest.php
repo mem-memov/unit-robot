@@ -12,4 +12,15 @@ use PHPUnit\Framework\TestCase;
 
 final class DependenciesTest extends TestCase
 {
+    protected $class;
+    protected $descriptionDependencies;
+    protected $instancies;
+
+    protected function setUp(): void
+    {
+        $this->class = $this->createMock(\ReflectionClass::class);
+        $this->descriptionDependencies = $this->createMock(DescriptionDependencies::class);
+        $this->instancies = $this->createMock(Instancies::class);
+    }
+
 }

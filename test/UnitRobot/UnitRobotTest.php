@@ -7,4 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitRobotTest extends TestCase
 {
+    protected $configuration;
+
+    protected function setUp(): void
+    {
+        $this->configuration = $this->createMock(Configuration::class);
+    }
+
 }

@@ -10,11 +10,13 @@ final class PropertyDeclarationTest extends TestCase
 {
     protected $type;
     protected $name;
+    protected $mockDeclaration;
 
     protected function setUp(): void
     {
         $this->type = 'some $this->type value';
         $this->name = 'some $this->name value';
+        $this->mockDeclaration = $this->createMock(MockDeclaration::class);
     }
 
 }

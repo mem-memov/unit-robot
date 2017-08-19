@@ -11,4 +11,17 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionsTest extends TestCase
 {
+    protected $methods;
+    protected $descriptionDependencies;
+    protected $constructors;
+    protected $instances;
+
+    protected function setUp(): void
+    {
+        $this->methods = $this->createMock(Methods::class);
+        $this->descriptionDependencies = $this->createMock(DescriptionDependencies::class);
+        $this->constructors = $this->createMock(ClassConstructors::class);
+        $this->instances = $this->createMock(Instancies::class);
+    }
+
 }

@@ -17,4 +17,15 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodParametersTest extends TestCase
 {
+    protected $parameters;
+    protected $instances;
+    protected $signatures;
+
+    protected function setUp(): void
+    {
+        $this->parameters = [];
+        $this->instances = $this->createMock(Instancies::class);
+        $this->signatures = $this->createMock(Signatures::class);
+    }
+
 }

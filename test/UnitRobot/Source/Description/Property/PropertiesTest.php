@@ -8,4 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class PropertiesTest extends TestCase
 {
+    protected $types;
+
+    protected function setUp(): void
+    {
+        $this->types = $this->createMock(Types::class);
+    }
+
 }

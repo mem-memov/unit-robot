@@ -12,4 +12,17 @@ use PHPUnit\Framework\TestCase;
 
 final class ConstructorsTest extends TestCase
 {
+    protected $methodSignatureTokens;
+    protected $parameters;
+    protected $methodComments;
+    protected $instances;
+
+    protected function setUp(): void
+    {
+        $this->methodSignatureTokens = $this->createMock(MethodSignatureTokens::class);
+        $this->parameters = $this->createMock(Parameters::class);
+        $this->methodComments = $this->createMock(MethodComments::class);
+        $this->instances = $this->createMock(Instancies::class);
+    }
+
 }

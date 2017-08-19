@@ -11,4 +11,11 @@ use PHPUnit\Framework\TestCase;
 
 final class EmptyConstructorTest extends TestCase
 {
+    protected $instances;
+
+    protected function setUp(): void
+    {
+        $this->instances = $this->createMock(Instancies::class);
+    }
+
 }

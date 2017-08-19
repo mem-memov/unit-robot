@@ -9,10 +9,12 @@ use PHPUnit\Framework\TestCase;
 final class ScalarCollectionParameterTest extends TestCase
 {
     protected $name;
+    protected $type;
 
     protected function setUp(): void
     {
         $this->name = 'some $this->name value';
+        $this->type = $this->createMock(ScalarArrayType::class);
     }
 
 }

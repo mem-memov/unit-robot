@@ -16,11 +16,27 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodTest extends TestCase
 {
+    protected $reflection;
     protected $className;
+    protected $methodSignature;
+    protected $methodBody;
+    protected $parameters;
+    protected $calls;
+    protected $methodComments;
+    protected $signatures;
+    protected $types;
 
     protected function setUp(): void
     {
+        $this->reflection = $this->createMock(\ReflectionMethod::class);
         $this->className = 'some $this->className value';
+        $this->methodSignature = $this->createMock(MethodSignature::class);
+        $this->methodBody = $this->createMock(MethodBody::class);
+        $this->parameters = $this->createMock(Parameters::class);
+        $this->calls = $this->createMock(Calls::class);
+        $this->methodComments = $this->createMock(MethodComments::class);
+        $this->signatures = $this->createMock(Signatures::class);
+        $this->types = $this->createMock(Types::class);
     }
 
 }

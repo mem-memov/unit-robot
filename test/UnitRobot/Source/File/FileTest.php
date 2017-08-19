@@ -13,6 +13,7 @@ final class FileTest extends TestCase
     protected $path;
     protected $name;
     protected $content;
+    protected $texts;
 
     protected function setUp(): void
     {
@@ -20,6 +21,7 @@ final class FileTest extends TestCase
         $this->path = 'some $this->path value';
         $this->name = 'some $this->name value';
         $this->content = 'some $this->content value';
+        $this->texts = $this->createMock(Texts::class);
     }
 
 }

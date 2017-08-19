@@ -10,10 +10,12 @@ use PHPUnit\Framework\TestCase;
 final class ArrayPropertyTest extends TestCase
 {
     protected $name;
+    protected $type;
 
     protected function setUp(): void
     {
         $this->name = 'some $this->name value';
+        $this->type = $this->createMock(MixedArrayType::class);
     }
 
 }

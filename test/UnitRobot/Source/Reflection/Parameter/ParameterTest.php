@@ -18,11 +18,19 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterTest extends TestCase
 {
+    protected $reflection;
     protected $type;
+    protected $descriptionProperties;
+    protected $descriptionParameters;
+    protected $comment;
 
     protected function setUp(): void
     {
+        $this->reflection = $this->createMock(\ReflectionParameter::class);
         $this->type = 'some $this->type value';
+        $this->descriptionProperties = $this->createMock(DescriptionProperties::class);
+        $this->descriptionParameters = $this->createMock(DescriptionParameters::class);
+        $this->comment = $this->createMock(ParameterComment::class);
     }
 
 }

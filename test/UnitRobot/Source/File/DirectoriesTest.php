@@ -11,4 +11,17 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
+    protected $directoryIterators;
+    protected $files;
+    protected $reflections;
+    protected $unitTests;
+
+    protected function setUp(): void
+    {
+        $this->directoryIterators = $this->createMock(DirectoryIterators::class);
+        $this->files = $this->createMock(Files::class);
+        $this->reflections = $this->createMock(Reflections::class);
+        $this->unitTests = $this->createMock(UnitTests::class);
+    }
+
 }

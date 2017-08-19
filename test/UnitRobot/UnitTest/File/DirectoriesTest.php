@@ -7,4 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
+    protected $files;
+
+    protected function setUp(): void
+    {
+        $this->files = $this->createMock(Files::class);
+    }
+
 }

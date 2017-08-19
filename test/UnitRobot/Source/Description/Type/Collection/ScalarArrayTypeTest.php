@@ -8,4 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ScalarArrayTypeTest extends TestCase
 {
+    protected $itemType;
+
+    protected function setUp(): void
+    {
+        $this->itemType = $this->createMock(ScalarType::class);
+    }
+
 }

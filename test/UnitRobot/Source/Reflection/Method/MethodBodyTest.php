@@ -10,4 +10,13 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodBodyTest extends TestCase
 {
+    protected $reflection;
+    protected $tokens;
+
+    protected function setUp(): void
+    {
+        $this->reflection = $this->createMock(\ReflectionMethod::class);
+        $this->tokens = $this->createMock(Tokens::class);
+    }
+
 }

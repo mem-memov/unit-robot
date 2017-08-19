@@ -19,6 +19,6 @@ class ObjectCollectionProperty implements Property
     
     public function addPropertyToUnitTest(UnitTest $unitTest): void
     {
-        
+        $unitTest->addProperty($this->type->getForSignature(), $this->name);
     }
 }

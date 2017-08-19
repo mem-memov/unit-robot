@@ -10,11 +10,15 @@ use PHPUnit\Framework\TestCase;
 
 final class ResultCallTest extends TestCase
 {
+    protected $callVariable;
     protected $method;
+    protected $resultVariable;
 
     protected function setUp(): void
     {
+        $this->callVariable = $this->createMock(Variable::class);
         $this->method = 'some $this->method value';
+        $this->resultVariable = $this->createMock(Variable::class);
     }
 
 }

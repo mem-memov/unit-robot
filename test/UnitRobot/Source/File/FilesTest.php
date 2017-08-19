@@ -7,4 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class FilesTest extends TestCase
 {
+    protected $texts;
+
+    protected function setUp(): void
+    {
+        $this->texts = $this->createMock(Texts::class);
+    }
+
 }

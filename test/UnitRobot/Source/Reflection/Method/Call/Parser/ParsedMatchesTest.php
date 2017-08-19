@@ -12,4 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 final class ParsedMatchesTest extends TestCase
 {
+    protected $matches;
+
+    protected function setUp(): void
+    {
+        $this->matches = [];
+    }
+
 }

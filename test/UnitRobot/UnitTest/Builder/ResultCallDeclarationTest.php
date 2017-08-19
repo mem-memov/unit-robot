@@ -11,12 +11,14 @@ final class ResultCallDeclarationTest extends TestCase
     protected $callVariable;
     protected $method;
     protected $resultVariable;
+    protected $resultMock;
 
     protected function setUp(): void
     {
         $this->callVariable = 'some $this->callVariable value';
         $this->method = 'some $this->method value';
         $this->resultVariable = 'some $this->resultVariable value';
+        $this->resultMock = $this->createMock(MockDeclaration::class);
     }
 
 }

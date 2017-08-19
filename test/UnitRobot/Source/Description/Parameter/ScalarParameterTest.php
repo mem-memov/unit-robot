@@ -9,10 +9,12 @@ use PHPUnit\Framework\TestCase;
 final class ScalarParameterTest extends TestCase
 {
     protected $name;
+    protected $type;
 
     protected function setUp(): void
     {
         $this->name = 'some $this->name value';
+        $this->type = $this->createMock(ScalarType::class);
     }
 
 }

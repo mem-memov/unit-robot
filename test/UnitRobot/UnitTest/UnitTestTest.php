@@ -11,4 +11,17 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitTestTest extends TestCase
 {
+    protected $declarations;
+    protected $builder;
+    protected $text;
+    protected $file;
+
+    protected function setUp(): void
+    {
+        $this->declarations = $this->createMock(Declarations::class);
+        $this->builder = $this->createMock(Builder::class);
+        $this->text = $this->createMock(Text::class);
+        $this->file = $this->createMock(File::class);
+    }
+
 }

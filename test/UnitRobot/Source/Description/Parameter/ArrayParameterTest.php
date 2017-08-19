@@ -9,10 +9,12 @@ use PHPUnit\Framework\TestCase;
 final class ArrayParameterTest extends TestCase
 {
     protected $name;
+    protected $type;
 
     protected function setUp(): void
     {
         $this->name = 'some $this->name value';
+        $this->type = $this->createMock(MixedArrayType::class);
     }
 
 }

@@ -8,4 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodDeclarationsTest extends TestCase
 {
+    protected $propertyDeclarations;
+
+    protected function setUp(): void
+    {
+        $this->propertyDeclarations = $this->createMock(PropertyDeclarations::class);
+    }
+
 }

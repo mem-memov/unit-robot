@@ -12,4 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 final class TypesTest extends TestCase
 {
+    protected $scalarTypes;
+
+    protected function setUp(): void
+    {
+        $this->scalarTypes = $this->createMock(ScalarTypes::class);
+    }
+
 }
