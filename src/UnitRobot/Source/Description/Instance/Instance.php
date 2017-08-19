@@ -50,6 +50,8 @@ class Instance
         
         $this->properties->createUnitTests($unitTest);
         
+        $this->methods->createUnitTests($unitTest);
+        
         $unitTest->write();
     }
 }
