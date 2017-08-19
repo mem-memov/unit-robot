@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
-class CollectionProperty implements Property
+class ScalarCollectionProperty implements Property
 {
     private $name;
     private $type;

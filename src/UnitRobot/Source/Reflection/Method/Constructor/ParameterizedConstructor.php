@@ -7,6 +7,7 @@ use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 
 class ParameterizedConstructor implements Constructor
 {
@@ -43,10 +44,12 @@ class ParameterizedConstructor implements Constructor
             $this->reflection->getDocComment()
         );
         
+        
         $parameters = $this->parameters->createMethodParameters(
             $parameterReflections,
             $signatureTokens,
-            $methodComment
+            $methodComment,
+            new InstanceDependencies()
         );
         
         $parameters->addPropertiesToUnitTest($unitTest);
@@ -54,6 +57,7 @@ class ParameterizedConstructor implements Constructor
     
     public function describeProperties(
         Text $text,
+        InstanceDependencies $dependencies,
         InstanceProperties $properties
     ): void
     {
@@ -75,6 +79,6 @@ class ParameterizedConstructor implements Constructor
             $methodComment
         );
         
-        $parameters->describeProperties($properties);
+        $parameters->describeProperties($properties, $dependencies);
     }
 }

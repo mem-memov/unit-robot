@@ -8,24 +8,22 @@ use PHPUnit\Framework\TestCase;
 final class ParameterCommentTest extends TestCase
 {
     protected $comment;
-    protected $k;
 
     protected function setUp(): void
     {
         $this->comment = 'some $this->comment value';
-        $this->k = [];
     }
 
     public function testItCanHasTypeForArray(): void
     {
-        $parameterComment = new ParameterComment($this->comment, $this->k);
+        $parameterComment = new ParameterComment($this->comment);
 
         $parameterComment->hasTypeForArray();
     }
 
     public function testItCanGetTypeForArray(): void
     {
-        $parameterComment = new ParameterComment($this->comment, $this->k);
+        $parameterComment = new ParameterComment($this->comment);
 
         $parameterComment->getTypeForArray();
     }

@@ -9,6 +9,7 @@ use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 use PHPUnit\Framework\TestCase;
 
 final class ParameterizedConstructorTest extends TestCase
@@ -91,6 +92,7 @@ final class ParameterizedConstructorTest extends TestCase
         $parameterizedConstructor = new ParameterizedConstructor($this->reflection, $this->className, $this->methodSignature, $this->parameters, $this->methodComments);
 
         $text = $this->createMock(Text::class);
+        $dependencies = $this->createMock(InstanceDependencies::class);
         $properties = $this->createMock(InstanceProperties::class);
 
         $this->startLine = 'some $this->startLine value';
@@ -141,6 +143,6 @@ final class ParameterizedConstructorTest extends TestCase
         $parameters->expects($this->once())
             ->method('describeProperties');
 
-        $parameterizedConstructor->describeProperties($text, $properties);
+        $parameterizedConstructor->describeProperties($text, $dependencies, $properties);
     }
 }

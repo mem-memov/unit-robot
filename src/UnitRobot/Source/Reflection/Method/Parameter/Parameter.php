@@ -6,6 +6,7 @@ use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
 use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
 use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Properties as DescriptionProperties;
 
 class Parameter implements UnitTestMethodParameters
@@ -46,7 +47,8 @@ class Parameter implements UnitTestMethodParameters
     }
     
     public function describeProperties(
-        InstanceProperties $properties
+        InstanceProperties $properties,
+        InstanceDependencies $instanceDependencies
     ): void
     {
         if (!$this->reflection->hasType()) {
@@ -65,10 +67,29 @@ class Parameter implements UnitTestMethodParameters
                     $this->reflection->getName()
                 );
                 
-                $property = $this->descriptionProperties->createCollectionProperty(
-                    $this->reflection->getName(),
-                    $collectionType
-                );
+                $isScalar = in_array($collectionType, ['integer', 'int', 'float', 'string', 'boolean', 'bool']);
+                
+                if ($isScalar) {
+                    $property = $this->descriptionProperties->createScalarCollectionProperty(
+                        $this->reflection->getName(),
+                        $collectionType
+                    );
+                } else {
+                    
+                    if ($instanceDependencies->has($collectionType)) {
+                        $dependency = $instanceDependencies->get($collectionType);
+
+                        $property = $this->descriptionProperties->createDependencyCollectionProperty(
+                            $this->reflection->getName(),
+                            $dependency
+                        );
+                    } else {
+                        $property = $this->descriptionProperties->createObjectCollectionProperty(
+                            $this->reflection->getName(),
+                            $collectionType
+                        );
+                    }
+                }
                 
             } else {
                 

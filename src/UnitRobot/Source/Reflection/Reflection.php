@@ -80,6 +80,6 @@ class Reflection
         $this->dependencies->describe($sourceText, $dependencies);
         
         $constructor = $this->methods->createConstructor($this->class);
-        $constructor->describeProperties($sourceText, $properties);
+        $constructor->describeProperties($sourceText, $dependencies, $properties);
     }
 }

@@ -8,8 +8,7 @@ class ParameterComment
     private $comment;
 
     public function __construct(
-        string $comment,
-        array $k = array()
+        string $comment
     ) {
         $this->comment = $comment;
     }

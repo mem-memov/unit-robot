@@ -12,14 +12,36 @@ class Properties
         );
     }
     
-    public function createCollectionProperty(
+    public function createScalarCollectionProperty(
         string $name,
         string $type
-    ): CollectionProperty
+    ): ScalarCollectionProperty
     {
-        return new CollectionProperty(
+        return new ScalarCollectionProperty(
             $name,
             $type
+        );
+    }
+    
+    public function createObjectCollectionProperty(
+        string $name,
+        string $type
+    ): ObjectCollectionProperty
+    {
+        return new ObjectCollectionProperty(
+            $name,
+            $type
+        );
+    }
+    
+    public function createDependencyCollectionProperty(
+        string $name,
+        Dependency $dependency
+    ): DependencyCollectionProperty
+    {
+        return new DependencyCollectionProperty(
+            $name,
+            $dependency
         );
     }
     

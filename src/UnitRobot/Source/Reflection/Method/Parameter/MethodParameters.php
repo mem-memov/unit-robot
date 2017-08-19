@@ -6,6 +6,7 @@ use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
 use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
 use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
+use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 
 class MethodParameters implements UnitTestMethodParameters
 {
@@ -38,11 +39,12 @@ class MethodParameters implements UnitTestMethodParameters
     }
     
     public function describeProperties(
-        InstanceProperties $properties
+        InstanceProperties $properties,
+        InstanceDependencies $instanceDependencies
     ): void
     {
         foreach ($this->parameters as $parameter) {
-            $parameter->describeProperties($properties);
+            $parameter->describeProperties($properties, $instanceDependencies);
         }
     }
 }
