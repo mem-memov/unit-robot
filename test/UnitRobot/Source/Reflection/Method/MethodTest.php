@@ -9,6 +9,7 @@ use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
 use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Signature\Signatures;
 use PHPUnit\Framework\TestCase;
 
 final class MethodTest extends TestCase

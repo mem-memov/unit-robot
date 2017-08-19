@@ -7,14 +7,12 @@ class InstanceName
 {
     private $namespace;
     private $class;
-
-    public function setNamespace(string $namespace): void
-    {
-        $this->namespace = $namespace;
-    }
     
-    public function setClass(string $class): void
-    {
+    public function __construct(
+        string $namespace,
+        string $class
+    ) {
+        $this->namespace = $namespace;
         $this->class = $class;
     }
     

@@ -8,4 +8,13 @@ use PHPUnit\Framework\TestCase;
 
 final class InstanceNameTest extends TestCase
 {
+    protected $namespace;
+    protected $class;
+
+    protected function setUp(): void
+    {
+        $this->namespace = 'some $this->namespace value';
+        $this->class = 'some $this->class value';
+    }
+
 }

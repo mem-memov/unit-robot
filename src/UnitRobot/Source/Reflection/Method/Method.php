@@ -7,6 +7,7 @@ use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
 use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Signature\Signatures;
 
 class Method
 {
@@ -17,6 +18,7 @@ class Method
     private $parameters;
     private $calls;
     private $methodComments;
+    private $signatures;
     
     public function __construct(
         \ReflectionMethod $reflection,
@@ -25,7 +27,8 @@ class Method
         MethodBody $methodBody,
         Parameters $parameters,
         Calls $calls,
-        MethodComments $methodComments
+        MethodComments $methodComments,
+        Signatures $signatures
     ) {
         $this->reflection = $reflection;
         $this->className = $className;
@@ -34,6 +37,7 @@ class Method
         $this->parameters = $parameters;
         $this->calls = $calls;
         $this->methodComments = $methodComments;
+        $this->signatures = $signatures;
     }
     
     public function createTest(Text $text, UnitTest $unitTest): void
@@ -66,6 +70,34 @@ class Method
             $this->className,
             $parameters,
             $calls
+        );
+    }
+    
+    public function describeSignature(): Signature
+    {
+        $startLine = $this->reflection->getStartLine();
+        $endLine = $this->reflection->getEndLine();
+
+        $methodString = $text->extract($startLine-1, $endLine);
+
+        $signatureTokens = $this->methodSignature->getTokens($methodString);
+        $parameterReflections = $this->reflection->getParameters();
+        $methodComment = $this->methodComments->createMethodComment(
+            $this->reflection->getDocComment()
+        );
+        
+        $methodParameters = $this->parameters->createMethodParameters(
+            $parameterReflections,
+            $signatureTokens,
+            $methodComment
+        );
+        
+        $parameters = $methodParameters->describe();
+        
+        $signature = $this->signatures->createSignature(
+            $this->reflection->getName(),
+            $parameters,
+            $returnType
         );
     }
 }

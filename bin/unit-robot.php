@@ -76,9 +76,9 @@ $unitRobot = new UnitRobot(
                         $sourceParameters,
                         $sourceMethodComments
                     )
-                )
+                ),
+                new SourceDescriptionInstancies()
             ),
-            new SourceDescriptionInstancies(),
             new UnitTests(
                 new UnitTestDeclarations(),
                 new UnitTestBuilders(

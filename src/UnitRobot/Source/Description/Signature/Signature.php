@@ -7,16 +7,16 @@ class Signature
 {
     private $method;
     private $parameters;
-    private $retunValue;
+    private $returnType;
     
     public function __construct(
         string $method,
         SignatureParameters $parameters,
-        Type $retunType
+        Type $returnType
     ) {
         $this->method = $method;
         $this->parameters = $parameters;
-        $this->retunType = $retunType;
+        $this->returnType = $returnType;
     }
     
 }

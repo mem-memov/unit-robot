@@ -10,6 +10,8 @@ use MemMemov\UnitRobot\Source\Description\Instance\InstanceName;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceMethods;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
+use MemMemov\UnitRobot\Source\Description\Instance\Instancies;
+use MemMemov\UnitRobot\Source\Description\Instance\Instance;
 use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
