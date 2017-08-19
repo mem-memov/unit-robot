@@ -128,6 +128,12 @@ final class ParameterTest extends TestCase
         $this->reflection->expects($this->once())
             ->method('getName');
 
+        $classReflection->expects($this->once())
+            ->method('getNamespaceName');
+
+        $classReflection->expects($this->once())
+            ->method('getShortName');
+
         $this->property = 'some $this->property value';
 
         $this->descriptionProperties->expects($this->once())
@@ -166,6 +172,12 @@ final class ParameterTest extends TestCase
 
         $this->reflection->expects($this->once())
             ->method('getName');
+
+        $classReflection->expects($this->once())
+            ->method('getNamespaceName');
+
+        $classReflection->expects($this->once())
+            ->method('getShortName');
 
         $properties->expects($this->once())
             ->method('addProperty');

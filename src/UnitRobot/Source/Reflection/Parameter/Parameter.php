@@ -89,11 +89,13 @@ class Parameter implements UnitTestMethodParameters
                         
                     } else {
                         
+                        $classReflection = new \ReflectionClass($itemType);
+                        
                         $property = $this->descriptionProperties->createObjectCollectionProperty(
                             $this->reflection->getName(),
-                            $itemType,
-                            $itemType,
-                            $itemType
+                            $classReflection->getNamespaceName(),
+                            $classReflection->getShortName(),
+                            ''
                         );
                         
                     }
@@ -122,20 +124,12 @@ class Parameter implements UnitTestMethodParameters
                 
             } else {
 
-                $lastSlashPosition = strrpos($type, '\\');
-
-                if (false === $lastSlashPosition) {
-                    $namespace = '';
-                    $className = $type;
-                } else {
-                    $namespace = substr($type, 0, $lastSlashPosition);
-                    $className = substr($type, $lastSlashPosition + 1);
-                }
+                $classReflection = new \ReflectionClass($type);
                 
                 $property = $this->descriptionProperties->createObjectProperty(
                     $this->reflection->getName(),
-                    $namespace,
-                    $className,
+                    $classReflection->getNamespaceName(),
+                    $classReflection->getShortName(),
                     $this->type
                 );
                 
