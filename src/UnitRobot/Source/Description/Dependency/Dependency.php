@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot\Source\Description\Dependency;
 
 use MemMemov\UnitRobot\Source\Description\Property\ObjectCollectionProperty;
 use MemMemov\UnitRobot\Source\Description\Property\Properties;
+use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class Dependency
 {
@@ -48,5 +49,12 @@ class Dependency
             $this->class,
             $this->alias
         );
+    }
+    
+    public function createUnitTests(UnitTest $unitTest): void
+    {
+        $fullClassName = $this->namespace . '\\' . $this->class;
+    
+        $unitTest->addDependency($fullClassName, $this->alias);
     }
 }

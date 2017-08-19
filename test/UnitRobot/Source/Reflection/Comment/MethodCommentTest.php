@@ -7,12 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodCommentTest extends TestCase
 {
-    public function testItCanGetParameterComment(): void
-    {
-        $methodComment = new MethodComment();
-
-        $parameter = 'some $parameter value';
-
-        $methodComment->getParameterComment($parameter);
-    }
 }

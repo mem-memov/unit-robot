@@ -7,10 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class PropertyVariableTest extends TestCase
 {
-    public function testItCanToString(): void
-    {
-        $propertyVariable = new PropertyVariable();
-
-        $propertyVariable->toString();
-    }
 }

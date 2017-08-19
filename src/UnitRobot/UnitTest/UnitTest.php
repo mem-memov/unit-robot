@@ -54,11 +54,13 @@ class UnitTest
     }
     
     public function addDependency(
-        string $sourceUseStatement
+        string $fullClassName,
+        string $alias
     ): void
     {
         $dependencyDeclaration = $this->declarations->createDependencyDeclaration(
-            $sourceUseStatement
+            $fullClassName,
+            $alias
         );
         
         $this->builder->addDependencyDeclaration($dependencyDeclaration);

@@ -8,21 +8,4 @@ use PHPUnit\Framework\TestCase;
 
 final class PhpDeclarationTest extends TestCase
 {
-    public function testItCanAppend(): void
-    {
-        $phpDeclaration = new PhpDeclaration();
-
-        $text = $this->createMock(Text::class);
-
-        $text->expects($this->once())
-            ->method('appendLine');
-
-        $text->expects($this->once())
-            ->method('appendLine');
-
-        $text->expects($this->once())
-            ->method('appendLine');
-
-        $phpDeclaration->append($text);
-    }
 }

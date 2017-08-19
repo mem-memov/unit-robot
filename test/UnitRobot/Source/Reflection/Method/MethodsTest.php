@@ -12,13 +12,4 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodsTest extends TestCase
 {
-    public function testItCanCreateMethod(): void
-    {
-        $methods = new Methods();
-
-        $methodReflection = $this->createMock(\ReflectionMethod::class);
-        $className = 'some $className value';
-
-        $methods->createMethod($methodReflection, $className);
-    }
 }

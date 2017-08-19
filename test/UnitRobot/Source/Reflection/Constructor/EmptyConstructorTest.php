@@ -12,24 +12,4 @@ use PHPUnit\Framework\TestCase;
 
 final class EmptyConstructorTest extends TestCase
 {
-    public function testItCanCreateTest(): void
-    {
-        $emptyConstructor = new EmptyConstructor();
-
-        $text = $this->createMock(Text::class);
-        $unitTest = $this->createMock(UnitTest::class);
-
-        $emptyConstructor->createTest($text, $unitTest);
-    }
-
-    public function testItCanDescribeProperties(): void
-    {
-        $emptyConstructor = new EmptyConstructor();
-
-        $text = $this->createMock(Text::class);
-        $dependencies = $this->createMock(InstanceDependencies::class);
-        $properties = $this->createMock(InstanceProperties::class);
-
-        $emptyConstructor->describeProperties($text, $dependencies, $properties);
-    }
 }

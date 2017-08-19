@@ -5,6 +5,7 @@ use MemMemov\UnitRobot\Source\Reflection\Reflections;
 use MemMemov\UnitRobot\Source\Reflection\Methods;
 use MemMemov\UnitRobot\Source\Token\Tokens;
 use MemMemov\UnitRobot\Source\Description\Instance\Instancies;
+use MemMemov\UnitRobot\UnitTest\UnitTests;
 
 class Directories
 {
@@ -12,17 +13,20 @@ class Directories
     private $files;
     private $reflections;
     private $instances;
+    private $unitTests;
     
     public function __construct(
         DirectoryIterators $directoryIterators,
         Files $files,
         Reflections $reflections,
-        Instancies $instances
+        Instancies $instances,
+        UnitTests $unitTests
     ) {
         $this->directoryIterators = $directoryIterators;
         $this->files = $files;
         $this->reflections = $reflections;
         $this->instances = $instances;
+        $this->unitTests = $unitTests;
     }
     
     public function createDirectory(string $path): Directory
@@ -32,7 +36,8 @@ class Directories
             $this->directoryIterators,
             $this->files,
             $this->reflections,
-            $this->instances
+            $this->instances,
+            $this->unitTests
         );
     }
 }

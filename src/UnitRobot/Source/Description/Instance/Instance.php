@@ -1,6 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Instance;
 
+use MemMemov\UnitRobot\UnitTest\UnitTest;
+
 class Instance
 {
     private $name;
@@ -38,5 +40,14 @@ class Instance
     public function getDependencies(): InstanceDependencies
     {
         return $this->dependencies;
+    }
+    
+    public function createUnitTests(UnitTest $unitTest): void
+    {
+        $this->name->createUnitTests($unitTest);
+        
+        $this->dependencies->createUnitTests($unitTest);
+        
+        $unitTest->write();
     }
 }

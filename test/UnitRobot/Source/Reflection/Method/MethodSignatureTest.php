@@ -10,18 +10,4 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodSignatureTest extends TestCase
 {
-    public function testItCanGetTokens(): void
-    {
-        $methodSignature = new MethodSignature();
-
-        $methodString = 'some $methodString value';
-
-        $this->signatureTokens = 'some $this->signatureTokens value';
-
-        $this->tokens->expects($this->once())
-            ->method('createMethodSignature')
-            ->willReturn($this->signatureTokens);
-
-        $methodSignature->getTokens($methodString);
-    }
 }

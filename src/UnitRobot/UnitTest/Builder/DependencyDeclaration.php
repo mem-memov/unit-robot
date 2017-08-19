@@ -5,16 +5,23 @@ use MemMemov\UnitRobot\UnitTest\File\Text;
 
 class DependencyDeclaration
 {
-    private $useStatement;
+    private $fullClassName;
+    private $alias;
     
     public function __construct(
-        string $useStatement
+        string $fullClassName,
+        string $alias
     ) {
-        $this->useStatement = $useStatement;
+        $this->fullClassName = $fullClassName;
+        $this->alias = $alias;
     }
     
     public function append(Text $text) 
     {
-        $text->appendLine($this->useStatement);
+        if (empty($this->alias)) {
+            $text->appendLine('use ' . $this->fullClassName . ';');
+        } else {
+            $text->appendLine('use ' . $this->fullClassName . ' as ' . $this->alias . ';');
+        }
     }
 }

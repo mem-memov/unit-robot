@@ -8,15 +8,4 @@ use PHPUnit\Framework\TestCase;
 
 final class InvocationDeclarationTest extends TestCase
 {
-    public function testItCanAppend(): void
-    {
-        $invocationDeclaration = new InvocationDeclaration();
-
-        $text = $this->createMock(Text::class);
-
-        $text->expects($this->once())
-            ->method('appendLine');
-
-        $invocationDeclaration->append($text);
-    }
 }

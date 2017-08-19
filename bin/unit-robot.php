@@ -69,13 +69,6 @@ $unitRobot = new UnitRobot(
                     ),
                     $sourceMethodComments
                 ),
-                new UnitTests(
-                    new UnitTestDeclarations(),
-                    new UnitTestBuilders(
-                        new UnitTestPhpDeclaration()
-                    ),
-                    new UnitTestTexts()
-                ),
                 new SourceDescriptionDependencies(),
                 new SourceClassConstructors(
                     new SourceConstructors(
@@ -85,7 +78,14 @@ $unitRobot = new UnitRobot(
                     )
                 )
             ),
-            new SourceDescriptionInstancies()
+            new SourceDescriptionInstancies(),
+            new UnitTests(
+                new UnitTestDeclarations(),
+                new UnitTestBuilders(
+                    new UnitTestPhpDeclaration()
+                ),
+                new UnitTestTexts()
+            )
         ),
         new UnitTestDirectories(
             new UnitTestFiles()

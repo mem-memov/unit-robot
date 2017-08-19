@@ -7,10 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class SignaturesTest extends TestCase
 {
-    public function testItCanCreateSignature(): void
-    {
-        $signatures = new Signatures();
-
-        $signatures->createSignature();
-    }
 }

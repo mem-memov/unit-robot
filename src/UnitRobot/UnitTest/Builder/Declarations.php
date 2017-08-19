@@ -11,10 +11,11 @@ class Declarations
     }
     
     public function createDependencyDeclaration(
-        string $sourceUseStatement
+        string $fullClassName,
+        string $alias
     ): DependencyDeclaration
     {
-        return new DependencyDeclaration($sourceUseStatement);
+        return new DependencyDeclaration($fullClassName, $alias);
     }
     
     public function createClassDeclaration(

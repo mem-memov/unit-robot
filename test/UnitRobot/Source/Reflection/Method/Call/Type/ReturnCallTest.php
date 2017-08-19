@@ -10,13 +10,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ReturnCallTest extends TestCase
 {
-    public function testItCanFillUnitTestMethod(): void
-    {
-        $returnCall = new ReturnCall();
-
-        $declarations = $this->createMock(UnitTestDeclarations::class);
-        $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
-
-        $returnCall->fillUnitTestMethod($declarations, $callDeclarations);
-    }
 }

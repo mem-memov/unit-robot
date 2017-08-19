@@ -11,22 +11,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ConstructorsTest extends TestCase
 {
-    public function testItCanCreateEmptyConstructor(): void
-    {
-        $constructors = new Constructors();
-
-        $className = 'some $className value';
-
-        $constructors->createEmptyConstructor($className);
-    }
-
-    public function testItCanCreateParameterizedConstructor(): void
-    {
-        $constructors = new Constructors();
-
-        $constructorReflection = $this->createMock(\ReflectionMethod::class);
-        $className = 'some $className value';
-
-        $constructors->createParameterizedConstructor($constructorReflection, $className);
-    }
 }

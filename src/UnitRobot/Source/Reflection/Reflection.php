@@ -4,8 +4,6 @@ namespace MemMemov\UnitRobot\Source\Reflection;
 use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors;
 use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
-use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
-use MemMemov\UnitRobot\UnitTest\UnitTests;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceName;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceMethods;
@@ -16,20 +14,17 @@ class Reflection
     private $class;
     private $dependencies;
     private $methods;
-    private $unitTests;
     private $constructors;
     
     public function __construct(
         \ReflectionClass $class,
         Dependencies $dependencies,
         Methods $methods,
-        UnitTests $unitTests,
         ClassConstructors $constructors
     ) {
         $this->class = $class;
         $this->dependencies = $dependencies;
         $this->methods = $methods;
-        $this->unitTests = $unitTests;
         $this->constructors = $constructors;
     }
     

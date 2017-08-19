@@ -7,10 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class InstanciesTest extends TestCase
 {
-    public function testItCanCreateInstance(): void
-    {
-        $instancies = new Instancies();
-
-        $instancies->createInstance();
-    }
 }

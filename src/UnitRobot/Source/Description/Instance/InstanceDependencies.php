@@ -2,6 +2,7 @@
 namespace MemMemov\UnitRobot\Source\Description\Instance;
 
 use MemMemov\UnitRobot\Source\Description\Dependency\Dependency;
+use MemMemov\UnitRobot\UnitTest\UnitTest;
 
 class InstanceDependencies
 {
@@ -37,5 +38,12 @@ class InstanceDependencies
         }
         
         throw new \Exception('No match for query ' . $query);
+    }
+    
+    public function createUnitTests(UnitTest $unitTest): void
+    {
+        foreach ($this->dependencies as $dependency) {
+            $dependency->createUnitTests($unitTest);
+        }
     }
 }

@@ -11,25 +11,4 @@ use PHPUnit\Framework\TestCase;
 
 final class MethodCallsTest extends TestCase
 {
-    public function testItCanAddCall(): void
-    {
-        $methodCalls = new MethodCalls();
-
-        $call = $this->createMock(Call::class);
-
-        $methodCalls->addCall($call);
-    }
-
-    public function testItCanFillUnitTestMethod(): void
-    {
-        $methodCalls = new MethodCalls();
-
-        $declarations = $this->createMock(UnitTestDeclarations::class);
-        $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
-
-        $call->expects($this->once())
-            ->method('fillUnitTestMethod');
-
-        $methodCalls->fillUnitTestMethod($declarations, $callDeclarations);
-    }
 }

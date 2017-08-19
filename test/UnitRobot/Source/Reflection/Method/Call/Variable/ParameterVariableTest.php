@@ -7,10 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ParameterVariableTest extends TestCase
 {
-    public function testItCanToString(): void
-    {
-        $parameterVariable = new ParameterVariable();
-
-        $parameterVariable->toString();
-    }
 }

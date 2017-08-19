@@ -57,7 +57,6 @@ class Dependencies
                 $className = substr($fullClassName, $lastSlashPosition + 1);
             }
 
-            
             $instanceDependency = $this->descriptionDependencies->createDependency($namespace, $className, $alias);
             $instanceDependencies->addDependency($instanceDependency);
         }

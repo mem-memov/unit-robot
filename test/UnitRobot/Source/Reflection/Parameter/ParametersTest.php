@@ -11,35 +11,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ParametersTest extends TestCase
 {
-    public function testItCanCreateMethodParameters(): void
-    {
-        $parameters = new Parameters();
-
-        $parameterReflections = [];
-        $tokens = $this->createMock(SignatureTokens::class);
-        $methodComment = $this->createMock(MethodComment::class);
-
-        $type = 'some $type value';
-
-        $tokens->expects($this->once())
-            ->method('getParameterType')
-            ->willReturn($type);
-
-        $reflection->expects($this->once())
-            ->method('getName');
-
-        $tokens->expects($this->once())
-            ->method('getParameterType');
-
-        $reflection->expects($this->once())
-            ->method('getName');
-
-        $methodComment->expects($this->once())
-            ->method('getParameterComment');
-
-        $reflection->expects($this->once())
-            ->method('getName');
-
-        $parameters->createMethodParameters($parameterReflections, $tokens, $methodComment);
-    }
 }

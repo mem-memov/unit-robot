@@ -11,24 +11,4 @@ use PHPUnit\Framework\TestCase;
 
 final class UnitTestsTest extends TestCase
 {
-    public function testItCanCreateUnitTest(): void
-    {
-        $unitTests = new UnitTests();
-
-        $file = $this->createMock(File::class);
-
-        $this->builder = 'some $this->builder value';
-
-        $this->builders->expects($this->once())
-            ->method('createBuilder')
-            ->willReturn($this->builder);
-
-        $this->text = 'some $this->text value';
-
-        $this->texts->expects($this->once())
-            ->method('createText')
-            ->willReturn($this->text);
-
-        $unitTests->createUnitTest($file);
-    }
 }

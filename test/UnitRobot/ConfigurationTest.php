@@ -11,17 +11,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ConfigurationTest extends TestCase
 {
-    public function testItCanCreateSourceDirectory(): void
-    {
-        $configuration = new Configuration();
-
-        $configuration->createSourceDirectory();
-    }
-
-    public function testItCanCreateUnitTestDirectory(): void
-    {
-        $configuration = new Configuration();
-
-        $configuration->createUnitTestDirectory();
-    }
 }
