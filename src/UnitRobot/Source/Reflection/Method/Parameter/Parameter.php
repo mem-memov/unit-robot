@@ -7,7 +7,7 @@ use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
 use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
-use MemMemov\UnitRobot\Source\Description\Properties as DescriptionProperties;
+use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;
 
 class Parameter implements UnitTestMethodParameters
 {

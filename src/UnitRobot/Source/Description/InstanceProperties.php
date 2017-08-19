@@ -1,6 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
+use MemMemov\UnitRobot\Source\Description\Property\Property;
+
 class InstanceProperties
 {
     private $properties;

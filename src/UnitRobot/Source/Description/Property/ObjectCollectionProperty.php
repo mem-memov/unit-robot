@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Description;
+namespace MemMemov\UnitRobot\Source\Description\Property;
 
 class ObjectCollectionProperty implements Property
 {
