@@ -77,14 +77,20 @@ final class ParameterTest extends TestCase
         $this->comment->expects($this->once())
             ->method('hasTypeForArray');
 
-        $this->collectionType = 'some $this->collectionType value';
+        $this->itemType = 'some $this->itemType value';
 
         $this->comment->expects($this->once())
             ->method('getTypeForArray')
-            ->willReturn($this->collectionType);
+            ->willReturn($this->itemType);
 
         $this->reflection->expects($this->once())
             ->method('getName');
+
+        $this->isScalar = 'some $this->isScalar value';
+
+        $this->descriptionProperties->expects($this->once())
+            ->method('isScalarType')
+            ->willReturn($this->isScalar);
 
         $this->property = 'some $this->property value';
 
@@ -104,11 +110,11 @@ final class ParameterTest extends TestCase
             ->method('get')
             ->willReturn($dependency);
 
-        $this->property = 'some $this->property value';
+        $property = 'some $property value';
 
-        $this->descriptionProperties->expects($this->once())
-            ->method('createDependencyCollectionProperty')
-            ->willReturn($this->property);
+        $dependency->expects($this->once())
+            ->method('createObjectCollectionProperty')
+            ->willReturn($property);
 
         $this->reflection->expects($this->once())
             ->method('getName');
@@ -136,6 +142,12 @@ final class ParameterTest extends TestCase
         $this->reflection->expects($this->once())
             ->method('getType')
             ->willReturn($this->type);
+
+        $this->isScalar = 'some $this->isScalar value';
+
+        $this->descriptionProperties->expects($this->once())
+            ->method('isScalarType')
+            ->willReturn($this->isScalar);
 
         $this->property = 'some $this->property value';
 

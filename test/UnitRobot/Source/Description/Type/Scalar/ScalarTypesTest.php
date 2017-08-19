@@ -7,31 +7,21 @@ use PHPUnit\Framework\TestCase;
 
 final class ScalarTypesTest extends TestCase
 {
-    public function testItCanCreateBooleanType(): void
+    public function testItCanIsScalarType(): void
     {
         $scalarTypes = new ScalarTypes();
 
-        $scalarTypes->createBooleanType();
+        $name = 'some $name value';
+
+        $scalarTypes->isScalarType($name);
     }
 
-    public function testItCanCreateFloatType(): void
+    public function testItCanCreateScalarType(): void
     {
         $scalarTypes = new ScalarTypes();
 
-        $scalarTypes->createFloatType();
-    }
+        $name = 'some $name value';
 
-    public function testItCanCreateIntegerType(): void
-    {
-        $scalarTypes = new ScalarTypes();
-
-        $scalarTypes->createIntegerType();
-    }
-
-    public function testItCanCreateStringType(): void
-    {
-        $scalarTypes = new ScalarTypes();
-
-        $scalarTypes->createStringType();
+        $scalarTypes->createScalarType($name);
     }
 }

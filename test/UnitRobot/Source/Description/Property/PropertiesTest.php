@@ -81,6 +81,15 @@ final class PropertiesTest extends TestCase
         $properties->createScalarCollectionProperty($name, $type);
     }
 
+    public function testItCanIsScalarType(): void
+    {
+        $properties = new Properties();
+
+        $name = 'some $name value';
+
+        $properties->isScalarType($name);
+    }
+
     public function testItCanCreateScalarProperty(): void
     {
         $properties = new Properties();

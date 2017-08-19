@@ -64,31 +64,38 @@ class Parameter implements UnitTestMethodParameters
             
             if ($this->comment->hasTypeForArray()) {
                 
-                $collectionType = $this->comment->getTypeForArray(
+                $itemType = $this->comment->getTypeForArray(
                     $this->reflection->getName()
                 );
                 
-                $isScalar = in_array($collectionType, ['integer', 'int', 'float', 'string', 'boolean', 'bool']);
+                $isScalar = $this->descriptionProperties->isScalarType($itemType);
                 
                 if ($isScalar) {
+                    
                     $property = $this->descriptionProperties->createScalarCollectionProperty(
                         $this->reflection->getName(),
-                        $collectionType
+                        $itemType
                     );
+                    
                 } else {
                     
-                    if ($instanceDependencies->has($collectionType)) {
-                        $dependency = $instanceDependencies->get($collectionType);
-
-                        $property = $this->descriptionProperties->createDependencyCollectionProperty(
+                    if ($instanceDependencies->has($itemType)) {
+                        $dependency = $instanceDependencies->get($itemType);
+                        
+                        $property = $dependency->createObjectCollectionProperty(
                             $this->reflection->getName(),
-                            $dependency
+                            $this->descriptionProperties
                         );
+                        
                     } else {
+                        
                         $property = $this->descriptionProperties->createObjectCollectionProperty(
                             $this->reflection->getName(),
-                            $collectionType
+                            $itemType,
+                            $itemType,
+                            $itemType
                         );
+                        
                     }
                 }
                 
@@ -104,7 +111,7 @@ class Parameter implements UnitTestMethodParameters
             
             $type = $this->reflection->getType();
             
-            $isScalar = in_array($type, ['integer', 'int', 'float', 'string', 'boolean', 'bool']);
+            $isScalar = $this->descriptionProperties->isScalarType($type);
             
             if ($isScalar) {
                 

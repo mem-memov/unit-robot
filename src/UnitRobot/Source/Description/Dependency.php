@@ -1,6 +1,9 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description;
 
+use MemMemov\UnitRobot\Source\Description\Property\ObjectCollectionProperty;
+use MemMemov\UnitRobot\Source\Description\Property\Properties;
+
 class Dependency
 {
     private $namespace;
@@ -32,5 +35,18 @@ class Dependency
         }
         
         return false;
+    }
+    
+    public function createObjectCollectionProperty(
+        string $name,
+        Properties $properties
+    ): ObjectCollectionProperty
+    {
+        return $properties->createObjectCollectionProperty(
+            $name,
+            $this->namespace,
+            $this->class,
+            $this->alias
+        );
     }
 }

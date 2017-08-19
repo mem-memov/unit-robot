@@ -31,24 +31,15 @@ class Types
     {
         return new ScalarArrayType($itemType);
     }
+    
+    public function isScalarType(string $name): bool
+    {
+        return $this->scalarTypes->isScalarType($name);
+    }
 
     public function createScalarType(string $name): ScalarType
     {
-        switch ($name) {
-            case 'bool':
-            case 'boolean':
-                return $this->scalarTypes->createBooleanType();
-            case 'float':
-                return $this->scalarTypes->createFloatType();
-            case 'int':
-            case 'integer':
-                return $this->scalarTypes->createIntegerType();
-            case 'str':
-            case 'string':
-                return $this->scalarTypes->createStringType();
-            default:
-                throw new \Exception('Unknown type: ' . $name);
-        }
+        return $this->scalarTypes->createScalarType($name);
     }
     
     public function createObjectType(

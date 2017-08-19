@@ -3,23 +3,27 @@ namespace MemMemov\UnitRobot\Source\Description\Type\Scalar;
 
 class ScalarTypes
 {
-    public function createBooleanType(): BooleanType
+    public function isScalarType(string $name): bool
     {
-        return new BooleanType();
+        return in_array($name, ['integer', 'int', 'float', 'string', 'boolean', 'bool']);
     }
     
-    public function createFloatType(): FloatType
+    public function createScalarType(string $name): ScalarType
     {
-        return new FloatType();
-    }
-    
-    public function createIntegerType(): IntegerType
-    {
-        return new IntegerType();
-    }
-    
-    public function createStringType(): StringType
-    {
-        return new StringType();
+        switch ($name) {
+            case 'bool':
+            case 'boolean':
+                return new BooleanType();
+            case 'float':
+                return new FloatType();
+            case 'int':
+            case 'integer':
+                return new IntegerType();
+            case 'str':
+            case 'string':
+                return new StringType();
+            default:
+                throw new \Exception('Unknown scalar type: ' . $name);
+        }
     }
 }

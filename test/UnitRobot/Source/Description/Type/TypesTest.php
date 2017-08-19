@@ -37,6 +37,15 @@ final class TypesTest extends TestCase
         $types->createScalarArrayType($itemType);
     }
 
+    public function testItCanIsScalarType(): void
+    {
+        $types = new Types();
+
+        $name = 'some $name value';
+
+        $types->isScalarType($name);
+    }
+
     public function testItCanCreateScalarType(): void
     {
         $types = new Types();

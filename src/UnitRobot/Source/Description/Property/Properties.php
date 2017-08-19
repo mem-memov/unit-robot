@@ -58,6 +58,11 @@ class Properties
         return new ScalarCollectionProperty($name, $scalarType);
     }
     
+    public function isScalarType(string $name): bool
+    {
+        return $this->types->isScalarType($name);
+    }
+    
     public function createScalarProperty(
         string $name,
         string $type
