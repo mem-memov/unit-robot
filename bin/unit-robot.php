@@ -2,7 +2,7 @@
 namespace MemMemov\UnitRobot;
 
 use MemMemov\UnitRobot\Source\Description\Instance\Instancies as SourceDescriptionInstancies;
-use MemMemov\UnitRobot\Source\Description\Dependencies as SourceDescriptionDependencies;
+use MemMemov\UnitRobot\Source\Description\Dependency\Dependencies as SourceDescriptionDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as SourceDescriptionProperties;
 use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarTypes as SourceDescriptionScalarTypes;
 use MemMemov\UnitRobot\Source\Description\Type\Types as SourceDescriptionTypes;

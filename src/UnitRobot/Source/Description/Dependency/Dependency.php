@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Description;
+namespace MemMemov\UnitRobot\Source\Description\Dependency;
 
 use MemMemov\UnitRobot\Source\Description\Property\ObjectCollectionProperty;
 use MemMemov\UnitRobot\Source\Description\Property\Properties;

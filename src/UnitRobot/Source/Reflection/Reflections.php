@@ -4,7 +4,7 @@ namespace MemMemov\UnitRobot\Source\Reflection;
 use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors;
 use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\UnitTest\UnitTests;
-use MemMemov\UnitRobot\Source\Description\Dependencies as DescriptionDependencies;
+use MemMemov\UnitRobot\Source\Description\Dependency\Dependencies as DescriptionDependencies;
 
 class Reflections
 {

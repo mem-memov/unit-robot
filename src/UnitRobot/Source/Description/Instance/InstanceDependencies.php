@@ -1,7 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Instance;
 
-use MemMemov\UnitRobot\Source\Description\Dependency;
+use MemMemov\UnitRobot\Source\Description\Dependency\Dependency;
 
 class InstanceDependencies
 {

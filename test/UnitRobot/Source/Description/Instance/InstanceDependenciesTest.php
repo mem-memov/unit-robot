@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\Description\Instance;
 
-use MemMemov\UnitRobot\Source\Description\Dependency;
+use MemMemov\UnitRobot\Source\Description\Dependency\Dependency;
 use PHPUnit\Framework\TestCase;
 
 final class InstanceDependenciesTest extends TestCase
