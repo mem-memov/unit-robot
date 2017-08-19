@@ -12,7 +12,7 @@ class NoType extends \Exception
             'No type for ' 
             . $parameterName 
             . ' in ' 
-            . $declaringClas->getName()
+            . $declaringClass->getName()
             . '::'
             . $declaringFunction->getName()
         );

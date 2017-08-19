@@ -1,6 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Signature;
 
+use MemMemov\UnitRobot\Source\Description\Type\Type;
+
 class Signatures
 {
     public function createSignature(
@@ -14,5 +16,10 @@ class Signatures
             $parameters,
             $returnType
         );
+    }
+    
+    public function createSignatureParameters(): SignatureParameters
+    {
+        return new SignatureParameters();
     }
 }

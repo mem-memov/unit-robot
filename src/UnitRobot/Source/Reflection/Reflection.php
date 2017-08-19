@@ -33,7 +33,7 @@ class Reflection
         $this->instances = $instances;
     }
     
-    public function createTests(Text $sourceText, UnitTestFile $unitTestFile)
+    public function createTests(Text $sourceText, UnitTestFile $unitTestFile): void
     {
         if ($this->class->isAbstract() || $this->class->isInterface()) {
             return;
@@ -79,20 +79,17 @@ class Reflection
             $this->class->getShortName()
         );
 
-        $instanceDependencies = $this->instances->createInstanceDependencies();
-        $this->dependencies->describe($sourceText, $instanceDependencies);
+        $instanceDependencies = $this->dependencies->describe($sourceText);
         
-        $instanceProperties = $this->instances->createInstanceProperties();
         $constructor = $this->constructors->createConstructor($this->class);
-        $constructor->describeProperties(
+        $instanceProperties = $constructor->describeProperties(
             $sourceText, 
-            $instanceDependencies, 
-            $instanceProperties
+            $instanceDependencies
         );
         
         $instanceMethods = $this->instances->createInstanceMethods();
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
-/*
+
         foreach ($methodReflections as $methodReflection) {
             if ($methodReflection->isConstructor()) {
                 continue;
@@ -102,18 +99,16 @@ class Reflection
                 $methodReflection, 
                 $this->class->getShortName()
             );
-            
-            $signature = $this->signatures->createSignature();
-            
+
             try {
-                $signature = $method->describeSignature($signature);
-            } catch ($e) {
+                $signature = $method->describeSignature($sourceText, $instanceDependencies);
+            } catch (\Exception $e) {
                 continue;
             }
             
             $instanceMethods->addSignature($signature);
         }
- */       
+      
         return $this->instances->createInstance(
             $instanceName,
             $instanceProperties,

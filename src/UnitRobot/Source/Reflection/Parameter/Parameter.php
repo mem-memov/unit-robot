@@ -8,6 +8,9 @@ use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParamet
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;
+use MemMemov\UnitRobot\Source\Description\Property\Property as DescriptionProperty;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameters as DescriptionParameters;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameter as DescriptionParameter;
 use MemMemov\UnitRobot\Source\Reflection\Comment\ParameterComment;
 
 class Parameter implements UnitTestMethodParameters
@@ -15,17 +18,20 @@ class Parameter implements UnitTestMethodParameters
     private $reflection;
     private $type;
     private $descriptionProperties;
+    private $descriptionParameters;
     private $comment;
     
     public function __construct(
         \ReflectionParameter $reflection,
         string $type,
         DescriptionProperties $descriptionProperties,
+        DescriptionParameters $descriptionParameters,
         ParameterComment $comment
     ) {
         $this->reflection = $reflection;
         $this->type = $type;
         $this->descriptionProperties = $descriptionProperties;
+        $this->descriptionParameters = $descriptionParameters;
         $this->comment = $comment;
     }
     
@@ -48,9 +54,8 @@ class Parameter implements UnitTestMethodParameters
     }
     
     public function describeProperties(
-        InstanceProperties $properties,
         InstanceDependencies $instanceDependencies
-    ): void
+    ): DescriptionProperty
     {
         if (!$this->reflection->hasType()) {
             throw new NoType(
@@ -136,6 +141,95 @@ class Parameter implements UnitTestMethodParameters
             }
         }
         
-        $properties->addProperty($property);
+        return $property;
+    }
+    
+    public function describeSignature(): DescriptionParameter
+    {
+        if (!$this->reflection->hasType()) {
+            throw new NoType(
+                $this->reflection->getName(),
+                $this->reflection->getDeclaringClass(),
+                $this->reflection->getDeclaringFunction()
+            );
+        }
+        
+        if ($this->reflection->isArray()) {
+            
+            if ($this->comment->hasTypeForArray()) {
+                
+                $itemType = $this->comment->getTypeForArray(
+                    $this->reflection->getName()
+                );
+                
+                $isScalar = $this->descriptionParameters->isScalarType($itemType);
+                
+                if ($isScalar) {
+                    
+                    $parameter = $this->descriptionParameters->createScalarCollectionParameter(
+                        $this->reflection->getName(),
+                        $itemType
+                    );
+                    
+                } else {
+                    
+                    if ($instanceDependencies->has($itemType)) {
+                        $dependency = $instanceDependencies->get($itemType);
+                        
+                        $parameter = $dependency->createObjectCollectionParameter(
+                            $this->reflection->getName(),
+                            $this->descriptionParameters
+                        );
+                        
+                    } else {
+                        
+                        $classReflection = new \ReflectionClass($itemType);
+                        
+                        $parameter = $this->descriptionParameters->createObjectCollectionParameter(
+                            $this->reflection->getName(),
+                            $classReflection->getNamespaceName(),
+                            $classReflection->getShortName(),
+                            ''
+                        );
+                        
+                    }
+                }
+                
+            } else {
+                
+                $parameter = $this->descriptionParameters->createArrayParameter(
+                    $this->reflection->getName()
+                );
+                
+            }
+            
+        } else {
+            
+            $type = $this->reflection->getType();
+            
+            $isScalar = $this->descriptionParameters->isScalarType($type);
+            
+            if ($isScalar) {
+                
+                $parameter = $this->descriptionParameters->createScalarParameter(
+                    $this->reflection->getName(),
+                    $type
+                );
+                
+            } else {
+
+                $classReflection = new \ReflectionClass($type);
+                
+                $parameter = $this->descriptionParameters->createObjectParameter(
+                    $this->reflection->getName(),
+                    $classReflection->getNamespaceName(),
+                    $classReflection->getShortName(),
+                    $this->type
+                );
+                
+            }
+        }
+        
+        return $parameter;
     }
 }

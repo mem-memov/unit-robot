@@ -4,6 +4,8 @@ namespace MemMemov\UnitRobot;
 use MemMemov\UnitRobot\Source\Description\Instance\Instancies as SourceDescriptionInstancies;
 use MemMemov\UnitRobot\Source\Description\Dependency\Dependencies as SourceDescriptionDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as SourceDescriptionProperties;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameters as SourceDescriptionParameters;
+use MemMemov\UnitRobot\Source\Description\Signature\Signatures as SourceDescriptionSignatures;
 use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarTypes as SourceDescriptionScalarTypes;
 use MemMemov\UnitRobot\Source\Description\Type\Types as SourceDescriptionTypes;
 use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
@@ -37,13 +39,21 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configuration = require __DIR__ . '/../unit-robot.config.php';
 
+$sourceDescriptionSignatures = new SourceDescriptionSignatures();
+$sourceDescriptionInstancies = new SourceDescriptionInstancies();
 $sourceTokens = new SourceTokens();
+$sourceDescriptionTypes = new SourceDescriptionTypes(
+    new SourceDescriptionScalarTypes()
+);
 $sourceParameters = new SourceParameters(
     new SourceDescriptionProperties(
-        new SourceDescriptionTypes(
-            new SourceDescriptionScalarTypes()
-        )
-    )
+        $sourceDescriptionTypes
+    ),
+    new SourceDescriptionParameters(
+        $sourceDescriptionTypes
+    ),
+    $sourceDescriptionInstancies,
+    $sourceDescriptionSignatures
 );
 $sourceTokenMethodSignatures = new SourceTokenMethodSignatures($sourceTokens);
 $sourceMethodComments = new SourceMethodComments();
@@ -67,17 +77,20 @@ $unitRobot = new UnitRobot(
                         new SourceCallTypes(),
                         new SourceVariables()
                     ),
-                    $sourceMethodComments
+                    $sourceMethodComments,
+                    $sourceDescriptionSignatures,
+                    $sourceDescriptionTypes
                 ),
                 new SourceDescriptionDependencies(),
                 new SourceClassConstructors(
                     new SourceConstructors(
                         $sourceTokenMethodSignatures,
                         $sourceParameters,
-                        $sourceMethodComments
+                        $sourceMethodComments,
+                        $sourceDescriptionInstancies
                     )
                 ),
-                new SourceDescriptionInstancies()
+                $sourceDescriptionInstancies
             ),
             new UnitTests(
                 new UnitTestDeclarations(),

@@ -10,6 +10,9 @@ use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParamet
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;
+use MemMemov\UnitRobot\Source\Description\Property\Property as DescriptionProperty;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameters as DescriptionParameters;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameter as DescriptionParameter;
 use MemMemov\UnitRobot\Source\Reflection\Comment\ParameterComment;
 use PHPUnit\Framework\TestCase;
 

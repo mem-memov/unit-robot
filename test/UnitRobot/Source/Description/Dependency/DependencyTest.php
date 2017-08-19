@@ -5,6 +5,10 @@ namespace MemMemov\UnitRobot\Source\Description\Dependency;
 
 use MemMemov\UnitRobot\Source\Description\Property\ObjectCollectionProperty;
 use MemMemov\UnitRobot\Source\Description\Property\Properties;
+use MemMemov\UnitRobot\Source\Description\Parameter\ObjectCollectionParameter;
+use MemMemov\UnitRobot\Source\Description\Parameter\Parameters;
+use MemMemov\UnitRobot\Source\Description\Type\Collection\ObjectArrayType;
+use MemMemov\UnitRobot\Source\Description\Type\Types;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use PHPUnit\Framework\TestCase;
 

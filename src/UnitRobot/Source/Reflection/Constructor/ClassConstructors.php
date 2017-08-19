@@ -16,19 +16,15 @@ class ClassConstructors
     ): Constructor
     {
         $constructorReflection = $class->getconstructor();
-        $className = $class->getShortName();
 
         if (is_null($constructorReflection)) {
             
-            return $this->constructors->createEmptyConstructor(
-                $className
-            );
+            return $this->constructors->createEmptyConstructor();
             
         } else {
 
             return $this->constructors->createParameterizedConstructor(
-                $constructorReflection,
-                $className
+                $constructorReflection
             );
             
         }

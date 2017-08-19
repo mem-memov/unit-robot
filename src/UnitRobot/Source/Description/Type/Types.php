@@ -50,4 +50,9 @@ class Types
     {
         return new ObjectType($namespace, $class, $alias);
     }
+    
+    public function createVoidType(): VoidType
+    {
+        return new VoidType();
+    }
 }

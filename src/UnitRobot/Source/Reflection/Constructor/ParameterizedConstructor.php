@@ -12,20 +12,17 @@ use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
 class ParameterizedConstructor implements Constructor
 {
     private $reflection;
-    private $className;
     private $methodSignature;
     private $parameters;
     private $methodComments;
     
     public function __construct(
         \ReflectionMethod $reflection,
-        string $className,
         MethodSignature $methodSignature,
         Parameters $parameters,
         MethodComments $methodComments
     ) {
         $this->reflection = $reflection;
-        $this->className = $className;
         $this->methodSignature = $methodSignature;
         $this->parameters = $parameters;
         $this->methodComments = $methodComments;
@@ -57,9 +54,8 @@ class ParameterizedConstructor implements Constructor
     
     public function describeProperties(
         Text $text,
-        InstanceDependencies $dependencies,
-        InstanceProperties $properties
-    ): void
+        InstanceDependencies $dependencies
+    ): InstanceProperties
     {
         $startLine = $this->reflection->getStartLine();
         $endLine = $this->reflection->getEndLine();
@@ -79,6 +75,8 @@ class ParameterizedConstructor implements Constructor
             $methodComment
         );
         
-        $parameters->describeProperties($properties, $dependencies);
+        $instanceProperties = $parameters->describeProperties($dependencies);
+        
+        return $instanceProperties;
     }
 }

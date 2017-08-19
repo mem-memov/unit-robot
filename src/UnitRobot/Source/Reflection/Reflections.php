@@ -33,7 +33,8 @@ class Reflections
             $class,
             new Dependencies(
                 $class,
-                $this->descriptionDependencies
+                $this->descriptionDependencies,
+                $this->instances
             ),
             $this->methods,
             $this->constructors,

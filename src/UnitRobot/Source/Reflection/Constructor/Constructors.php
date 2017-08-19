@@ -5,41 +5,40 @@ use MemMemov\UnitRobot\Source\Reflection\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodSignature;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
+use MemMemov\UnitRobot\Source\Description\Instance\Instancies;
 
 class Constructors
 {
     private $methodSignatureTokens;
     private $parameters;
     private $methodComments;
+    private $instances;
     
     public function __construct(
         MethodSignatureTokens $methodSignatureTokens,
         Parameters $parameters,
-        MethodComments $methodComments
+        MethodComments $methodComments,
+        Instancies $instances
     ) {
         $this->methodSignatureTokens = $methodSignatureTokens;
         $this->parameters = $parameters;
         $this->methodComments = $methodComments;
+        $this->instances = $instances;
     }
     
-    public function createEmptyConstructor(
-        string $className
-    ): EmptyConstructor
+    public function createEmptyConstructor(): EmptyConstructor
     {
         return new EmptyConstructor(
-            $className,
-            $this->parameters
+            $this->instances
         );
     }
     
     public function createParameterizedConstructor(
-        \ReflectionMethod $constructorReflection,
-        string $className
+        \ReflectionMethod $constructorReflection
     ): ParameterizedConstructor
     {
         return new ParameterizedConstructor(
             $constructorReflection,
-            $className,
             new MethodSignature(
                 $constructorReflection,
                 $this->methodSignatureTokens
