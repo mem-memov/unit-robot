@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Parameter;
+namespace MemMemov\UnitRobot\Source\Reflection\Comment;
 
 class ParameterComment
 {

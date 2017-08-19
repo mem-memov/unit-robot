@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Method;
+namespace MemMemov\UnitRobot\Source\Reflection\Comment;
 
 class MethodComments
 {

@@ -10,6 +10,7 @@ use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParamet
 use MemMemov\UnitRobot\Source\Description\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;
+use MemMemov\UnitRobot\Source\Reflection\Comment\ParameterComment;
 use PHPUnit\Framework\TestCase;
 
 final class ParameterTest extends TestCase
