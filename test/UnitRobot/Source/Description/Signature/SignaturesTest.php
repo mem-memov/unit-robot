@@ -1,0 +1,16 @@
+<?php
+declare(strict_types=1);
+
+namespace MemMemov\UnitRobot\Source\Description\Signature;
+
+use PHPUnit\Framework\TestCase;
+
+final class SignaturesTest extends TestCase
+{
+    public function testItCanCreateSignature(): void
+    {
+        $signatures = new Signatures();
+
+        $signatures->createSignature();
+    }
+}
