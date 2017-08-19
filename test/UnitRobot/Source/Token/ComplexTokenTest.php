@@ -7,22 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ComplexTokenTest extends TestCase
 {
-    protected $code;
-    protected $name;
-    protected $string;
-    protected $line;
-
-    protected function setUp(): void
-    {
-        $this->code = 5;
-        $this->name = 'some $this->name value';
-        $this->string = 'some $this->string value';
-        $this->line = 5;
-    }
-
     public function testItCanHasVariable(): void
     {
-        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
+        $complexToken = new ComplexToken();
 
         $value = 'some $value value';
 
@@ -31,21 +18,21 @@ final class ComplexTokenTest extends TestCase
 
     public function testItCanIsTypePart(): void
     {
-        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
+        $complexToken = new ComplexToken();
 
         $complexToken->isTypePart();
     }
 
     public function testItCanGetString(): void
     {
-        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
+        $complexToken = new ComplexToken();
 
         $complexToken->getString();
     }
 
     public function testItCanToString(): void
     {
-        $complexToken = new ComplexToken($this->code, $this->name, $this->string, $this->line);
+        $complexToken = new ComplexToken();
 
         $complexToken->toString();
     }

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace MemMemov\UnitRobot\Source\Reflection;
 
+use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors;
 use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
@@ -15,22 +16,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ReflectionTest extends TestCase
 {
-    protected $class;
-    protected $dependencies;
-    protected $methods;
-    protected $unitTests;
-
-    protected function setUp(): void
-    {
-        $this->class = $this->createMock(\ReflectionClass::class);
-        $this->dependencies = $this->createMock(Dependencies::class);
-        $this->methods = $this->createMock(Methods::class);
-        $this->unitTests = $this->createMock(UnitTests::class);
-    }
-
     public function testItCanCreateTests(): void
     {
-        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
+        $reflection = new Reflection();
 
         $sourceText = $this->createMock(Text::class);
         $unitTestFile = $this->createMock(UnitTestFile::class);
@@ -100,7 +88,7 @@ final class ReflectionTest extends TestCase
 
     public function testItCanNeedsDescribing(): void
     {
-        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
+        $reflection = new Reflection();
 
         $this->class->expects($this->once())
             ->method('isAbstract');
@@ -113,7 +101,7 @@ final class ReflectionTest extends TestCase
 
     public function testItCanDescribe(): void
     {
-        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->unitTests);
+        $reflection = new Reflection();
 
         $sourceText = $this->createMock(Text::class);
         $name = $this->createMock(InstanceName::class);
@@ -138,7 +126,7 @@ final class ReflectionTest extends TestCase
 
         $this->constructor = 'some $this->constructor value';
 
-        $this->methods->expects($this->once())
+        $this->constructors->expects($this->once())
             ->method('createConstructor')
             ->willReturn($this->constructor);
 

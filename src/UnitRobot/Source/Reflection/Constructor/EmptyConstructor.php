@@ -1,5 +1,5 @@
 <?php
-namespace MemMemov\UnitRobot\Source\Reflection\Method\Constructor;
+namespace MemMemov\UnitRobot\Source\Reflection\Constructor;
 
 use MemMemov\UnitRobot\Source\Reflection\Method\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\File\Text;

@@ -10,16 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ParametersTest extends TestCase
 {
-    protected $descriptionProperties;
-
-    protected function setUp(): void
-    {
-        $this->descriptionProperties = $this->createMock(DescriptionProperties::class);
-    }
-
     public function testItCanCreateMethodParameters(): void
     {
-        $parameters = new Parameters($this->descriptionProperties);
+        $parameters = new Parameters();
 
         $parameterReflections = [];
         $tokens = $this->createMock(SignatureTokens::class);

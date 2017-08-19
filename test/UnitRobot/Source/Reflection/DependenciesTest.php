@@ -11,18 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class DependenciesTest extends TestCase
 {
-    protected $class;
-    protected $descriptionDependencies;
-
-    protected function setUp(): void
-    {
-        $this->class = $this->createMock(\ReflectionClass::class);
-        $this->descriptionDependencies = $this->createMock(DescriptionDependencies::class);
-    }
-
     public function testItCanAddDependenciesToUnitTest(): void
     {
-        $dependencies = new Dependencies($this->class, $this->descriptionDependencies);
+        $dependencies = new Dependencies();
 
         $sourceText = $this->createMock(Text::class);
         $unitTest = $this->createMock(UnitTest::class);
@@ -44,7 +35,7 @@ final class DependenciesTest extends TestCase
 
     public function testItCanDescribe(): void
     {
-        $dependencies = new Dependencies($this->class, $this->descriptionDependencies);
+        $dependencies = new Dependencies();
 
         $sourceText = $this->createMock(Text::class);
         $instanceDependencies = $this->createMock(InstanceDependencies::class);

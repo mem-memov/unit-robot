@@ -11,27 +11,16 @@ use PHPUnit\Framework\TestCase;
 
 final class ConfigurationTest extends TestCase
 {
-    protected $config;
-    protected $sourceDirectories;
-    protected $unitTestDirectories;
-
-    protected function setUp(): void
-    {
-        $this->config = [];
-        $this->sourceDirectories = $this->createMock(SourceDirectories::class);
-        $this->unitTestDirectories = $this->createMock(UnitTestDirectories::class);
-    }
-
     public function testItCanCreateSourceDirectory(): void
     {
-        $configuration = new Configuration($this->config, $this->sourceDirectories, $this->unitTestDirectories);
+        $configuration = new Configuration();
 
         $configuration->createSourceDirectory();
     }
 
     public function testItCanCreateUnitTestDirectory(): void
     {
-        $configuration = new Configuration($this->config, $this->sourceDirectories, $this->unitTestDirectories);
+        $configuration = new Configuration();
 
         $configuration->createUnitTestDirectory();
     }

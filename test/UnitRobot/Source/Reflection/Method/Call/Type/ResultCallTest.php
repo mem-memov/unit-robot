@@ -10,20 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 final class ResultCallTest extends TestCase
 {
-    protected $callVariable;
-    protected $method;
-    protected $resultVariable;
-
-    protected function setUp(): void
-    {
-        $this->callVariable = $this->createMock(Variable::class);
-        $this->method = 'some $this->method value';
-        $this->resultVariable = $this->createMock(Variable::class);
-    }
-
     public function testItCanFillUnitTestMethod(): void
     {
-        $resultCall = new ResultCall($this->callVariable, $this->method, $this->resultVariable);
+        $resultCall = new ResultCall();
 
         $declarations = $this->createMock(UnitTestDeclarations::class);
         $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);

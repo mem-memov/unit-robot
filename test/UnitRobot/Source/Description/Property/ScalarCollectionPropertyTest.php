@@ -7,13 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ScalarCollectionPropertyTest extends TestCase
 {
-    protected $name;
-    protected $type;
-
-    protected function setUp(): void
-    {
-        $this->name = 'some $this->name value';
-        $this->type = 'some $this->type value';
-    }
-
 }

@@ -7,11 +7,4 @@ use PHPUnit\Framework\TestCase;
 
 final class ArrayPropertyTest extends TestCase
 {
-    protected $name;
-
-    protected function setUp(): void
-    {
-        $this->name = 'some $this->name value';
-    }
-
 }

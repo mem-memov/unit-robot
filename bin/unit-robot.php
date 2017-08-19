@@ -18,7 +18,8 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Call\Positionings as SourcePosit
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Type\CallTypes as SourceCallTypes;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variables as SourceVariables;
 use MemMemov\UnitRobot\Source\Reflection\Method\MethodComments as SourceMethodComments;
-use MemMemov\UnitRobot\Source\Reflection\Method\Constructor\Constructors as SourceConstructors;
+use MemMemov\UnitRobot\Source\Reflection\Constructor\Constructors as SourceConstructors;
+use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors as SourceClassConstructors;
 use MemMemov\UnitRobot\Source\Token\Tokens as SourceTokens;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as SourceTokenMethodSignatures;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as SourceTokenMethodBodies;
@@ -60,11 +61,6 @@ $unitRobot = new UnitRobot(
                         new SourceCallTypes(),
                         new SourceVariables()
                     ),
-                    new SourceConstructors(
-                        $sourceTokenMethodSignatures,
-                        $sourceParameters,
-                        $sourceMethodComments
-                    ),
                     $sourceMethodComments
                 ),
                 new UnitTests(
@@ -74,7 +70,14 @@ $unitRobot = new UnitRobot(
                     ),
                     new UnitTestTexts()
                 ),
-                new SourceDescriptionDependencies()
+                new SourceDescriptionDependencies(),
+                new SourceClassConstructors(
+                    new SourceConstructors(
+                        $sourceTokenMethodSignatures,
+                        $sourceParameters,
+                        $sourceMethodComments
+                    )
+                )
             ),
             new SourceDescriptionInstancies()
         ),

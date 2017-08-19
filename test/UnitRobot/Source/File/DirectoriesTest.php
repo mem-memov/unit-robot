@@ -11,22 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
-    protected $directoryIterators;
-    protected $files;
-    protected $reflections;
-    protected $instances;
-
-    protected function setUp(): void
-    {
-        $this->directoryIterators = $this->createMock(DirectoryIterators::class);
-        $this->files = $this->createMock(Files::class);
-        $this->reflections = $this->createMock(Reflections::class);
-        $this->instances = $this->createMock(Instancies::class);
-    }
-
     public function testItCanCreateDirectory(): void
     {
-        $directories = new Directories($this->directoryIterators, $this->files, $this->reflections, $this->instances);
+        $directories = new Directories();
 
         $path = 'some $path value';
 

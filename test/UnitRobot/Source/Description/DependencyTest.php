@@ -7,20 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class DependencyTest extends TestCase
 {
-    protected $namespace;
-    protected $class;
-    protected $alias;
-
-    protected function setUp(): void
-    {
-        $this->namespace = 'some $this->namespace value';
-        $this->class = 'some $this->class value';
-        $this->alias = 'some $this->alias value';
-    }
-
     public function testItCanIsMatching(): void
     {
-        $dependency = new Dependency($this->namespace, $this->class, $this->alias);
+        $dependency = new Dependency();
 
         $query = 'some $query value';
 

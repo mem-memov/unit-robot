@@ -1,6 +1,7 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection;
 
+use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors;
 use MemMemov\UnitRobot\Source\Reflection\Method\Methods;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\File\File as UnitTestFile;
@@ -16,17 +17,20 @@ class Reflection
     private $dependencies;
     private $methods;
     private $unitTests;
+    private $constructors;
     
     public function __construct(
         \ReflectionClass $class,
         Dependencies $dependencies,
         Methods $methods,
-        UnitTests $unitTests
+        UnitTests $unitTests,
+        ClassConstructors $constructors
     ) {
         $this->class = $class;
         $this->dependencies = $dependencies;
         $this->methods = $methods;
         $this->unitTests = $unitTests;
+        $this->constructors = $constructors;
     }
     
     public function createTests(Text $sourceText, UnitTestFile $unitTestFile)
@@ -41,8 +45,8 @@ class Reflection
         
         $this->dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
  
-        $constructor = $this->methods->createConstructor($this->class);
-        $constructor->createTest($sourceText, $unitTest);
+        //$constructor = $this->methods->createConstructor($this->class);
+        //$constructor->createTest($sourceText, $unitTest);
  
         $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
 
@@ -79,7 +83,7 @@ class Reflection
 
         $this->dependencies->describe($sourceText, $dependencies);
         
-        $constructor = $this->methods->createConstructor($this->class);
+        $constructor = $this->constructors->createConstructor($this->class);
         $constructor->describeProperties($sourceText, $dependencies, $properties);
     }
 }

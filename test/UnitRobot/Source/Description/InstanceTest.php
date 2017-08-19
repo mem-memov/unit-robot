@@ -7,43 +7,30 @@ use PHPUnit\Framework\TestCase;
 
 final class InstanceTest extends TestCase
 {
-    protected $name;
-    protected $properties;
-    protected $methods;
-    protected $dependencies;
-
-    protected function setUp(): void
-    {
-        $this->name = $this->createMock(InstanceName::class);
-        $this->properties = $this->createMock(InstanceProperties::class);
-        $this->methods = $this->createMock(InstanceMethods::class);
-        $this->dependencies = $this->createMock(InstanceDependencies::class);
-    }
-
     public function testItCanGetName(): void
     {
-        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+        $instance = new Instance();
 
         $instance->getName();
     }
 
     public function testItCanGetProperties(): void
     {
-        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+        $instance = new Instance();
 
         $instance->getProperties();
     }
 
     public function testItCanGetMethods(): void
     {
-        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+        $instance = new Instance();
 
         $instance->getMethods();
     }
 
     public function testItCanGetDependencies(): void
     {
-        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+        $instance = new Instance();
 
         $instance->getDependencies();
     }

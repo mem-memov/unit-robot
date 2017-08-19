@@ -7,16 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class DirectoriesTest extends TestCase
 {
-    protected $files;
-
-    protected function setUp(): void
-    {
-        $this->files = $this->createMock(Files::class);
-    }
-
     public function testItCanCreateDirectory(): void
     {
-        $directories = new Directories($this->files);
+        $directories = new Directories();
 
         $path = 'some $path value';
 
