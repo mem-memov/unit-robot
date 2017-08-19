@@ -4,6 +4,8 @@ namespace MemMemov\UnitRobot;
 use MemMemov\UnitRobot\Source\Description\Instancies as SourceDescriptionInstancies;
 use MemMemov\UnitRobot\Source\Description\Dependencies as SourceDescriptionDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as SourceDescriptionProperties;
+use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarTypes as SourceDescriptionScalarTypes;
+use MemMemov\UnitRobot\Source\Description\Type\Types as SourceDescriptionTypes;
 use MemMemov\UnitRobot\Source\File\Directories as SourceDirectories;
 use MemMemov\UnitRobot\Source\File\DirectoryIterators as SourceDirectoryIterators;
 use MemMemov\UnitRobot\Source\File\Files as SourceFiles;
@@ -37,7 +39,11 @@ $configuration = require __DIR__ . '/../unit-robot.config.php';
 
 $sourceTokens = new SourceTokens();
 $sourceParameters = new SourceParameters(
-    new SourceDescriptionProperties()
+    new SourceDescriptionProperties(
+        new SourceDescriptionTypes(
+            new SourceDescriptionScalarTypes()
+        )
+    )
 );
 $sourceTokenMethodSignatures = new SourceTokenMethodSignatures($sourceTokens);
 $sourceMethodComments = new SourceMethodComments();

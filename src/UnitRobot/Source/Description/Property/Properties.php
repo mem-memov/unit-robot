@@ -1,57 +1,39 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Property;
 
+use MemMemov\UnitRobot\Source\Description\Type\Types;
+
 class Properties
 {
+    private $types;
+    
+    public function __construct(
+        Types $types
+    ) {
+        $this->types = $types;
+    }
+    
     public function createArrayProperty(
         string $name
     ): ArrayProperty
     {
-        return new ArrayProperty(
-            $name
-        );
-    }
-    
-    public function createScalarCollectionProperty(
-        string $name,
-        string $type
-    ): ScalarCollectionProperty
-    {
-        return new ScalarCollectionProperty(
-            $name,
-            $type
-        );
+        $type = $this->types->createArrayType();
+        
+        return new ArrayProperty($name, $type);
     }
     
     public function createObjectCollectionProperty(
         string $name,
-        string $type
+        string $namespace,
+        string $class,
+        string $alias
     ): ObjectCollectionProperty
     {
-        return new ObjectCollectionProperty(
-            $name,
-            $type
-        );
-    }
-    
-    public function createDependencyCollectionProperty(
-        string $name,
-        Dependency $dependency
-    ): DependencyCollectionProperty
-    {
-        return new DependencyCollectionProperty(
-            $name,
-            $dependency
-        );
-    }
-    
-    public function createScalarProperty(
-        string $name
-    ): ScalarProperty
-    {
-        return new ScalarProperty(
-            $name
-        );
+        $itemType = $this->types->createObjectType($namespace, $class, $alias);
+        
+        $type = $this->types->createObjectArrayType($itemType);
+        
+        return new ObjectCollectionProperty($name, $type);
     }
     
     public function createObjectProperty(
@@ -61,11 +43,28 @@ class Properties
         string $alias
     ): ObjectProperty
     {
-        return new ObjectProperty(
-            $name,
-            $namespace,
-            $class,
-            $alias
-        );
+        $type = $this->types->createObjectType($namespace, $class, $alias);
+        
+        return new ObjectProperty($name, $type);
+    }
+    
+    public function createScalarCollectionProperty(
+        string $name,
+        string $type
+    ): ScalarCollectionProperty
+    {
+        $scalarType = $this->types->createScalarType($type);
+        
+        return new ScalarCollectionProperty($name, $scalarType);
+    }
+    
+    public function createScalarProperty(
+        string $name,
+        string $type
+    ): ScalarProperty
+    {
+        $scalarType = $this->types->createScalarType($type);
+        
+        return new ScalarProperty($name, $scalarType);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Property;
 
+use MemMemov\UnitRobot\Source\Description\Type\Collection\ObjectArrayType;
+
 class ObjectCollectionProperty implements Property
 {
     private $name;
@@ -8,7 +10,7 @@ class ObjectCollectionProperty implements Property
     
     public function __construct(
         string $name,
-        string $type
+        ObjectArrayType $type
     ) {
         $this->name = $name;
         $this->type = $type;

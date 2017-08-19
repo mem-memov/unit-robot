@@ -1,24 +1,18 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Description\Property;
 
+use MemMemov\UnitRobot\Source\Description\Type\ObjectType;
+
 class ObjectProperty implements Property
 {
     private $name;
-    private $namespace;
-    private $class;
-    private $alias;
+    private $type;
     
     public function __construct(
         string $name,
-        string $namespace,
-        string $class,
-        string $alias
+        ObjectType $type
     ) {
         $this->name = $name;
-        $this->namespace = $namespace;
-        $this->class = $class;
-        $this->alias = $alias;
-        
-        //echo $namespace.'\\'.$class.' as '.$alias."\n";
+        $this->type = $type;
     }
 }

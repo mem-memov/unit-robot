@@ -4,14 +4,20 @@ namespace MemMemov\UnitRobot\Source\Description\Type;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\MixedArrayType;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\ObjectArrayType;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\ScalarArrayType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\BooleanType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\FloatType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\IntegerType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\StringType;
+use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarType;
+use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarTypes;
 
 class Types
 {
-    public function createArrayType(): ArrayType
+    private $scalarTypes;
+    
+    public function __construct(
+        ScalarTypes $scalarTypes
+    ) {
+        $this->scalarTypes = $scalarTypes;
+    }
+    
+    public function createArrayType(): MixedArrayType
     {
         return new MixedArrayType();
     }
@@ -25,20 +31,24 @@ class Types
     {
         return new ScalarArrayType($itemType);
     }
-    
-    public function createBooleanType(): BooleanType
+
+    public function createScalarType(string $name): ScalarType
     {
-        return new BooleanType();
-    }
-    
-    public function createFloatType(): FloatType
-    {
-        return new FloatType();
-    }
-    
-    public function createStringType(): StringType
-    {
-        return new StringType();
+        switch ($name) {
+            case 'bool':
+            case 'boolean':
+                return $this->scalarTypes->createBooleanType();
+            case 'float':
+                return $this->scalarTypes->createFloatType();
+            case 'int':
+            case 'integer':
+                return $this->scalarTypes->createIntegerType();
+            case 'str':
+            case 'string':
+                return $this->scalarTypes->createStringType();
+            default:
+                throw new \Exception('Unknown type: ' . $name);
+        }
     }
     
     public function createObjectType(

@@ -6,10 +6,8 @@ namespace MemMemov\UnitRobot\Source\Description\Type;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\MixedArrayType;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\ObjectArrayType;
 use MemMemov\UnitRobot\Source\Description\Type\Collection\ScalarArrayType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\BooleanType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\FloatType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\IntegerType;
-use MemMemov\UnitRobot\Source\Description\Type\Scalar\StringType;
+use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarType;
+use MemMemov\UnitRobot\Source\Description\Type\Scalar\ScalarTypes;
 use PHPUnit\Framework\TestCase;
 
 final class TypesTest extends TestCase
@@ -39,25 +37,13 @@ final class TypesTest extends TestCase
         $types->createScalarArrayType($itemType);
     }
 
-    public function testItCanCreateBooleanType(): void
+    public function testItCanCreateScalarType(): void
     {
         $types = new Types();
 
-        $types->createBooleanType();
-    }
+        $name = 'some $name value';
 
-    public function testItCanCreateFloatType(): void
-    {
-        $types = new Types();
-
-        $types->createFloatType();
-    }
-
-    public function testItCanCreateStringType(): void
-    {
-        $types = new Types();
-
-        $types->createStringType();
+        $types->createScalarType($name);
     }
 
     public function testItCanCreateObjectType(): void
