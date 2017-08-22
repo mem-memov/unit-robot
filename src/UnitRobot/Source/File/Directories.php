@@ -12,17 +12,20 @@ class Directories
     private $files;
     private $reflections;
     private $unitTests;
+    private $classFilter;
     
     public function __construct(
         DirectoryIterators $directoryIterators,
         Files $files,
         Reflections $reflections,
-        UnitTests $unitTests
+        UnitTests $unitTests,
+        string $classFilter = null
     ) {
         $this->directoryIterators = $directoryIterators;
         $this->files = $files;
         $this->reflections = $reflections;
         $this->unitTests = $unitTests;
+        $this->classFilter = $classFilter;
     }
     
     public function createDirectory(string $path): Directory
@@ -32,7 +35,8 @@ class Directories
             $this->directoryIterators,
             $this->files,
             $this->reflections,
-            $this->unitTests
+            $this->unitTests,
+            $this->classFilter
         );
     }
 }

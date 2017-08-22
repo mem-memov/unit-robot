@@ -39,6 +39,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configuration = require __DIR__ . '/../unit-robot.config.php';
 
+$options = getopt('', ['class::']);
+
 $sourceDescriptionSignatures = new SourceDescriptionSignatures();
 $sourceDescriptionInstancies = new SourceDescriptionInstancies();
 $sourceTokens = new SourceTokens();
@@ -98,7 +100,8 @@ $unitRobot = new UnitRobot(
                     new UnitTestPhpDeclaration()
                 ),
                 new UnitTestTexts()
-            )
+            ),
+            isset($options['class']) ? $options['class'] : null
         ),
         new UnitTestDirectories(
             new UnitTestFiles()
