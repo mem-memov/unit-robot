@@ -44,40 +44,7 @@ class Method
         $this->signatures = $signatures;
         $this->types = $types;
     }
-    
-    public function createTest(Text $text, UnitTest $unitTest): void
-    {
-        $startLine = $this->reflection->getStartLine();
-        $endLine = $this->reflection->getEndLine();
-        
-        if ($startLine <= 1 || $endLine <= 1) {
-            return; // __wakeup in \Exception
-        }
-        
-        $methodString = $text->extract($startLine-1, $endLine);
 
-        $signatureTokens = $this->methodSignature->getTokens($methodString);
-        $parameterReflections = $this->reflection->getParameters();
-        $methodComment = $this->methodComments->createMethodComment(
-            $this->reflection->getDocComment()
-        );
-        
-        $parameters = $this->parameters->createMethodParameters(
-            $parameterReflections,
-            $signatureTokens,
-            $methodComment
-        );
-        
-
-        $calls = $this->calls->createMethodCalls($methodString);
-        $unitTest->addMethod(
-            $this->reflection->getName(),
-            $this->className,
-            $parameters,
-            $calls
-        );
-    }
-    
     public function describeSignature(
         Text $text,
         InstanceDependencies $instanceDependencies
@@ -167,6 +134,8 @@ class Method
                 
             }
         }
+        
+        //$calls = $this->calls->createMethodCalls($methodString);
         
         $signature = $this->signatures->createSignature(
             $this->reflection->getName(),
