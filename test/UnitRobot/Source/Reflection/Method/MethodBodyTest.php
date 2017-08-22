@@ -19,4 +19,12 @@ final class MethodBodyTest extends TestCase
         $this->tokens = $this->createMock(Tokens::class);
     }
 
+    public function testItCanGetTokens(): void
+    {
+        $methodBody = new MethodBody($this->reflection, $this->tokens);
+
+        $text = $this->createMock(Text::class);
+
+        $methodBody->getTokens($text);
+    }
 }

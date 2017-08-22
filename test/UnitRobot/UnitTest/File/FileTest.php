@@ -18,4 +18,12 @@ final class FileTest extends TestCase
         $this->name = 'some $this->name value';
     }
 
+    public function testItCanCreate(): void
+    {
+        $file = new File($this->rootPath, $this->path, $this->name);
+
+        $content = 'some $content value';
+
+        $file->create($content);
+    }
 }

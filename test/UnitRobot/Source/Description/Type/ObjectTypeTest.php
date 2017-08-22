@@ -18,4 +18,10 @@ final class ObjectTypeTest extends TestCase
         $this->alias = 'some $this->alias value';
     }
 
+    public function testItCanGetForSignature(): void
+    {
+        $objectType = new ObjectType($this->namespace, $this->class, $this->alias);
+
+        $objectType->getForSignature();
+    }
 }

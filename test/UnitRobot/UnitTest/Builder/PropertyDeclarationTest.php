@@ -19,4 +19,28 @@ final class PropertyDeclarationTest extends TestCase
         $this->mockDeclaration = $this->createMock(MockDeclaration::class);
     }
 
+    public function testItCanAppendProperty(): void
+    {
+        $propertyDeclaration = new PropertyDeclaration($this->type, $this->name, $this->mockDeclaration);
+
+        $text = $this->createMock(Text::class);
+
+        $propertyDeclaration->appendProperty($text);
+    }
+
+    public function testItCanAppendValue(): void
+    {
+        $propertyDeclaration = new PropertyDeclaration($this->type, $this->name, $this->mockDeclaration);
+
+        $text = $this->createMock(Text::class);
+
+        $propertyDeclaration->appendValue($text);
+    }
+
+    public function testItCanGetParameter(): void
+    {
+        $propertyDeclaration = new PropertyDeclaration($this->type, $this->name, $this->mockDeclaration);
+
+        $propertyDeclaration->getParameter();
+    }
 }

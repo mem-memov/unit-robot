@@ -14,4 +14,12 @@ final class DirectoriesTest extends TestCase
         $this->files = $this->createMock(Files::class);
     }
 
+    public function testItCanCreateDirectory(): void
+    {
+        $directories = new Directories($this->files);
+
+        $path = 'some $path value';
+
+        $directories->createDirectory($path);
+    }
 }

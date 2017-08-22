@@ -14,4 +14,10 @@ final class PropertyVariableTest extends TestCase
         $this->variableName = 'some $this->variableName value';
     }
 
+    public function testItCanToString(): void
+    {
+        $propertyVariable = new PropertyVariable($this->variableName);
+
+        $propertyVariable->toString();
+    }
 }

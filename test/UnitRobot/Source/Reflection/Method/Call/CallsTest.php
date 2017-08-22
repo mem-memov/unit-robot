@@ -23,4 +23,12 @@ final class CallsTest extends TestCase
         $this->variables = $this->createMock(Variables::class);
     }
 
+    public function testItCanCreateMethodCalls(): void
+    {
+        $calls = new Calls($this->parser, $this->positionings, $this->callTypes, $this->variables);
+
+        $methodString = 'some $methodString value';
+
+        $calls->createMethodCalls($methodString);
+    }
 }

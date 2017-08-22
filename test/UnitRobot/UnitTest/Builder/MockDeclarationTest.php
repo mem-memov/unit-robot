@@ -17,4 +17,12 @@ final class MockDeclarationTest extends TestCase
         $this->type = 'some $this->type value';
     }
 
+    public function testItCanAppend(): void
+    {
+        $mockDeclaration = new MockDeclaration($this->variable, $this->type);
+
+        $text = $this->createMock(Text::class);
+
+        $mockDeclaration->append($text);
+    }
 }

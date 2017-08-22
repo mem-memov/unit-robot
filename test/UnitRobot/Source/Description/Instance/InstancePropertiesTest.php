@@ -9,4 +9,21 @@ use PHPUnit\Framework\TestCase;
 
 final class InstancePropertiesTest extends TestCase
 {
+    public function testItCanAddProperty(): void
+    {
+        $instanceProperties = new InstanceProperties();
+
+        $property = $this->createMock(Property::class);
+
+        $instanceProperties->addProperty($property);
+    }
+
+    public function testItCanCreateUnitTests(): void
+    {
+        $instanceProperties = new InstanceProperties();
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $instanceProperties->createUnitTests($unitTest);
+    }
 }

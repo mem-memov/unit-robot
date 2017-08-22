@@ -14,4 +14,17 @@ final class ParameterCommentTest extends TestCase
         $this->comment = 'some $this->comment value';
     }
 
+    public function testItCanHasTypeForArray(): void
+    {
+        $parameterComment = new ParameterComment($this->comment);
+
+        $parameterComment->hasTypeForArray();
+    }
+
+    public function testItCanGetTypeForArray(): void
+    {
+        $parameterComment = new ParameterComment($this->comment);
+
+        $parameterComment->getTypeForArray();
+    }
 }

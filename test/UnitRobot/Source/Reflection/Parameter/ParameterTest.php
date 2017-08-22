@@ -33,4 +33,38 @@ final class ParameterTest extends TestCase
         $this->comment = $this->createMock(ParameterComment::class);
     }
 
+    public function testItCanAddPropertyToUnitTest(): void
+    {
+        $parameter = new Parameter($this->reflection, $this->type, $this->descriptionProperties, $this->descriptionParameters, $this->comment);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $parameter->addPropertyToUnitTest($unitTest);
+    }
+
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $parameter = new Parameter($this->reflection, $this->type, $this->descriptionProperties, $this->descriptionParameters, $this->comment);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);
+
+        $parameter->fillUnitTestMethod($declarations, $parameterDeclarations);
+    }
+
+    public function testItCanDescribeProperties(): void
+    {
+        $parameter = new Parameter($this->reflection, $this->type, $this->descriptionProperties, $this->descriptionParameters, $this->comment);
+
+        $instanceDependencies = $this->createMock(InstanceDependencies::class);
+
+        $parameter->describeProperties($instanceDependencies);
+    }
+
+    public function testItCanDescribeSignature(): void
+    {
+        $parameter = new Parameter($this->reflection, $this->type, $this->descriptionProperties, $this->descriptionParameters, $this->comment);
+
+        $parameter->describeSignature();
+    }
 }

@@ -27,4 +27,23 @@ final class ParameterizedConstructorTest extends TestCase
         $this->methodComments = $this->createMock(MethodComments::class);
     }
 
+    public function testItCanCreateTest(): void
+    {
+        $parameterizedConstructor = new ParameterizedConstructor($this->reflection, $this->methodSignature, $this->parameters, $this->methodComments);
+
+        $text = $this->createMock(Text::class);
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $parameterizedConstructor->createTest($text, $unitTest);
+    }
+
+    public function testItCanDescribeProperties(): void
+    {
+        $parameterizedConstructor = new ParameterizedConstructor($this->reflection, $this->methodSignature, $this->parameters, $this->methodComments);
+
+        $text = $this->createMock(Text::class);
+        $dependencies = $this->createMock(InstanceDependencies::class);
+
+        $parameterizedConstructor->describeProperties($text, $dependencies);
+    }
 }

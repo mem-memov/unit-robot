@@ -17,4 +17,12 @@ final class SimpleCallDeclarationTest extends TestCase
         $this->method = 'some $this->method value';
     }
 
+    public function testItCanAppendExpectation(): void
+    {
+        $simpleCallDeclaration = new SimpleCallDeclaration($this->variable, $this->method);
+
+        $text = $this->createMock(Text::class);
+
+        $simpleCallDeclaration->appendExpectation($text);
+    }
 }

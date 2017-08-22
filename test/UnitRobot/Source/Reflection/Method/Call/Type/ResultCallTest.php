@@ -21,4 +21,13 @@ final class ResultCallTest extends TestCase
         $this->resultVariable = $this->createMock(Variable::class);
     }
 
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $resultCall = new ResultCall($this->callVariable, $this->method, $this->resultVariable);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
+
+        $resultCall->fillUnitTestMethod($declarations, $callDeclarations);
+    }
 }

@@ -19,4 +19,13 @@ final class ReturnCallTest extends TestCase
         $this->method = 'some $this->method value';
     }
 
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $returnCall = new ReturnCall($this->callVariable, $this->method);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
+
+        $returnCall->fillUnitTestMethod($declarations, $callDeclarations);
+    }
 }

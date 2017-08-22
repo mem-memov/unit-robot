@@ -19,4 +19,13 @@ final class SimpleCallTest extends TestCase
         $this->method = 'some $this->method value';
     }
 
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $simpleCall = new SimpleCall($this->callVariable, $this->method);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $callDeclarations = $this->createMock(UnitTestCallDeclarations::class);
+
+        $simpleCall->fillUnitTestMethod($declarations, $callDeclarations);
+    }
 }

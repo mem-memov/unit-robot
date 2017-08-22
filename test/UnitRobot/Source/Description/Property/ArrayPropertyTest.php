@@ -18,4 +18,12 @@ final class ArrayPropertyTest extends TestCase
         $this->type = $this->createMock(MixedArrayType::class);
     }
 
+    public function testItCanAddPropertyToUnitTest(): void
+    {
+        $arrayProperty = new ArrayProperty($this->name, $this->type);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $arrayProperty->addPropertyToUnitTest($unitTest);
+    }
 }

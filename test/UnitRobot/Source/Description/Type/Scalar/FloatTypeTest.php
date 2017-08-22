@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class FloatTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $floatType = new FloatType();
+
+        $floatType->getForSignature();
+    }
 }

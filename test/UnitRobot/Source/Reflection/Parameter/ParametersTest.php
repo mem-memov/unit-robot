@@ -27,4 +27,14 @@ final class ParametersTest extends TestCase
         $this->signatures = $this->createMock(Signatures::class);
     }
 
+    public function testItCanCreateMethodParameters(): void
+    {
+        $parameters = new Parameters($this->descriptionProperties, $this->descriptionParameters, $this->instances, $this->signatures);
+
+        $parameterReflections = [];
+        $tokens = $this->createMock(SignatureTokens::class);
+        $methodComment = $this->createMock(MethodComment::class);
+
+        $parameters->createMethodParameters($parameterReflections, $tokens, $methodComment);
+    }
 }

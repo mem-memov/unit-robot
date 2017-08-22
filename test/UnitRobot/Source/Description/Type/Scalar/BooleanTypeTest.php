@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class BooleanTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $booleanType = new BooleanType();
+
+        $booleanType->getForSignature();
+    }
 }

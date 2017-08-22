@@ -15,4 +15,10 @@ final class ObjectArrayTypeTest extends TestCase
         $this->itemType = $this->createMock(ObjectType::class);
     }
 
+    public function testItCanGetForSignature(): void
+    {
+        $objectArrayType = new ObjectArrayType($this->itemType);
+
+        $objectArrayType->getForSignature();
+    }
 }

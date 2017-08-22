@@ -25,4 +25,19 @@ final class ConstructorsTest extends TestCase
         $this->instances = $this->createMock(Instancies::class);
     }
 
+    public function testItCanCreateEmptyConstructor(): void
+    {
+        $constructors = new Constructors($this->methodSignatureTokens, $this->parameters, $this->methodComments, $this->instances);
+
+        $constructors->createEmptyConstructor();
+    }
+
+    public function testItCanCreateParameterizedConstructor(): void
+    {
+        $constructors = new Constructors($this->methodSignatureTokens, $this->parameters, $this->methodComments, $this->instances);
+
+        $constructorReflection = $this->createMock(\ReflectionMethod::class);
+
+        $constructors->createParameterizedConstructor($constructorReflection);
+    }
 }

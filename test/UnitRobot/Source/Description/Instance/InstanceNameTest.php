@@ -17,4 +17,19 @@ final class InstanceNameTest extends TestCase
         $this->class = 'some $this->class value';
     }
 
+    public function testItCanCreateUnitTests(): void
+    {
+        $instanceName = new InstanceName($this->namespace, $this->class);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $instanceName->createUnitTests($unitTest);
+    }
+
+    public function testItCanGetShortClassName(): void
+    {
+        $instanceName = new InstanceName($this->namespace, $this->class);
+
+        $instanceName->getShortClassName();
+    }
 }

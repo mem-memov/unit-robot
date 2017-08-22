@@ -24,4 +24,12 @@ final class ReflectionsTest extends TestCase
         $this->instances = $this->createMock(Instancies::class);
     }
 
+    public function testItCanCreateReflection(): void
+    {
+        $reflections = new Reflections($this->methods, $this->descriptionDependencies, $this->constructors, $this->instances);
+
+        $className = 'some $className value';
+
+        $reflections->createReflection($className);
+    }
 }

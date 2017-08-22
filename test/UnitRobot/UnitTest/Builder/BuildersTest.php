@@ -14,4 +14,10 @@ final class BuildersTest extends TestCase
         $this->phpDeclaration = $this->createMock(PhpDeclaration::class);
     }
 
+    public function testItCanCreateBuilder(): void
+    {
+        $builders = new Builders($this->phpDeclaration);
+
+        $builders->createBuilder();
+    }
 }

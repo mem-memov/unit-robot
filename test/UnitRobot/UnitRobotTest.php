@@ -14,4 +14,10 @@ final class UnitRobotTest extends TestCase
         $this->configuration = $this->createMock(Configuration::class);
     }
 
+    public function testItCanCreateTests(): void
+    {
+        $unitRobot = new UnitRobot($this->configuration);
+
+        $unitRobot->createTests();
+    }
 }

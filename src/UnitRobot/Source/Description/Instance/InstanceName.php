@@ -21,4 +21,9 @@ class InstanceName
         $unitTest->setNamespace($this->namespace);
         $unitTest->setClassName($this->class);
     }
+    
+    public function getShortClassName(): string
+    {
+        return $this->class;
+    }
 }

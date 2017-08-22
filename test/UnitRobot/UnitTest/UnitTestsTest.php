@@ -22,4 +22,12 @@ final class UnitTestsTest extends TestCase
         $this->texts = $this->createMock(Texts::class);
     }
 
+    public function testItCanCreateUnitTest(): void
+    {
+        $unitTests = new UnitTests($this->declarations, $this->builders, $this->texts);
+
+        $file = $this->createMock(File::class);
+
+        $unitTests->createUnitTest($file);
+    }
 }

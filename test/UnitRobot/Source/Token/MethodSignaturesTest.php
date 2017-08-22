@@ -14,4 +14,12 @@ final class MethodSignaturesTest extends TestCase
         $this->tokens = $this->createMock(Tokens::class);
     }
 
+    public function testItCanCreateMethodSignature(): void
+    {
+        $methodSignatures = new MethodSignatures($this->tokens);
+
+        $methodSignature = 'some $methodSignature value';
+
+        $methodSignatures->createMethodSignature($methodSignature);
+    }
 }

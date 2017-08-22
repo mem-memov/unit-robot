@@ -18,10 +18,10 @@ class InstanceMethods
         $this->signatures[] = $signature;
     }
     
-    public function createUnitTests(UnitTest $unitTest): void
+    public function createUnitTests(UnitTest $unitTest, string $class): void
     {
         foreach ($this->signatures as $signature) {
-            $signature->createUnitTests($unitTest);
+            $signature->createUnitTests($unitTest, $class);
         }
     }
 }

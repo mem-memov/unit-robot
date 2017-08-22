@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class VoidTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $voidType = new VoidType();
+
+        $voidType->getForSignature();
+    }
 }

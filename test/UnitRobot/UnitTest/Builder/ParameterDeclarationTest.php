@@ -19,4 +19,19 @@ final class ParameterDeclarationTest extends TestCase
         $this->mockDeclaration = $this->createMock(MockDeclaration::class);
     }
 
+    public function testItCanGetParameter(): void
+    {
+        $parameterDeclaration = new ParameterDeclaration($this->type, $this->name, $this->mockDeclaration);
+
+        $parameterDeclaration->getParameter();
+    }
+
+    public function testItCanAppendValue(): void
+    {
+        $parameterDeclaration = new ParameterDeclaration($this->type, $this->name, $this->mockDeclaration);
+
+        $text = $this->createMock(Text::class);
+
+        $parameterDeclaration->appendValue($text);
+    }
 }

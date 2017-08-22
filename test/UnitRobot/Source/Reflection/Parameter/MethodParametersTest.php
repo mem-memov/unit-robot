@@ -28,4 +28,40 @@ final class MethodParametersTest extends TestCase
         $this->signatures = $this->createMock(Signatures::class);
     }
 
+    public function testItCanAddPropertiesToUnitTest(): void
+    {
+        $methodParameters = new MethodParameters($this->parameters, $this->instances, $this->signatures);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $methodParameters->addPropertiesToUnitTest($unitTest);
+    }
+
+    public function testItCanFillUnitTestMethod(): void
+    {
+        $methodParameters = new MethodParameters($this->parameters, $this->instances, $this->signatures);
+
+        $declarations = $this->createMock(UnitTestDeclarations::class);
+        $parameterDeclarations = $this->createMock(UnitTestParameterDeclarations::class);
+
+        $methodParameters->fillUnitTestMethod($declarations, $parameterDeclarations);
+    }
+
+    public function testItCanDescribeProperties(): void
+    {
+        $methodParameters = new MethodParameters($this->parameters, $this->instances, $this->signatures);
+
+        $instanceDependencies = $this->createMock(InstanceDependencies::class);
+
+        $methodParameters->describeProperties($instanceDependencies);
+    }
+
+    public function testItCanDescribeParameters(): void
+    {
+        $methodParameters = new MethodParameters($this->parameters, $this->instances, $this->signatures);
+
+        $instanceDependencies = $this->createMock(InstanceDependencies::class);
+
+        $methodParameters->describeParameters($instanceDependencies);
+    }
 }

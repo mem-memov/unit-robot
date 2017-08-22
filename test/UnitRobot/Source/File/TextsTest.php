@@ -7,4 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 final class TextsTest extends TestCase
 {
+    public function testItCanCreateText(): void
+    {
+        $texts = new Texts();
+
+        $content = 'some $content value';
+
+        $texts->createText($content);
+    }
 }

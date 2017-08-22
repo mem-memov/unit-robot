@@ -31,4 +31,29 @@ final class ReflectionTest extends TestCase
         $this->instances = $this->createMock(Instancies::class);
     }
 
+    public function testItCanCreateTests(): void
+    {
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->constructors, $this->instances);
+
+        $sourceText = $this->createMock(Text::class);
+        $unitTestFile = $this->createMock(UnitTestFile::class);
+
+        $reflection->createTests($sourceText, $unitTestFile);
+    }
+
+    public function testItCanNeedsDescribing(): void
+    {
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->constructors, $this->instances);
+
+        $reflection->needsDescribing();
+    }
+
+    public function testItCanDescribe(): void
+    {
+        $reflection = new Reflection($this->class, $this->dependencies, $this->methods, $this->constructors, $this->instances);
+
+        $sourceText = $this->createMock(Text::class);
+
+        $reflection->describe($sourceText);
+    }
 }

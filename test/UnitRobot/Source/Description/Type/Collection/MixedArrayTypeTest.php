@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class MixedArrayTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $mixedArrayType = new MixedArrayType();
+
+        $mixedArrayType->getForSignature();
+    }
 }

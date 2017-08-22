@@ -21,4 +21,12 @@ final class ResultCallDeclarationTest extends TestCase
         $this->resultMock = $this->createMock(MockDeclaration::class);
     }
 
+    public function testItCanAppendExpectation(): void
+    {
+        $resultCallDeclaration = new ResultCallDeclaration($this->callVariable, $this->method, $this->resultVariable, $this->resultMock);
+
+        $text = $this->createMock(Text::class);
+
+        $resultCallDeclaration->appendExpectation($text);
+    }
 }

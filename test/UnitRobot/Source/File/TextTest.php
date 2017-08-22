@@ -14,4 +14,13 @@ final class TextTest extends TestCase
         $this->lines = [];
     }
 
+    public function testItCanExtract(): void
+    {
+        $text = new Text($this->lines);
+
+        $startLine = 5;
+        $endLine = 5;
+
+        $text->extract($startLine, $endLine);
+    }
 }

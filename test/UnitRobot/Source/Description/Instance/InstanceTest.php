@@ -21,4 +21,40 @@ final class InstanceTest extends TestCase
         $this->dependencies = $this->createMock(InstanceDependencies::class);
     }
 
+    public function testItCanGetName(): void
+    {
+        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+
+        $instance->getName();
+    }
+
+    public function testItCanGetProperties(): void
+    {
+        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+
+        $instance->getProperties();
+    }
+
+    public function testItCanGetMethods(): void
+    {
+        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+
+        $instance->getMethods();
+    }
+
+    public function testItCanGetDependencies(): void
+    {
+        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+
+        $instance->getDependencies();
+    }
+
+    public function testItCanCreateUnitTests(): void
+    {
+        $instance = new Instance($this->name, $this->properties, $this->methods, $this->dependencies);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $instance->createUnitTests($unitTest);
+    }
 }

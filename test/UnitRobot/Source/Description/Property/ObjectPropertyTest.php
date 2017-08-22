@@ -18,4 +18,12 @@ final class ObjectPropertyTest extends TestCase
         $this->type = $this->createMock(ObjectType::class);
     }
 
+    public function testItCanAddPropertyToUnitTest(): void
+    {
+        $objectProperty = new ObjectProperty($this->name, $this->type);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $objectProperty->addPropertyToUnitTest($unitTest);
+    }
 }

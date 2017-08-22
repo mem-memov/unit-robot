@@ -33,4 +33,13 @@ final class MethodsTest extends TestCase
         $this->types = $this->createMock(Types::class);
     }
 
+    public function testItCanCreateMethod(): void
+    {
+        $methods = new Methods($this->methodSignatureTokens, $this->methodBodyTokens, $this->parameters, $this->calls, $this->methodComments, $this->signatures, $this->types);
+
+        $methodReflection = $this->createMock(\ReflectionMethod::class);
+        $className = 'some $className value';
+
+        $methods->createMethod($methodReflection, $className);
+    }
 }

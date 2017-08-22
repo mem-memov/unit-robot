@@ -8,4 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class CallDeclarationsTest extends TestCase
 {
+    public function testItCanAddDeclaration(): void
+    {
+        $callDeclarations = new CallDeclarations();
+
+        $declaration = $this->createMock(CallDeclaration::class);
+
+        $callDeclarations->addDeclaration($declaration);
+    }
 }

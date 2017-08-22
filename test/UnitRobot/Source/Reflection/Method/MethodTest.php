@@ -39,4 +39,23 @@ final class MethodTest extends TestCase
         $this->types = $this->createMock(Types::class);
     }
 
+    public function testItCanCreateTest(): void
+    {
+        $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters, $this->calls, $this->methodComments, $this->signatures, $this->types);
+
+        $text = $this->createMock(Text::class);
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $method->createTest($text, $unitTest);
+    }
+
+    public function testItCanDescribeSignature(): void
+    {
+        $method = new Method($this->reflection, $this->className, $this->methodSignature, $this->methodBody, $this->parameters, $this->calls, $this->methodComments, $this->signatures, $this->types);
+
+        $text = $this->createMock(Text::class);
+        $instanceDependencies = $this->createMock(InstanceDependencies::class);
+
+        $method->describeSignature($text, $instanceDependencies);
+    }
 }

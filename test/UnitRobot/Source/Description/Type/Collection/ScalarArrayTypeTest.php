@@ -15,4 +15,10 @@ final class ScalarArrayTypeTest extends TestCase
         $this->itemType = $this->createMock(ScalarType::class);
     }
 
+    public function testItCanGetForSignature(): void
+    {
+        $scalarArrayType = new ScalarArrayType($this->itemType);
+
+        $scalarArrayType->getForSignature();
+    }
 }

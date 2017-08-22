@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class IntegerTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $integerType = new IntegerType();
+
+        $integerType->getForSignature();
+    }
 }

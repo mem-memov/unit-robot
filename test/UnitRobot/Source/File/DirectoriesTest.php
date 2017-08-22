@@ -24,4 +24,12 @@ final class DirectoriesTest extends TestCase
         $this->unitTests = $this->createMock(UnitTests::class);
     }
 
+    public function testItCanCreateDirectory(): void
+    {
+        $directories = new Directories($this->directoryIterators, $this->files, $this->reflections, $this->unitTests);
+
+        $path = 'some $path value';
+
+        $directories->createDirectory($path);
+    }
 }

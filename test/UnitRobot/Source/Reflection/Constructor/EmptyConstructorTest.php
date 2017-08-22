@@ -18,4 +18,13 @@ final class EmptyConstructorTest extends TestCase
         $this->instances = $this->createMock(Instancies::class);
     }
 
+    public function testItCanDescribeProperties(): void
+    {
+        $emptyConstructor = new EmptyConstructor($this->instances);
+
+        $text = $this->createMock(Text::class);
+        $dependencies = $this->createMock(InstanceDependencies::class);
+
+        $emptyConstructor->describeProperties($text, $dependencies);
+    }
 }

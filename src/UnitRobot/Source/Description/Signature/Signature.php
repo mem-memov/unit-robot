@@ -3,6 +3,7 @@ namespace MemMemov\UnitRobot\Source\Description\Signature;
 
 use MemMemov\UnitRobot\Source\Description\Type\Type;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
+use MemMemov\UnitRobot\Source\Description\Calls;
 
 class Signature
 {
@@ -20,15 +21,13 @@ class Signature
         $this->returnType = $returnType;
     }
     
-    public function createUnitTests(UnitTest $unitTest): void
+    public function createUnitTests(UnitTest $unitTest, string $shortClassName): void
     {
-        /*
         $unitTest->addMethod(
             $this->method,
-            $this->className,
-            $parameters,
-            $calls
+            $shortClassName,
+            $this->parameters,
+            new Calls()
         );
-        */
     }
 }

@@ -14,4 +14,10 @@ final class ParameterVariableTest extends TestCase
         $this->variableName = 'some $this->variableName value';
     }
 
+    public function testItCanToString(): void
+    {
+        $parameterVariable = new ParameterVariable($this->variableName);
+
+        $parameterVariable->toString();
+    }
 }

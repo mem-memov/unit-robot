@@ -7,4 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 final class StringTypeTest extends TestCase
 {
+    public function testItCanGetForSignature(): void
+    {
+        $stringType = new StringType();
+
+        $stringType->getForSignature();
+    }
 }

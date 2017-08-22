@@ -14,4 +14,12 @@ final class ClassConstructorsTest extends TestCase
         $this->constructors = $this->createMock(Constructors::class);
     }
 
+    public function testItCanCreateConstructor(): void
+    {
+        $classConstructors = new ClassConstructors($this->constructors);
+
+        $class = $this->createMock(\ReflectionClass::class);
+
+        $classConstructors->createConstructor($class);
+    }
 }

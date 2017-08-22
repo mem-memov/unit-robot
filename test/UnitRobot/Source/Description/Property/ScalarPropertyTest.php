@@ -18,4 +18,12 @@ final class ScalarPropertyTest extends TestCase
         $this->type = $this->createMock(ScalarType::class);
     }
 
+    public function testItCanAddPropertyToUnitTest(): void
+    {
+        $scalarProperty = new ScalarProperty($this->name, $this->type);
+
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $scalarProperty->addPropertyToUnitTest($unitTest);
+    }
 }

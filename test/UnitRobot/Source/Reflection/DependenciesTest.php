@@ -23,4 +23,22 @@ final class DependenciesTest extends TestCase
         $this->instancies = $this->createMock(Instancies::class);
     }
 
+    public function testItCanAddDependenciesToUnitTest(): void
+    {
+        $dependencies = new Dependencies($this->class, $this->descriptionDependencies, $this->instancies);
+
+        $sourceText = $this->createMock(Text::class);
+        $unitTest = $this->createMock(UnitTest::class);
+
+        $dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
+    }
+
+    public function testItCanDescribe(): void
+    {
+        $dependencies = new Dependencies($this->class, $this->descriptionDependencies, $this->instancies);
+
+        $sourceText = $this->createMock(Text::class);
+
+        $dependencies->describe($sourceText);
+    }
 }
