@@ -20,6 +20,7 @@ use MemMemov\UnitRobot\Source\Reflection\Method\Call\Parser\Parser as SourcePars
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Positionings as SourcePositionings;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Type\CallTypes as SourceCallTypes;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Variable\Variables as SourceVariables;
+use MemMemov\UnitRobot\Source\Reflection\Method\ReturnType\ReturnTypes as SourceReturnTypes;
 use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments as SourceMethodComments;
 use MemMemov\UnitRobot\Source\Reflection\Constructor\Constructors as SourceConstructors;
 use MemMemov\UnitRobot\Source\Reflection\Constructor\ClassConstructors as SourceClassConstructors;
@@ -81,7 +82,9 @@ $unitRobot = new UnitRobot(
                     ),
                     $sourceMethodComments,
                     $sourceDescriptionSignatures,
-                    $sourceDescriptionTypes
+                    new SourceReturnTypes(
+                        $sourceDescriptionTypes
+                    )
                 ),
                 new SourceDescriptionDependencies(),
                 new SourceClassConstructors(

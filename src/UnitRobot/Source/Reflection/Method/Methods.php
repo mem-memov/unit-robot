@@ -1,13 +1,13 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection\Method;
 
+use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
 use MemMemov\UnitRobot\Source\Reflection\Method\Call\Calls;
+use MemMemov\UnitRobot\Source\Reflection\Method\ReturnType\ReturnTypes;
 use MemMemov\UnitRobot\Source\Reflection\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\Token\MethodSignatures as MethodSignatureTokens;
 use MemMemov\UnitRobot\Source\Token\MethodBodies as MethodBodyTokens;
-use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
 use MemMemov\UnitRobot\Source\Description\Signature\Signatures;
-use MemMemov\UnitRobot\Source\Description\Type\Types;
 
 class Methods
 {
@@ -17,7 +17,7 @@ class Methods
     private $calls;
     private $methodComments;
     private $signatures;
-    private $types;
+    private $returnTypes;
     
     public function __construct(
         MethodSignatureTokens $methodSignatureTokens,
@@ -26,7 +26,7 @@ class Methods
         Calls $calls,
         MethodComments $methodComments,
         Signatures $signatures,
-        Types $types
+        ReturnTypes $returnTypes
     ) {
         $this->methodSignatureTokens = $methodSignatureTokens;
         $this->methodBodyTokens = $methodBodyTokens;
@@ -34,7 +34,7 @@ class Methods
         $this->calls = $calls;
         $this->methodComments = $methodComments;
         $this->signatures = $signatures;
-        $this->types = $types;
+        $this->returnTypes = $returnTypes;
     }
     
     public function createMethod(
@@ -57,7 +57,7 @@ class Methods
             $this->calls,
             $this->methodComments,
             $this->signatures,
-            $this->types
+            $this->returnTypes
         );
     }
 }

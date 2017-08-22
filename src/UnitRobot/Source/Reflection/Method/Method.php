@@ -6,10 +6,10 @@ use MemMemov\UnitRobot\Source\Reflection\Parameter\Parameters;
 use MemMemov\UnitRobot\Source\File\Text;
 use MemMemov\UnitRobot\UnitTest\UnitTest;
 use MemMemov\UnitRobot\Source\Reflection\Comment\MethodComments;
+use MemMemov\UnitRobot\Source\Reflection\Method\ReturnType\ReturnTypes;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Signature\Signatures;
 use MemMemov\UnitRobot\Source\Description\Signature\Signature;
-use MemMemov\UnitRobot\Source\Description\Type\Types;
 
 class Method
 {
@@ -21,7 +21,7 @@ class Method
     private $calls;
     private $methodComments;
     private $signatures;
-    private $types;
+    private $returnTypes;
     
     public function __construct(
         \ReflectionMethod $reflection,
@@ -32,7 +32,7 @@ class Method
         Calls $calls,
         MethodComments $methodComments,
         Signatures $signatures,
-        Types $types
+        ReturnTypes $returnTypes
     ) {
         $this->reflection = $reflection;
         $this->className = $className;
@@ -42,7 +42,7 @@ class Method
         $this->calls = $calls;
         $this->methodComments = $methodComments;
         $this->signatures = $signatures;
-        $this->types = $types;
+        $this->returnTypes = $returnTypes;
     }
 
     public function describeSignature(
@@ -78,62 +78,7 @@ class Method
         
         $type = (string)$this->reflection->getReturnType();
         
-        if ('void' === $type) {
-            $returnType = $this->types->createVoidType();
-        } elseif ('array' === $type) {
-            
-            if ($methodComment->hasReturnItemType()) {
-                
-                $itemType = $this->comment->getReturnItemType();
-                
-                $isScalar = $this->types->isScalarType($itemType);
-                
-                if ($isScalar) {
-                    
-                    $returnType = $this->types->createScalarArrayType($itemType);
-                    
-                } else {
-                    if ($instanceDependencies->has($itemType)) {
-                        
-                        $dependency = $instanceDependencies->get($itemType);
-                        
-                        $returnType = $dependency->createObjectArrayType($type);
-                        
-                    } else {
-                        $classReflection = new \ReflectionClass($itemType);
-                        
-                        $returnType = $this->types->createObjectArrayType(
-                            $classReflection->getNamespaceName(),
-                            $classReflection->getShortName(),
-                            ''
-                        );
-                    }
-                }
-                
-            } else {
-                $returnType = $this->types->createArrayType();
-            }
-            
-        } else {
-            
-            $isScalar = $this->types->isScalarType($type);
-            
-            if ($isScalar) {
-                
-                $returnType = $this->types->createScalarType($type);
-                
-            } else {
-                
-                $classReflection = new \ReflectionClass($type);
-                
-                $returnType = $this->types->createObjectType(
-                    $classReflection->getNamespaceName(),
-                    $classReflection->getShortName(),
-                    $type
-                );
-                
-            }
-        }
+        $returnType = $this->returnTypes->createReturnType($type, $methodComment);
         
         //$calls = $this->calls->createMethodCalls($methodString);
         
