@@ -32,39 +32,7 @@ class Reflection
         $this->constructors = $constructors;
         $this->instances = $instances;
     }
-    
-    public function createTests(Text $sourceText, UnitTestFile $unitTestFile): void
-    {
-        if ($this->class->isAbstract() || $this->class->isInterface()) {
-            return;
-        }
-        
-        $unitTest = $this->unitTests->createUnitTest($unitTestFile);
-        $unitTest->setNamespace($this->class->getNamespaceName());
-        $unitTest->setClassName($this->class->getShortName());
-        
-        $this->dependencies->addDependenciesToUnitTest($sourceText, $unitTest);
- 
-        //$constructor = $this->methods->createConstructor($this->class);
-        //$constructor->createTest($sourceText, $unitTest);
- 
-        $methodReflections = $this->class->getMethods(\ReflectionMethod::IS_PUBLIC);
 
-        foreach ($methodReflections as $methodReflection) {
-            if ($methodReflection->isConstructor()) {
-                continue;
-            }
-            
-            $method = $this->methods->createMethod(
-                $methodReflection, 
-                $this->class->getShortName()
-            );
-            $method->createTest($sourceText, $unitTest);
-        }
-        
-        $unitTest->write();
-    }
-    
     public function needsDescribing(): bool
     {
         return !$this->class->isAbstract() & !$this->class->isInterface();

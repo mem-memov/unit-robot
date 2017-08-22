@@ -1,10 +1,6 @@
 <?php
 namespace MemMemov\UnitRobot\Source\Reflection\Parameter;
 
-use MemMemov\UnitRobot\UnitTest\UnitTest;
-use MemMemov\UnitRobot\UnitTest\MethodParameters as UnitTestMethodParameters;
-use MemMemov\UnitRobot\UnitTest\Builder\Declarations as UnitTestDeclarations;
-use MemMemov\UnitRobot\UnitTest\Builder\ParameterDeclarations as UnitTestParameterDeclarations;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceProperties;
 use MemMemov\UnitRobot\Source\Description\Instance\InstanceDependencies;
 use MemMemov\UnitRobot\Source\Description\Property\Properties as DescriptionProperties;
@@ -13,7 +9,7 @@ use MemMemov\UnitRobot\Source\Description\Parameter\Parameters as DescriptionPar
 use MemMemov\UnitRobot\Source\Description\Parameter\Parameter as DescriptionParameter;
 use MemMemov\UnitRobot\Source\Reflection\Comment\ParameterComment;
 
-class Parameter implements UnitTestMethodParameters
+class Parameter
 {
     private $reflection;
     private $type;
@@ -34,25 +30,7 @@ class Parameter implements UnitTestMethodParameters
         $this->descriptionParameters = $descriptionParameters;
         $this->comment = $comment;
     }
-    
-    public function addPropertyToUnitTest(UnitTest $unitTest): void
-    {
-        $unitTest->addProperty($this->type, $this->reflection->getName());
-    }
-    
-    public function fillUnitTestMethod(
-        UnitTestDeclarations $declarations,
-        UnitTestParameterDeclarations $parameterDeclarations
-    ): void
-    {
-        $parameterDeclaration = $declarations->createParameterDeclaration(
-            $this->type,
-            $this->reflection->getName()
-        );
-        
-        $parameterDeclarations->addDeclaration($parameterDeclaration);
-    }
-    
+
     public function describeProperties(
         InstanceDependencies $instanceDependencies
     ): DescriptionProperty
