@@ -5,7 +5,7 @@ Automated unit test creation
 
 To install via Composer:
 ```
-composer require mem-memov/unit-robot --dev
+composer require --dev mem-memov/unit-robot
 ```
 To prepare tests for every class:
 ```
