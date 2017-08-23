@@ -27,7 +27,7 @@ final class ReflectionTest extends TestCase
         $this->class = $this->createMock(\ReflectionClass::class);
         $this->dependencies = $this->createMock(Dependencies::class);
         $this->methods = $this->createMock(Methods::class);
-        $this->constructors = $this->createMock(ClassConstructors::class);
+        $this->constructors = $this->createMock(ClassConstructors::class); 
         $this->instances = $this->createMock(Instancies::class);
     }
 
